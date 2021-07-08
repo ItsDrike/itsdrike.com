@@ -1,0 +1,15 @@
+# Editor project settings
+.vscode/
+.replit
+
+# Custom attributes for folders on Mac OS
+.DS_Store
+
+# Environmental variables
+.env
+
+# Backup files
+*.bak
+
+# Personal TODO files
+TODO
