@@ -1,3 +1,6 @@
+# Hugo website build
+public/
+
 # Editor project settings
 .vscode/
 .replit
