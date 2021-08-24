@@ -1,9 +1,4 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{.Title}}</title>
-</head>
-<body>
+{{ define "main" }}
     {{ partial "content.html" . }}
 
     <!--Group posts by months-->
@@ -20,5 +15,4 @@
             {{ partial "list_item.html" . }}
         {{ end }}
     {{ end }}
-</body>
-</html>
+{{ end }}
