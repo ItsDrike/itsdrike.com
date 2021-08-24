@@ -1,0 +1,14 @@
+<h1>{{ .Title }}</h1>
+{{ if .IsPage }}
+    <p>{{ partial "content-details.html" . }}</p>
+{{ end }}
+<hr>
+
+<div class="content">
+    {{ if .TableOfContents }}
+        <div class="content">
+            {{ .TableOfContents }}
+        </div>
+    {{ end }}
+    {{ .Content }}
+</div>

@@ -1,0 +1,9 @@
+{{ if not .Date.IsZero }}
+    <span title='{{ .Date.Format "January 2 2006" }}'>{{ .Date.Format "2006-01-02" }}</span>
+{{ end }}
+
+{{ if .Params.tags }}
+    {{ range $1, $e := .Params.tags }}
+        <a href="/tags/{{ urlize . }}">#{{ . }}</a>
+    {{ end }}
+{{ end }}

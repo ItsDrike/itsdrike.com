@@ -4,9 +4,6 @@
     <title>{{.Title}}</title>
 </head>
 <body>
-    <h1>{{.Title}}</h1>
-    <h4>{{.Date}}</h4>
-    <br>
-    {{.Content}}
+    {{ partial "content.html" . }}
 </body>
 </html>
