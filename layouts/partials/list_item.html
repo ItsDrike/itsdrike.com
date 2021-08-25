@@ -1,4 +1,4 @@
-<div class="media list-page-item mb-3" data-id="{{ .File.UniqueID }}">
+<div class="media list-page-item mb-3" data-id="{{ with .File}}{{ .File.UniqueID }}{{ end }}">
     <div class="media-body">
         <a href="{{ .RelPermalink }}">
             <h5 class="my-0">{{ .Title }}</h5>
