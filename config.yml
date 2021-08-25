@@ -5,6 +5,7 @@ title: "ItsDrike"
 staticDir: "static/build"
 assetDir: "static/build"
 
+buildFuture: true
 MetaDataFormat: yaml
 markup:
   goldmark:
