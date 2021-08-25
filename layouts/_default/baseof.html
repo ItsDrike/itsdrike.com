@@ -10,6 +10,7 @@
     </head>
     <body>
         {{ block "main" . }}{{ end }}
+        {{ partial "footer.html" . }}
 
         {{ partial "script_async.html" "js/bootstrap.min.js" }}
         {{ block "scripts_extra" . }}{{ end }}

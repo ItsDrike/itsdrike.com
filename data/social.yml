@@ -34,3 +34,16 @@ accounts:
     name: Codin' Nerds
     username: Codin' Nerds
     links: https://discord.gg/B8rf3xxgbJ
+    icon: fab fa-discord
+
+  email:
+    name: email
+    username: itsdrike@protonmail.com
+    links: "mailto:itsdrike@protonmail.com"
+    icon: fas fa-at
+
+
+footer_accounts:
+  - github
+  - stack-overflow
+  - email
