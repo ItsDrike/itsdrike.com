@@ -1,0 +1,36 @@
+---
+accounts:
+  github:
+    name: GitHub
+    username: ItsDrike
+    link: https://github.com/ItsDrike/
+    icon: fab fa-github
+
+  stack-overflow:
+    name: Stack Overflow
+    username: ItsDrike
+    link: https://stackoverflow.com/users/13306825/itsdrike
+    icon: fab fa-stack-overflow
+
+  stack-exchange:
+    name: Stack Exchange
+    username: ItsDrike
+    link: https://meta.stackexchange.com/users/432633/itsdrike?tab=profile
+    icon: fab fa-stack-exchange
+
+  pypi:
+    name: PyPI
+    username: ItsDrike
+    link: https://pypi.org/user/ItsDrike/
+    icon: fab fa-python
+
+  discord:
+    name: Discord
+    username: ItsDrike#5359
+    link: https://discord.com/
+    icon: fab fa-discord
+
+  discord-server:
+    name: Codin' Nerds
+    username: Codin' Nerds
+    links: https://discord.gg/B8rf3xxgbJ
