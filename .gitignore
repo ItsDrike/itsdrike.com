@@ -1,6 +1,9 @@
 # Hugo website build
 public/
 
+# Node/NPM dependencies
+node_modules/
+
 # Editor project settings
 .vscode/
 .replit
