@@ -1,14 +1,21 @@
-<h1>{{ .Title }}</h1>
+<h1 class="display-4">{{ .Title }}</h1>
+{{ if .Params.subtitle }}
+    <h5 class="my-3">{{ markdownify .Params.subtitle | emojify }}</h5>
+{{ end }}
+
 {{ if .IsPage }}
     <p>{{ partial "content-details.html" . }}</p>
 {{ end }}
-<hr>
 
-<div class="content">
-    {{ if .TableOfContents }}
-        <div class="content">
-            {{ .TableOfContents }}
-        </div>
-    {{ end }}
-    {{ .Content }}
-</div>
+{{ if .Content }}
+    <hr>
+
+    <div class="content mt-3">
+        {{ if .TableOfContents }}
+            <div class="float-1g-right ml-lg-3 mb-3 p-3">
+                {{ .TableOfContents }}
+            </div>
+        {{ end }}
+        {{ .Content }}
+    </div>
+{{ end }}
