@@ -102,6 +102,15 @@ a.no-color-change {
   }
 }
 
+pre.chroma {
+  margin-bottom: $paragraph-margin-bottom;
+  padding: $spacer;
+
+  .highlight & {
+    margin-top: 0;
+  }
+}
+
 p, li, h1, h2, h3, h4, h5, h6 {
   code {
     @extend .chroma;
