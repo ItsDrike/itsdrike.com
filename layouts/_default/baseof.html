@@ -2,12 +2,16 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>{{ partial "title-item.html" . }}{{ .Site.Title }}</title>
         {{ partial "style.html" "scss/style.scss" }}
         {{ partial "style.html" "css/highlight.css" }}
         {{ partial "style.html" "css/font-awesome.css" }}
+
+        <title>{{ partial "title-item.html" . }}{{ .Site.Title }}</title>
     </head>
     <body>
         {{ block "main" . }}{{ end }}
+
+        {{ partial "script_async.html" "js/bootstrap.min.js" }}
+        {{ block "scripts_extra" . }}{{ end }}
     </body>
 </html>
