@@ -1,0 +1,22 @@
+{{ define "main" }}
+    <div id="main">
+        <div class="container">
+            {{ partial "content.html" . }}
+
+            <!--Group posts by months-->
+            {{ range .Pages.GroupByDate "2006-01" }}
+                {{ $month := print .Key  "-01"}}
+                {{ $display := dateFormat "2006-01" $month }}
+                <h3 class="mt-5" id="{{ $display }}">
+                    <a href="#{{ $display }}">
+                        <time datetime="{{ $month }}" title='{{ dateFormat "January 2006" $month }}'>{{ $display }}</time>
+                    </a>
+                </h3>
+                <!--List posts belonging to current month -->
+                {{ range (sort .Pages "Date" "desc") }}
+                    {{ partial "list_item.html" . }}
+                {{ end }}
+            {{ end }}
+        </div>
+    </div>
+{{ end }}
