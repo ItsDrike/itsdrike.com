@@ -13,6 +13,7 @@
         {{ block "main" . }}{{ end }}
         {{ partial "footer.html" . }}
 
+        {{ partial "script.html" "js/jquery.min.js" }}
         {{ partial "script_async.html" "js/bootstrap.min.js" }}
         {{ block "scripts_extra" . }}{{ end }}
     </body>
