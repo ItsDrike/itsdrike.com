@@ -14,23 +14,6 @@ html, body {
   color: $body-color;
 }
 
-a {
-  color: $primary;
-
-  &:hover {
-    transition: color 0.5s;
-    color: $body-color;
-  }
-
-  &.colour-invert {
-    color: $body-color;
-
-    &:hover {
-      color: $primary;
-    }
-  }
-}
-
 .navbar {
   background-color: $black;
   padding-top: 0;
@@ -93,4 +76,28 @@ footer {
 
   // screen height - top padding - navbar height - footer margin
   min-height: calc(100vh - #{$spacer * 5} - #{$navbar-height} - #{$spacer * 3});
+}
+
+a {
+  color: $primary;
+
+  &:hover {
+    transition: color 0.5s;
+    color: $body-color;
+  }
+
+  &.colour-invert {
+    color: $body-color;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}
+
+a.no-color-change {
+  &, &:hover {
+    text-decoration: none;
+    color: inherit;
+  }
 }
