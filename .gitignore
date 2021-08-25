@@ -1,5 +1,6 @@
 # Hugo website build
 public/
+static/build
 
 # Node/NPM dependencies
 node_modules/
