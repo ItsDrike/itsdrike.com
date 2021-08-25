@@ -5,5 +5,27 @@ $font-size-base: 1.2rem;
 $headings-margin-bottom: 1.5rem;
 $paragraph-margin-bottom: $headings-margin-bottom * 0.85;
 
-
 @import "node_modules/bootstrap/scss/bootstrap";
+
+$body-color: $gray-300;
+
+html, body {
+  color: $body-color;
+}
+
+a {
+  color: $primary;
+
+  &:hover {
+    transition: color 0.5s;
+    color: $body-color;
+  }
+
+  &.colour-invert {
+    color: $body-color;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}
