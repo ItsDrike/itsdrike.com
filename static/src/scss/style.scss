@@ -87,3 +87,10 @@ footer {
     }
   }
 }
+
+#main {
+  margin-top: $spacer * 5;
+
+  // screen height - top padding - navbar height - footer margin
+  min-height: calc(100vh - #{$spacer * 5} - #{$navbar-height} - #{$spacer * 3});
+}
