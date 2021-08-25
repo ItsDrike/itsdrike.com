@@ -9,6 +9,7 @@
         <title>{{ partial "title-item.html" . }}{{ .Site.Title }}</title>
     </head>
     <body>
+        {{ partial "navbar.html" . }}
         {{ block "main" . }}{{ end }}
         {{ partial "footer.html" . }}
 

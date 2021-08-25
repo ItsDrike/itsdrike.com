@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-sm navbar-dark">
+  <!-- Navbar home -->
+  <a class="navbar-brand" href="{{ ref . "/" }}">
+    <code>/home/{{ lower .Site.Title }}</code>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <!-- Left side of the Navbar -->
+    <ul class="navbar-nav mr-auto">
+      <!-- Navbar pages -->
+      {{ $home := .Site.GetPage "home" }}
+
+      {{ $pages := where .Site.RegularPages.ByTitle "Section" "" }}
+      {{ $nav_pages := union $pages .Site.Sections }}
+
+      {{ $nav_pages = where $nav_pages "Params.hidden_from_navbar" "!=" true }}
+
+      {{ range sort $nav_pages "LinkTitle" }}
+        <li class="nav-item">
+            <a href="{{ .RelPermalink }}" class="nav-link">
+                <code>~/{{ urlize .LinkTitle }}</code>
+            </a>
+        </li>
+      {{ end }}
+    </ul>
+  </div>
+</nav>
