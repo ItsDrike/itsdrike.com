@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>{{ partial "title-item.html" . }}{{ .Site.Title }}</title>
+        {{ partial "style.html" "scss/style.scss" }}
     </head>
     <body>
         {{ block "main" . }}{{ end }}
