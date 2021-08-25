@@ -1,13 +1,32 @@
-baseURL: "http://itsdrike.com/"
+baseURL: "https://itsdrike.com/"
 languageCode: "en-us"
 title: "ItsDrike"
 
 staticDir: "static/build"
 assetDir: "static/build"
 
-buildFuture: true
-
 MetaDataFormat: yaml
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
 summaryLength: 40
 enableEmoji: true
+
 enableRobotsTXT: true
+rssLimit: 10000
+
+related:
+  threshold: 1
+  includeNewer: true
+  toLower: true
+  indices:
+    - name: tags
+      weight: 1
+    - name: keywords
+      weight: 1
+    - name: title
+      weight: 1
+    - name: subtitle
+      weight: 1
