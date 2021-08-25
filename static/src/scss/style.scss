@@ -101,3 +101,21 @@ a.no-color-change {
     color: inherit;
   }
 }
+
+p, li, h1, h2, h3, h4, h5, h6 {
+  code {
+    @extend .chroma;
+    padding: $spacer * 0.25;
+    color: inherit;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  .anchor {
+    font-weight: lighter;
+  }
+}
+
+ul ul, ol ol {
+  padding-left: $spacer * 1.5;
+}
