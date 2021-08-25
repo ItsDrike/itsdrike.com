@@ -1,0 +1,12 @@
+baseURL: "http://itsdrike.com/"
+languageCode: "en-us"
+title: "ItsDrike"
+
+staticDir: "static/build"
+assetDir: "static/build"
+
+buildFuture: true
+
+MetaDataFormat: yaml
+summaryLength: 40
+enableEmoji: true
