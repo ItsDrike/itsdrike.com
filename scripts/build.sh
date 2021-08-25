@@ -4,6 +4,8 @@ source ./scripts/common.sh
 rm -rf "$STATIC_BUILD"
 rm -rf "$OUTPUT_DIR"
 
+mkdir -p "$STATIC_BUILD"
+
 cp -r "$STATIC_SRC/img" "$STATIC_BUILD/img"
 cp -r "$STATIC_SRC/js" "$STATIC_BUILD/js"
 cp -r "$STATIC_SRC/css" "$STATIC_BUILD/css"
