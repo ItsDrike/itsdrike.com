@@ -10,3 +10,4 @@ buildFuture: true
 MetaDataFormat: yaml
 summaryLength: 40
 enableEmoji: true
+enableRobotsTXT: true
