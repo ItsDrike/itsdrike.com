@@ -30,3 +30,38 @@ a {
     }
   }
 }
+
+.navbar {
+  background-color: $black;
+  padding-top: 0;
+  padding-bottom: 0;
+
+  .navbar-brand {
+    font-size: $font-size-base;
+  }
+
+  .nav-link {
+    padding-right: $font-size-base !important;
+    padding-left: $font-size-base !important;
+  }
+
+  .nav-link code, .navbar-brand code {
+    background-color: inherit;
+    font-size: 90%;
+  }
+}
+
+footer {
+  background-color: $black;
+  width: 100%;
+  height: $footer-height;
+  color: lighten($black, 50);
+
+  a {
+    color: inherit;
+
+    &:hover {
+      color: lighten($black, 75);
+    }
+  }
+}
