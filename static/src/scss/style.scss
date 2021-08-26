@@ -81,7 +81,12 @@ footer {
 a {
   color: $primary;
 
+  &:link {
+    text-decoration: none;
+  }
+
   &:hover {
+    text-decoration: underline;
     transition: color 0.5s;
     color: $body-color;
   }
@@ -93,12 +98,12 @@ a {
       color: $primary;
     }
   }
-}
 
-a.no-color-change {
-  &, &:hover {
-    text-decoration: none;
-    color: inherit;
+  &.no-color-change {
+    &, &:hover {
+      text-decoration: none;
+      color: inherit;
+    }
   }
 }
 
@@ -116,12 +121,6 @@ p, li, h1, h2, h3, h4, h5, h6 {
     @extend .chroma;
     padding: $spacer * 0.25;
     color: inherit;
-  }
-}
-
-h1, h2, h3, h4, h5, h6 {
-  .anchor {
-    font-weight: lighter;
   }
 }
 
@@ -175,5 +174,11 @@ table td {
     margin-bottom: $paragraph-margin-bottom;
     width: 66%;
     text-align: center;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  .anchor {
+    font-weight: lighter;
   }
 }
