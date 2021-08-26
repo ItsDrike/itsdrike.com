@@ -147,6 +147,23 @@ table td {
     margin-top: $headings-margin-bottom * 2.2;
   }
 
+  img {
+    width: 100%;
+  }
+
+  iframe {
+    width: 100%;
+
+    &:not([height]) {
+      height: 75vh;
+    }
+
+    &.youtube-embed {
+      margin-bottom: $paragraph-margin-bottom;
+      height: 50vh;
+    }
+  }
+
   table {
     @extend .table, .table-dark, .table-striped;
     margin: 0 auto;
