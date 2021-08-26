@@ -132,3 +132,22 @@ ul ul, ol ol {
 .content-detail {
   text-indent: 2em;
 }
+
+
+table td {
+  vertical-align: middle;
+}
+
+.table-dark {
+  color: $body-color;
+}
+
+.content {
+  table {
+    @extend .table, .table-dark, .table-striped;
+    margin: 0 auto;
+    margin-bottom: $paragraph-margin-bottom;
+    width: 66%;
+    text-align: center;
+  }
+}
