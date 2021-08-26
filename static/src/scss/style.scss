@@ -143,6 +143,10 @@ table td {
 }
 
 .content {
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: $headings-margin-bottom * 2.2;
+  }
+
   table {
     @extend .table, .table-dark, .table-striped;
     margin: 0 auto;
