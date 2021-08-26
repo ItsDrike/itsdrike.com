@@ -78,6 +78,10 @@ footer {
   min-height: calc(100vh - #{$spacer * 5} - #{$navbar-height} - #{$spacer * 3});
 }
 
+.short-top {
+  margin-top: $spacer !important;
+}
+
 a {
   color: $primary;
 
@@ -181,4 +185,13 @@ h1, h2, h3, h4, h5, h6 {
   .anchor {
     font-weight: lighter;
   }
+}
+
+img {
+  object-fit: cover;
+}
+
+.header-image {
+  width: 100%;
+  height: 35vh;
 }
