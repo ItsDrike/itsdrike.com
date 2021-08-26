@@ -164,6 +164,11 @@ table td {
     }
   }
 
+  blockquote {
+    border-left: $spacer * 0.2 solid $light;
+    padding-left: $spacer * 1.2;
+  }
+
   table {
     @extend .table, .table-dark, .table-striped;
     margin: 0 auto;
