@@ -3,7 +3,7 @@
     <div class="container">
       {{ partial "content.html" . }}
       {{ if .Content }}
-          <hr />
+          <hr>
       {{ end }}
       {{ range .Pages.ByTitle }}
         {{ partial "list_item.html" . }}
