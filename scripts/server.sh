@@ -4,4 +4,4 @@ source ./scripts/common.sh
 
 ./scripts/build.sh
 
-hugo server --noHTTPCache --disableFastRender --gc
+hugo server --noHTTPCache --disableFastRender --gc $@
