@@ -1,3 +1,8 @@
+
+{{ if .Params.image }}
+  <img class="mb-3 header-image" src='{{ .Params.image }}' />
+{{ end }}
+
 <h1 class="display-4">{{ .Title }}</h1>
 {{ if .Params.subtitle }}
   <h5 class="my-3">{{ markdownify .Params.subtitle | emojify }}</h5>
