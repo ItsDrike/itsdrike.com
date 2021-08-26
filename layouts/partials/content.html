@@ -12,9 +12,13 @@
 
   <div class="content mt-3">
     {{ if .TableOfContents }}
-      <div class="float-lg-end ml-lg-3 mb-3 p-3">
-        {{ .TableOfContents }}
-      </div>
+      <!-- Get the amount of headers using regex -->
+      {{ $headers := findRE "<h[1-6].*?>(.|\n])+?</h[1-6]>" .Content }}
+      {{ if ge (len $headers) 4 }}
+        <div class="float-lg-end ml-lg-3 mb-3 p-3">
+          {{ .TableOfContents }}
+        </div>
+      {{ end }}
     {{ end }}
     {{ .Content }}
   </div>
