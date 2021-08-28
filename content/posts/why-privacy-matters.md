@@ -3,124 +3,204 @@ title: Why Privacy Matters?
 date: 2021-05-15
 tags: [privacy]
 ---
+
+Nowadays many people think privacy isn't relevant anymore and that it's not a huge issue to simply give out their
+personal details and agree to terms that give companies rights to track their every move and collect every bit of
+information that they can. Most people will simply disregard this and assume it's not a huge deal and that there's
+nothing wrong about that. I can understand this stance and I had similar mindset a few years ago, but it was mostly
+because I never really took the time to analyze why something like this may be wrong and why is privacy so important.
+
+In this post, I will try to explain the reasons why I think privacy is still very relevant and why we should do
+everything in our power to fight loosing it. I think that the right to privacy should be a basic human right that
+everybody has by default, however in modern world, companies will do everything in their power to disregard this stance
+and convince people that it actually isn't all that relevant, simply because it's more profitable to them.
+
 ## Do you really have nothing to hide?
 
-There's a pretty famous quote: `If you have nothing to fear, you have nothing to hide`. And it does perhaps make sense
-if you don't think about it too much. I mean it may sound right to some, but is it really?
+I will start with a quote that most people will probably be familiar with, and most people would agree with. This quote
+is: `If you have nothing to fear, you have nothing to hide.`. At first glance, without too much analysis, it does sound
+valid, after all you're not doing anything wrong, so why should you have to hide something and value your privacy. But
+does this viewpoint really hold?
 
-You've probably seen one of the videos on the internet, where an individual engages in some expressive behavior, like
-singing, dancing, etc. They do this under the assumption that they're alone, but suddenly they discover that they're in
-fact not. This discovery causes them to immediately seize what they're doing in shock. There is an obvious sense of
-humiliation in their face. This probably happened to a lot of people directly, not just in popular videos, and you can
-probably imagine that if you were doing something under the assumption that you're alone, and later you'll find out
-that you in fact aren't, it probably wouldn't be a pleasant experience.
+As a simple example of a situation where privacy does matter, you can think about the countless amount of popular
+videos on the internet, in which there is some individual that engages in some expressive behavior, such as singing or
+dancing or something like that. They do this under the assumption that they're alone and nobody can see or hear them,
+but suddenly, they discover that they're in fact not. This discovery causes them to immediately seize what they're
+doing in shock. You likely experienced this yourself too, most people just weren't being recorded during it.
 
-It is therefore obvious that we do actually have some things to hide and to protect, even though it's not something
-that's necessarily wrong. The preposition (quote) assumes that if you're doing something you don't want other people to
-know, you probably shouldn't be doing it. But most people don't even realize that they don't actually agree with this.
-People have more behavioral options available to them when they think they're alone, but their range of behaviors is
-greatly shrunken in a situation where they know they're not alone.
+It is therefore probably obvious from the clear sense of humiliation in their face that there are some things which
+we would rather keep private and would only do under the assumption that we are not being watched and really are alone.
+This means that we do actually have some things to hide and to protect, even though they wouldn't really be considered
+as doing something that's wrong.
 
-We take all kinds of precautions to ensure our privacy, we put passwords on our e-mails and social media accounts, we
-put locks on our front doors, and even doors to certain rooms, such as the bedroom or the bathroom. Even the simple
-fact that we wear clothes even when it's hot outside is a precaution we take to ensure our privacy. All of these steps
-are designed to prevent other people from  entering what we consider our private realm.  We know that we do have some
-things we wouldn't want others to know.
+### Behavior changes while we're being watched
+
+The above preposition (quote) assumes that if you're doing something you don't want others people to know about, you
+probably shouldn't be doing it. But most people just don't realize that they don't really agree with this. Our range of
+behavioral options that we consider acceptable severely reduces when we know that we are not alone or that we're being
+watched or listened to. But I think it's fair to say that you were already aware of this, you just haven't even
+considered it when presented with a proposition like this. This means that when we're being watched, we don't make
+decisions completely freely, and we don't do whatever it is that we would be doing in private, but rather what's
+expected of us and what's within the rules of the established social conventions.
+
+This is why mass surveillance is a very effective, yet a very subtle way of forcing compliance with these social norms,
+because we know that whenever we would do something outside of these norms, it will be stored on some computer and
+available for someone to later see and judge us for.
+
+### Precautions we already take
+
+Even though we may not think of certain things as precautions for our personal privacy, we still very much take them
+and we certainly wouldn't be comfortable with removing them. For example we put passwords on our e-mails and social
+media accounts, we put locks on our front doors and even to certain rooms, such as the bedroom or the bathroom. Even
+the simple fact that we wear clothes even though it's not necessarily that hot outside is a precaution that we take to
+ensure our privacy. All of these steps are designed to prevent others from entering what we consider our private realm.
+We know that we do have some things we simply wouldn't want others to know.
 
 And if you disagree, why don't you go ahead and put cameras into every room inside of your home, even bathroom and
-bedroom and stream everything you do publicly for anybody to see, and record whatever parts they like so that they can
-later use them against you, you probably wouldn't be willing to do that, would you?
+bedroom and stream everything you do publicly for anybody to see, and even use whatever parts they find interesting so
+that they can later use them against you, you probably wouldn't be willing to do that, would you?
 
-## Behavior changes when we know we're being watched
+### Two groups of people
 
-As I've already said, when we're in a state where we know we can be monitored or watched, we're behaving very
-differently. The range of behavioral options we consider acceptable severely reduces and this is roved by multiple
-studies, but I think it's fair to say that you're aware of this, you just aren't thinking about something like this
-when presented with a proposition like this. This means that while we are being watched, we don't make decisions
-completely freely, and we don't do whatever it is that we would do in private, but rather what's expected of us, and
-what's within the rules of social conventions. By being under constant surveillance, we are forced to abide and
-therefore we are actively being controlled. Mass surveillance is a very subtle, yet very effective way of forcing
-compliance with social norms.
+Another fallacy in our thinking when we're presented with this proposition of having nothing to fear if we don't have
+anything to hide is that the quote naively assumes that there only 2 groups of people in this world: The good people,
+and the bad people. The bad people are the murderers, terrorists and bank robbers, and because they're doing something
+wrong, they have something to fear if they'd be found out about, therefore they have something to hide, while the good
+people are just "regular" people, with their own jobs and hobbies that nobody really cares about sufficiently enough
+and they don't really have anything that important to hide.
 
-## Two groups of people
+However this 2-group splitting is very broad, and the group of 'bad people' can have a very different definition for
+you, compared to someone who holds some form of authority about enforcing this surveillance. To them, this definition
+expands and also includes all people that pose any form of challenge to their power and could potentially threaten the
+position that they hold. They won't be afraid to use all of the information that they have about you to make you look
+bad in front of others and prevent you from harming their position in any way.
 
-The quote above naively assumes that there are only 2 groups of people in this world, the good people, and the bad
-people. The bad people are the terrorists and murderers, that have something to hide, and the good people are just
-"regular" people, with their own interests.
-
-This assumes that only the bad people have the incentive to care about their privacy, because they have something to
-hide, whereas the good people are the people who go to work, come to work, watch TV, they use the internet to read the
-news, exchange messages not to plot bombing attacks.
-
-However we the group of 'bad people' can have very different definitions for you compared to the one in control, for
-them, the definition of bad people will also include all of the people that pose a challenge to this power and could
-potentially threaten the position that this person in power is in. They won't be afraid to use all of the information
-that they have about you to make you look bad in front of others, just to preserve their own position.
-
-There are also people who will simply discriminate others based on certain aspects about a person, whether it's skin
-color, sexual orientation, nationality, or any other aspect about you. This shouldn't be happening in a modern society,
-but the sad truth is, that is simply is happening, and we can't do much to stop it. But for these xenophobe people
-anybody who would fall under what they don't consider "normal" would be in the 'bad people' category.
+Sadly, there will also be some people who will simply discriminate others based on certain aspects about a person,
+whether it's their skin color, sexual orientation, religion, nationality, or any other aspect about you. This shouldn't
+be happening in a modern society, but the truth is that it simply is and we can't really do much to stop it. For these
+xenophobe people, anybody who would fall under what they don't consider as "normal" would also be in the 'bad people'
+category.
 
 Simply said, this kind of binary splitting isn't realistic, everybody will have a different definition of what's good
-and bad, and even though these definitions may share certain behaviors, they will often differ greatly.
+and bad, and even though these definitions may share certain behaviors (most people will probably agree that murderers
+would fall under the bad people group), they will inevitably be some differences.
 
-## Applications of this for internet tracking
+## Internet privacy
 
-You might think that this doesn't apply that much to the tracking on the internet, that this is a general statement
-about physical surveillance cameras and things like that, but you would be very wrong. Many people may not realize it,
-however wouldn't you act differently when you're under a pseudonym, when you have some form of nickname to hide behind
-and the people you talk with don't know your real identity? This is just one aspect that's threatened by the internet
-trackers, since they often has the potential to de-anonymize you, at least for the creator of the webpage.
+So far, I've mostly been talking about why physical privacy matters, and even though by now you'll probably agree that
+privacy is an important thing, you may still think that this doesn't really apply for the general tracking and data
+collection that is happening on the internet. However I would still disagree with that and I still think that even
+privacy matters everywhere, both in real life and in the virtual one.
 
-If you know that you're being tracked on the internet, you are also changing your behavior on it. Let's assume you've
-got an online account on a webpage owned by a certain company, and you know this company has your real name, address
-and other info about you, you have also given them the rights to see whatever you do on that platform by agreeing to
-the EULA and you also gave them the permission to publish this data. Let's say this is a voice chat platform, so ask
-yourself, would you really act the same way as if you were just talking with a friend in private, when you know that
-any part of the conversation you have could potentially be made public and linked to you specifically?
+Many people don't really realize it, but are acting very differently when they're on the internet under some pseudonym
+with nobody actually knowing their real life identity. We often have completely different personalities behind some
+form of nickname that we can hide behind. This is again because when you think you're acting anonymously, you're
+basically free to do a lot more things than if you knew the person you were talking to knew who you are in the real
+life.
+
+### Fictional anonymity
+
+This anonymity that simple nicknames provide is often misplaced. There are many cases when people thought they were
+being completely anonymous and that the person they were talking to had no idea who they really were when in fact, they
+weren't and this lead to them acting in a different way or perhaps exposing some detail about them under the assumption
+that it was anonymous when in fact it really wasn't. This is perhaps more harmful than acting with a real name attached
+to you, because at least you'll know that you shouldn't be doing anything you wouldn't do if the person you're talking
+to knew who you were.
+
+Even though most people may not have the ability or the patience to figure out who you really are, some might.
+Especially when you re-use your nickname a lot, all the person who would want to de-anonymize you would have to do is
+to find a single page, where you used both your real name and your nickname. After that point, they can start searching
+about your real name and while there still might be many people with the same name, it becomes much easier if the
+person also found out the country you're from and some other details about you it becomes a lot easier to connect your
+virtual identity with your real one.
+
+This is especially true for bigger agencies, such as the government bodies, since not only they have the same resources
+as everyone would which is more than often enough, but they also have the ability to contact the website owners and see
+even more details about things like the IP address that account was made from, and the information that you chose to
+not be displayed publicly such as an email address.
+
+### Same behavioral impact
+
+While many people don't realize that they're being tracked on the internet, or at least not the extent of that
+tracking, they don't actually experience the same shrinkage of behavioral options as they would when they know they're
+not alone in the real life. However for the people who are aware of this, the same problem of the number of your
+options that you consider viable would be decreased since you're not acting without the possibility of someone else
+watching.
+
+Let's assume you've got an online account on a webpage owned by a certain company, and you know that you gave this
+company your real name, address and other info about you that could be used to directly link you to your real identity,
+you have also given them the rights to see whatever you do on that platform by agreeing to the EULA and know that with
+that, you also gave them the permission to publish this data. Let's say this is a voice chat platform, so ask yourself,
+would you really act the same way as if you were just talking with a friend in private, when you know that any part of
+the conversation you have could potentially be made public and linked to you specifically?
+
+You may still say that you would act in the same way, since the companies have changed our mindset sufficiently enough
+to the point when we don't even care about the slight possibility of this happening, because we think it would never
+actually happen. But if you were to ask someone who grew up a 100 years ago, you would certainly hear a different
+answer.
+
+But alright, if you still wouldn't be convinced that you should perhaps change your behavior there to protect yourself,
+let's change the terms a bit to make it a bit more interesting. What if rather than the company simply having the right
+to release your personal conversations you made on the platform, you would know that they will certainly do it, because
+they're releasing all conversations that are made there and this data will be made public to everyone. It will also be
+in an easily searchable form, where all someone needs to do is enter your name, and perhaps your country and city you
+live in to make it unique, and they will get a list of all of the conversations you made there. Would you still act in
+the same way as you would under the assumption that you're discussing privately?
+
+Now consider the fact that by allowing companies to collect that information, even though most companies won't actually
+expose their own users like this purposely, there already were countless exploits made leading to huge data leaks of a
+huge amount of people's data. Even though it is not very likely that someone would be hosting a website where you can
+easily search though this data, it is not impossible, and it certainly wouldn't be impossible to get a hold of this
+data, after it was exploited, since most of these exploits are made publicly available after just a few weeks.
 
 ## Discrimination based on data
 
-I agree that in a perfect world, data about you, things like age, gender, skin color, political/religious beliefs, etc.
-shouldn't need to be kept hidden, but the simple truth is that we don't live in this perfect world. Sadly there are
-people who will treat you differently, based on those personal aspects about you, and this applies both in real life,
-but also on the internet.
+I agree that in a perfect world, the data that companies keep about you, things like age, gender, skin color,
+political/religious beliefs, etc. shouldn't need to be hidden, but the simple truth is that we don't live in this
+perfect world, and there are people who will treat you differently, based on this data. This applies both in the real
+life and on the internet.
 
-If certain people had access to this data on their websites, they might refuse to show their website to you. There
-already are services that limit access to certain websites from certain countries, this is often done for legal
-reasons, however that's not always the case and people often block countries that they don't like personally and deny
-them the access to the resources of that webpage. This is often done with services like cloudflare which provides these
-options and the location is taken based on where your IP address is registered.
+If certain people had access to this data, and you would go visit their websites, they might simply completely refuse
+to show their website to you. There already are services that limit access to certain websites from certain countries,
+however this is often done for legal reasons, but that's not always the case and people often block countries that they
+don't like personally and deny them the access to the resources of that webpage. This is commonly done with services
+like CloudFlare which provides these options and the location is taken based on where your IP address is registered.
 
-Luckily most website owners don't have the resources that would provide them with such deep personal data about their
-visitors, but I think it's clear that if they did have the option, they would likely use it to fit their world view,
-and block anyone that doesn't fit into it.
+Luckily most website owners don't have the resources that would provide them with deep enough personal data about their
+visitors, to allow them for a wider discrimination based on other personal aspects but I think it's clear that if they
+did have the option, they would likely use it to fit their world view, and block anyone that doesn't fit into it.
 
-## Different versions of websites
+### Different versions of websites
 
 Consider the fact that your data are often actively being collected and you are shown different ads, or you might even
 be shown a completely different version of a website, based on what the site knows about you.
 
-This should be alarming, it means that not everyone is treated equally and this inevitably leads to discrimination of
-some kind, even if it's not intentional.
+The knowledge of this should be alarming! But the big companies did their job and they've managed to popularize this
+enough to the point where we don't even consider it as a huge issue. Changing contents of a site because you have a
+certain behavioral trait should be unacceptable, it means that not everyone is treated equally and this inevitably
+leads to discrimination of some kind, even if it's not intentional.
 
-This should be alarming, but the big companies has popularized this so much, that we don't even consider it as a huge
-issue anymore. Changing contents of a site because you have a certain behavioral trait should be unacceptable, it means
-that not everyone is treated equally and this inevitably leads to discrimination of some kind, even if it's not
-intentional. But if this discrimination isn't intentional, why is it happening? Why are companies using these
-'personalized ads'? This has a single reason, most companies aren't interested in the well-being of others, their main
-goal is only to generate profit for their share holders, even if it means disregarding social consequences.
+You may think that it's not really possible for companies to discriminate someone unintentionally and while there may
+be some direct intentional discrimination happening, that probably isn't that common, but that would be far from the
+truth. The reality is that you could be denied houses, because you were excluded from seeing ads on the housing market.
+Your crime can be anything from speaking a foreign language to being physically disabled or having a different skin
+color. There will usually be some algorithm that determines who is more likely to buy given product, and who is less
+likely, so if most others with the same collected personal attributes didn't visit the ad, it won't even be shown to
+you, and you're therefore denied the possibility of buying a house for cheaper, because you were excluded from seeing
+ads on that topic.
 
-You could be denied houses, simply because you are excluded from seeing ads on the housing market. Your crime can be
-anything from speaking a foreign language to being physically disabled or having different skin color.
+### Profit at all cost
 
-## Profit at all cost
+Many of these companies do realize that they're actively discriminating others, but if they're aware of it, why would
+they continue doing it? This has a very simple, single reason: companies will always only be interested in generating
+profit for their share holders, not in well being of others, even if it means disregarding social consequences. They
+are being payed for the amount of people who clicked on the ads that they've shown, and that means implementing
+algorithms that ensure this will make them more money. They will even claim that they're doing this for "your benefit"
+so that you can see ads that are more relevant to you.
 
-Advertisers don't have your best interest in mind, they simply want to make more money, and excluding you from a
-marketplace based on your medical condition, gender or similar things is extremely common. Even though it is direct
-discrimination of the people in those groups, those people should also have the right to see those ads equally, and
-have the same opportunities as the people in other groups.
+No advertisers will be taking your best interest in mind, they're just people with a job, and their goal is to simply
+make more money, and these positions are usually not payed in a form of static unchanging salary, but rather by the
+amount of people that they've managed to convince to do certain thing (usually to buy some product).
 
 A very popular technique is psychologically tricking you into paying more for the same product. This is precisely what
 happened with a certain tech company. They were discriminating against people accessing the site on non-windows
@@ -139,7 +219,13 @@ specific individual, leading to a perfect way to trick some people into paying m
 The PR departments like to call this "improving services based on your interests", which can be true for some, but
 greatly damaging to others.
 
-## Target example
+## Power of data collection
+
+Collecting every bit of information about you is a multi-billion dollar industry, and companies nowadays will do almost
+anything to get that data by any means necessary, because of the profit this data can bring them. With it, and a
+sufficiently smart AI, you could even have the power to predict certain future events.
+
+### Target example
 
 By cleverly combining information about people, Target (US Shop network) was able to predict pregnancy of a teenage
 girl way before her father could.  This girl tried to keep this information private since she wasn't yet ready to share
@@ -158,17 +244,27 @@ seem that obvious.
 However the most disturbing thing about this story is, that it happened in 2012, 6 years short of a massive advancement
 in data collection and AI development, and before the Facebook hearings.
 
-## Power of having enough personal information
+### Altering public opinions
 
-Collecting every bit of information about you is a multi-billion dollar industry, and companies nowadays will do almost
-anything to get that data by any means necessary, because of the profit this data can bring them. With it, and a
-sufficiently smart AI, you could even have the power to predict certain future events.
+When we know enough about some, not only can we often predict how they will act in certain situations with relatively
+low margin of error, we can also use that knowledge to change their mind about something. We know that this is possible
+because we've likely already changed someone's mind about certain thing simply because we knew them and we knew how to
+approach them about it and how to achieve something like that.
 
-At this point, they can effectively alter our opinions by showing us different content to change our minds about
-something and slowly get us to believe that something else is correct, regardless of whether it actually is correct or
-not, with something like this, it is even possible to completely eradicate groups of people that don't produce enough
-profit and change the believes of these groups to something entirely different, as long as it would produce more money
-in return. It is a way to effectively control society and we don't realize it nor fight it.
+With the power of today's computers, and the development already made on AIs, it is possible to create an algorithm
+that will be effectively altering our opinions by showing us different content and slowly getting us to believe
+something different from what we did before. Just being exposed to sufficient amounts of similarly themed content will
+eventually convince you that it is right. This is why we have many people that believe in ridiculous conspiracy
+theories. Even just listening to some song over and over again can lead to you eventually starting to like it. In fact
+that's the reason why repetition is so common in most songs, so that they're easy to remember and you'll be able to
+recall them later. While this doesn't always work and certainly won't be perfect, the AI will keep learning and
+figuring out what's most effective, getting better and better as the time passes.
+
+The reason these companies would want to develop such AIs is again profit. Convincing people to click on some ad is the
+main goal of every company, who's business model is dependent on the money from running these advertisements. A
+technology like this also makes it possible to even completely eradicate whole groups of people who may protest
+something like this and who want to fight it. For the AI, if it produces more money, it was a good action, if however
+it resulted in a loss of money, or even just gaining less money than some other action would, it was a bad action.
 
 Retailers will do anything in their power to link your purchasing transactions to your identity, because of how
 valuable those data are. Consider a service like Google Pay, just linking your card there will uniquely link it to you.
@@ -178,7 +274,7 @@ paying with cash for anything anymore, they pay with a debit/credit card and hav
 everything you like to buy is being collected and analyzed by an AI network to control you in any way they company
 wants to, usually this is done by providing ads, since that's the best way to gain profit.
 
-## Searching with Google
+### Searching with Google
 
 Now consider just how much an AI like the one from Google potentially knows about you, things like YouTube perfectly
 show your specific interests to Google, and using it as a search engine means they're basically running a constant
@@ -207,7 +303,17 @@ but most people simply aren't aware of this.
 
 {{<youtube 0Xfp2EXWjnY>}}
 
-## Decentralization of power in history
+## How lack of privacy affects democracy
+
+I don't like any form of discrimination and I do not agree with these practices. I find it very important that we treat
+everyone equally. Data collections industry is at the point of already being able to disrupt the democratic voting
+process. Modern elections aren't about who makes better arguments anymore, but rather who is better at tracking and
+emotionally exploiting key voting groups. Both Facebook and Google have been approached by election campaigns to affect
+the election campaigns in their favor. The Trump campaign used Facebook data such as likes, comments, private messages,
+personal preferences, mobile data and browser history to carefully spread messages that resonate with key audiences.
+Engaging one group like this will inevitably lead to suppressing another.
+
+### Decentralization of power in history
 
 As we progressed as society, we reached the conclusion that a single person shouldn't be trusted with unlimited power
 and control. This is why we don't currently live in a system with a single king/monarch. Simply because, people in
@@ -221,25 +327,13 @@ where your thoughts and ideals are truly free and can't be judged even if it's b
 doesn't matter, if you don't value your individual freedoms, it is not here to be protected, you use it to protect what
 matters to you.
 
-## Affect on the principles of democracy
+### Government tracking
 
-I don't like any form of discrimination and I do not agree with these practices. I find it very important that we treat
-everyone equally. Data collections industry is at the point of already being able to disrupt the democratic voting
-process. Modern elections aren't about who makes better arguments anymore, but rather who is better at tracking and
-emotionally exploiting key voting groups. Both Facebook and Google have been approached by election campaigns to affect
-the election campaigns in their favor. The Trump campaign used Facebook data such as likes, comments, private messages,
-personal preferences, mobile data and browser history to carefully spread messages that resonate with key audiences.
-Engaging one group like this will inevitably lead to suppressing another.
-
-## Government tracking
-
-The government wants you to believe, that your privacy is a necessary trade-off for security and that mass-surveillance
-is a predicament to keep you safe. You are meant to blindly assume that no-one in the position of power could ever have
-a motivation or the incentives to abuse their capabilities.
-
-Now consider what I was saying about the importance of power decentralization and the reasons small groups of people or
-individuals shouldn't share too much power? Well, mass-surveillance is a tool that allows this to happen, and it is
-already happening for a long time.
+Most governments want you to believe, that your privacy is a necessary trade-off for security and that
+mass-surveillance is a predicament to keep you safe. You are meant to blindly assume that no-one in the position of
+power could ever have a motivation or the incentives to abuse their capabilities. But as I said above, there was a
+reason why we tried to split the power between as many people as possible, because single individuals with too much
+power are simply bound to abuse it, and something like mass-surveillance allows this to happen.
 
 In the past, the FBI opened files of thousands of left-leaning activists to the Vietnam war, and added those people to
 a blacklist in case they would apply for government jobs. If that isn't discrimination based on personal interests
@@ -265,14 +359,14 @@ pursuit to discredit them out of fear of radicalization, this is a massive intru
 private, and it was done purely to find something that could be considered wrong by others, so that they could release
 it, therefore enforcing the belief that all Muslims are bad.
 
-## Suppressing democracy
+### Suppressing democracy
 
 When the government wants to open a file on anyone nowadays, they can just go to one of the Silicon Valley massive tech
 companies and request data directly from any of these corporations. This usually gives them enough information that
 they could use to discredit you for anything, think of all of the google searches you made that are now in the hands of
 the FBI, think of all of the websites you visited that could be considered weird and would discredit you in the eyes of
-most others, this doesn't mean you must've watched something illegal, it can just be a non-standard sexual interest, or
-a unique hobby, or really anything.
+most others, this doesn't mean you did something illegal, it can just be a non-standard sexual interest, or a unique
+hobby, or really anything.
 
 As I said above, with Martin Luther King, luckily they didn't manage to discredit him significantly enough that he
 would fail. But can we realistically assume that this is still the case nowadays? Do you really think that combining
