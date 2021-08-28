@@ -18,7 +18,7 @@ and convince people that it actually isn't all that relevant, simply because it'
 ## Do you really have nothing to hide?
 
 I will start with a quote that most people will probably be familiar with, and most people would agree with. This quote
-is: `If you have nothing to fear, you have nothing to hide.`. At first glance, without too much analysis, it does sound
+is: `If you have nothing to fear, you have nothing to hide.` At first glance, without too much analysis, it does sound
 valid, after all you're not doing anything wrong, so why should you have to hide something and value your privacy. But
 does this viewpoint really hold?
 
