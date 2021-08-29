@@ -24,6 +24,12 @@ accounts:
     link: https://pypi.org/user/ItsDrike/
     icon: fab fa-python
 
+  matrix:
+    name: Matrix
+    username: "@itsdrike:matrix.org"
+    link: https://matrix.to/#/@itsdrike:matrix.org
+    icon: fas fa-project-diagram
+
   discord:
     name: Discord
     username: ItsDrike#5359
