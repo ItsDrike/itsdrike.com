@@ -6,9 +6,11 @@ tags: [programming]
 
 In programming, we often need to handle removing duplicates from an array-like structure. While this may seem like an
 arbitrary and easy question, that can be solved relatively simply, that's not necessarily always the case. While it may
-be easy to solve, we also need to consider the runtime of the algorithm we use.
+be easy to solve for the obvious case of things like a list of numbers, it's not so easy if we need to deal with
+non-hashable objects, while keeping the algorithm runtime relatively low.
 
-I'll be using python for the explanations and examples, but it should be relatively similar in most languages.
+For this post, I'll be using python for the explanation and examples, but this will apply to every programming
+language, it will just follow a different syntax.
 
 ## Removing hashable duplicates (Simple case)
 
@@ -207,10 +209,10 @@ these custom classes should be defining their own `__hash__`. Again, since this 
 In most of the cases, the first approach will work just fine (the simple case where our list only have hashable
 objects).
 
-If however if we do need to deal with unhashables, we can either use direct memory ids and ensure that our
-objects are exactly the same, or we can use some hashable counterpart to our unhashable object that could represent it.
-We could also construct a universal hash function with serialization of our object, or a specific one if we know which
-classes will be used there.
+If however if we do need to deal with unhashables, we can either use `==` comparisons, or even direct memory ids and
+ensure that our objects are exactly the same, or we can use some hashable counterpart to our unhashable object that
+could represent it. We could also construct a universal hash function with serialization of our object, or a specific
+one if we know which classes will be used there.
 
 Even though we do have ways to deal with unhashables, if you're in control of the classes, and they aren't supposed to
 be mutable, always make sure to add a `__hash__` method to them, so that duplicates can be easily removed in `O(n)`
