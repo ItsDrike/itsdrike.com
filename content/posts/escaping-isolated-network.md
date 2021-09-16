@@ -78,7 +78,7 @@ socks5 proxy, that we've established through simple SSH.
 Even though the crude way of simply utilizing SSH to utilize our server as a proxy will work, it does have some issues.
 Specifically it's the fact that SSH on it's own will be using the TCP protocol. If you want to know more about how this
 protocol works, I'd suggest watching the video below:
-{{<youtube 0Xfp2EXWjnY>}}
+{{<youtube F27PLin3TV0>}}
 
 However basically, it's a protocol that ensures lossless data transmission between 2 machines. This makes sense for SSH
 and it is what we want, but the issue arises once we try to send TCP traffic over already established TCP tunnel. Since
