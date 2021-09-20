@@ -55,6 +55,7 @@ Table of students:
 Student Grades:
 
 | Student | Subject           | Grade | Year |
+|---------|-------------------|-------|------|
 | 0       | Mathematics       | B     | 2020 |
 | 0       | Physics           | A     | 2020 |
 | 1       | Computer Networks | C     | 2021 |
