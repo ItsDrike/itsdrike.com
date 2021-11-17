@@ -93,12 +93,12 @@ In the example here, we can see that python keeps a reference count for the empt
 threads could attempt to increase the reference count at once, this is a problem because what would actually happen
 would go something like this:
 
-> Thread 1: Read the current amount of references from memory (for example 5)
-> Thread 2: Read the current amount of references from memory (same as above - 5)
-> Thread 1: Increase this amount by 1 (we're now at 6)
-> Thread 2: Increase this amount by 1 (we're also at 6 in the 2nd thread)
-> Thread 1: Store the increased amount back to memory (we store this increased amount of 6 back to memory)
-> Thread 2: Store the increased amount back to memory (we store the increased amount of 6 to memory?)
+> Thread 1: Read the current amount of references from memory (for example 5) <br>
+> Thread 2: Read the current amount of references from memory (same as above - 5) <br>
+> Thread 1: Increase this amount by 1 (we're now at 6) <br>
+> Thread 2: Increase this amount by 1 (we're also at 6 in the 2nd thread) <br>
+> Thread 1: Store the increased amount back to memory (we store this increased amount of 6 back to memory) <br>
+> Thread 2: Store the increased amount back to memory (we store the increased amount of 6 to memory?) <br>
 
 [Treat sections of 2 lines as things happening concurrently]
 
@@ -126,22 +126,22 @@ Here, before we even started to read the amount of references, we've acquired a 
 continuing and causing them to wait until a lock is released so that another thread can acquire it. With this code,
 it wold go something like this:
 
-> Thread 1: Try to acquire a shared lock between threads (lock is free, Thread 1 now has the lock)
-> Thread 2: Try to acquire a shared lock between threads (lock is already acquired by Thread 1, we're waiting)
-> Thread 1: Read the current amount of references from memory (for example 5)
-> Thread 2: Try to acquire the lock (still waiting)
-> Thread 1: Increase this amount by 1 (we're now at 6)
-> Thread 2: Try to acquire the lock (still waiting)
-> Thread 1: Store the increased amount back to memory (we now have 6 in memory)
-> Thread 2: Try to acquire the lock (still waiting)
-> Thread 1: Release the lock
-> Thread 2: Try to acquire the lock (success, Thread 2 now has the lock)
-> Thread 1: Finished (died)
-> Thread 2: Read the current amount of references from memory (read value 6 from memory)
-> Thread 2: Increase this amount by 1 (we're now at 7)
-> Thread 2: Store the increased amount back to memory (we now have 7 in memory)
-> Thread 2: Release the lock
-> Thread 2: Finished (died)
+> Thread 1: Try to acquire a shared lock between threads (lock is free, Thread 1 now has the lock) <br>
+> Thread 2: Try to acquire a shared lock between threads (lock is already acquired by Thread 1, we're waiting) <br>
+> Thread 1: Read the current amount of references from memory (for example 5) <br>
+> Thread 2: Try to acquire the lock (still waiting) <br>
+> Thread 1: Increase this amount by 1 (we're now at 6) <br>
+> Thread 2: Try to acquire the lock (still waiting) <br>
+> Thread 1: Store the increased amount back to memory (we now have 6 in memory) <br>
+> Thread 2: Try to acquire the lock (still waiting) <br>
+> Thread 1: Release the lock <br>
+> Thread 2: Try to acquire the lock (success, Thread 2 now has the lock) <br>
+> Thread 1: Finished (died) <br>
+> Thread 2: Read the current amount of references from memory (read value 6 from memory) <br>
+> Thread 2: Increase this amount by 1 (we're now at 7) <br>
+> Thread 2: Store the increased amount back to memory (we now have 7 in memory) <br>
+> Thread 2: Release the lock <br>
+> Thread 2: Finished (died) <br>
 
 We can immediately see that this is a lot more complex than having lock-free code, but it did fix our problem, we
 managed to correctly increase the reference count across multiple threads. The question is, at what cost?
