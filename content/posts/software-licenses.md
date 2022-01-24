@@ -5,11 +5,11 @@ tags: [programming]
 ---
 
 I wanted to talk a bit about what are software licenses, what different types of these licenses are there and why are
-they really important to know about and to know which one you like the most. Not choosing a proper license for your
-projects may lead to your code being used by others in ways you don't like and depending on the license you chose, you
-may not even have a way to really do anything about it. It is also important so that you personally won't misuse any
-code. Stealing code is illegal and you may get in trouble for it, so it is always good to know what you can and can't
-do with the code of others.
+they really important to know about and to know which one you like the most. Choosing a wrong license for your projects
+may lead to your code being used by others in ways you don't like and depending on the license you chose, you may not
+even have a way to really do anything about it. It is also important so that you personally won't misuse any code.
+Stealing code is illegal and you may get in trouble for it, so it is always good to know what you can and can't do with
+the code of others.
 
 ## Why are licenses important
 
@@ -58,19 +58,11 @@ differently from your original code, but still uses a lot of the original code-b
 of your code-base for example just a single function, or even just using this project as a library, being integrated in
 some bigger scoped project which needs the logic of your project internally.
 
-But the main point of this type of licenses is that they require all projects using work that's licensed under them to
-also use that same copy-left license. This is called propagating a copy-left. This basically means that if some other
+The main point of this type of licenses is that they require all projects using work that's licensed under them to also
+use that same copy-left license. This is called propagating the copy-left. This basically means that if some other
 project would like to include some part of your code into their code-base, no matter how big the part is, or if it's
 the whole project, used as a library, they would need to license their code under the same license that your original
 code code has, or at least a compatible license (propagate the copy-left).
-
-This is a way to enforce that your code will always stay under the same licensing terms and every other project using
-it will need to be open-sourced along with your code. If any other project contains any parts from copy-left licensed
-project(s) without itself being copy-left licensed, it is in violation in this license causing it to no longer apply.
-But this license was the only thing giving that project a legal right to use code of some other copyrighted code,
-without it, that project is now using copyrighted code without permission, making it violate the copyright law and any
-of the copyright holders who had their code used by this other project without following the terms of this license can
-sue the authors of such project.
 
 This behavior of copy-left licenses propagating themselves and prohibiting being licensed under any other
 (non-compatible) license is called forbidding sublicensing. Some copy-left licenses do actually allow you to change the
@@ -78,13 +70,13 @@ license, but only to a selection of a few other copy-left licenses with similar 
 necessarily be "compatible" licenses legally, as they may enforce different set of rules, they can still include a
 clause allowing for such sublicensing. This is often done to allow for easily updating the license to a new version of
 it. As without a clause like that, changing licenses may get tricky, I will talk about this in another section later as
-it is pretty involved process. However be careful with this as even though one license may have a clause allowing you
-to sublicense your content under another, that other license may not have the same clause allowing you to go back.
+it can be a pretty involved process. However be careful with this as even though one license may have a clause allowing
+you to sublicense your content under another, that other license may not have the same clause allowing you to go back.
 
-Usually, if your project is compilable into a single executable file (or multiple of them) copy-left licenses often
-also require shipping the license and the entire source-code (or at least the parts covered by this license), or at
-least a link to a website on which this source-code is hosted along with that executable. This ensures that there is no
-way the code could go closed-source, because it can't even be shipped without the source-code. 
+Usually, if your project is compilable into a single executable file (or multiple executables) copy-left licenses can
+require shipping the license and the entire source-code (or at least the parts covered by this license), or at least a
+link to a website on which this source-code is hosted along with that executable. This ensures that there is no way the
+code could go closed-source, because it can't even be shipped without the source-code. 
 
 Note that they don't however usually forbid the software from being commercialized and sold for a profit, but whenever
 someone would decide to buy this software, they would receive it along with it's source-code and the copy-left license,
@@ -97,24 +89,24 @@ What's perhaps a bit unintuitive though is the fact that it actually is possible
 be kept private for example just to a company that's using that software internally. However keeping it private is
 quite difficult as by being copy-left, the source code and the license will have to be shipped with the executable,
 even internally. This means that any employee could just take a look at that source code and decide to publish it as
-the license allows them to do that. Though there are some licenses which actually prohibit even something like this,
-but because of that, these licenses can end up being really hard to follow.
+the license allows them to do that. Another way to keep a copy-left licensed code private would be to just use it
+personally, because the code is available to you when you made the executable, you're following the license and yet
+you've just made a private copy-left licensed code, though that's only the case as long as you don't distribute it, or
+if you do, as long as that person doesn't decide to release it publicly, as the license shipped with that software
+allows them to do that. Although there are actually some licenses which prohibit even something like this, those
+requirements make these licenses really hard to follow so there aren't that many people actually using them.
 
 There can be many little caveats to these licenses and you should always make sure you understand what that license is
 allowing/denying before you decide to use them.
 
-The most popular copy-left license is the GNU General Public License version 3 (GPL v3), but also the version 2.
-Another a bit less commonly used is the Mozilla Public License (MPL).
+The most popular copy-left license is the GNU General Public License version 3 (GPL v3), but version 2 is also still
+quite popular. Another a bit less commonly used is the Mozilla Public License (MPL).
 
 ### Permissive licenses
 
 Similarly to copy-left licenses, this type of licenses allows usage of the original code in almost any way
 (derivatives, using small chunks, using code as library, ...), however unlike licenses in the copy-left category,
-permissive licenses do allow almost any form of sublicensing. While there can be some licenses which are still
-considered permissive even though they forbid sublicensing to certain kind of licenses, this is pretty rare and can
-only go so far. Licenses that do this may be considered permissive, but they're usually refused to be accepted as "free
-software licenses" because of these restrictions which may limit the freedom of others to truly use and do whatever
-they may want to with that software.
+permissive licenses do allow almost any form of sublicensing.
 
 This said, even though sublicensing may be allowed, it doesn't mean there aren't any conditions which may need to be
 met before the code can be sublicensed. Most notably the requirement to mention the original copyright holder(s) and
@@ -125,12 +117,14 @@ This means that permissive licenses give others a lot more freedom because they 
 that's using parts of your code, but this means that anybody could simply take your entire project, change it a bit and
 close-source it, while just respecting the terms of your license (most likely just being the original author mention),
 after that the person/company utilizing your code could easily release the product as a payed software without having
-to show what the code is actually doing at all. This means they could improve the software a bit, add all kinds of
-trackers constantly sending everything you do with their software to them and perhaps even some nefarious things such
-as integrating a full-blown crypto-currency miner that's running in the background at all times while you're using this
-project sending the mined profit to them. Things like these are unavoidable with a license allowing this much freedom,
-and even though it may require that project to mention the source, this mention can easily be lost along with thousands
-of other mentions because the project may rely on many other things too.
+to show what the code is actually doing at all. And since the code is now closed-sourced they could even decide to add
+all kinds of trackers constantly sending everything you do with that software to them and perhaps even some nefarious
+things, such as integrating a full-blown crypto-currency miner that's running in the background at all times while
+you're using this project.
+
+Things like these are unavoidable with a license allowing this much freedom, and even though it may require the project
+to follow some guidelines, they usually aren't that strict and if it's just mentioning the source, this mention can
+easily be lost along with thousands of other mentions because the project may rely on many other things too.
 
 However the proponents of this license like this fact because even though it may mean their software will be used along
 with these non-privacy respecting things added on top, at least it means that a big part of this new project is
@@ -165,26 +159,26 @@ The most notable public domain license is the "Unlicense" license.
 
 These are subtypes of the wide copy-left licenses category. I didn't initially include it in the copy-left section
 because it was already quite big and I wanted to just describe the category itself before getting to some specifics,
-also I wanted to describe the permissive licenses before getting to the definition of this subcategory as it does rely
-on this definition.
+also I wanted to describe the permissive licenses before getting to the definition of these subcategories as it does
+rely on this definition.
 
 Basically, the "strength" of a copyleft license is determined by the extent of the license's provisions on the
 different kinds of derivative works. This sounds complex, but the difference isn't actually that hard to understand.
 Simply the "stronger" the copy-left license is, the less exceptions are there for a derivative work to not inherit that
 copyleft and with it the requirement of propagating the license.
 
-In other words, the "weak" copy-left licenses are those where there can are exceptions to inheriting a copy-left and
-there can therefore be some derivative works made which won't actually fall under the copy-left guidelines of that
-license. For these derivatives, the license actually becomes permissive and they can be sublicensed. As opposed to
-"strong" copy-left licenses, which don't carry any exceptions like these and every single derivative work, no matter
-how little of the original project's code was used, or in what manner it was used, will inherit the copy-left and will
-be forced to license under the same (or compatible) copy-left license.
+In other words, the "weak" copy-left licenses are those where there are exceptions to inheriting a copy-left and there
+can therefore be some derivative works made which won't actually fall under the copy-left guidelines of that license.
+For these derivatives, the license actually becomes permissive and they can be sublicensed, and even become closed. As
+opposed to "strong" copy-left licenses, which don't carry any exceptions like these and every single derivative work,
+no matter how little of the original project's code was used, or in what manner it was used, will inherit the copy-left
+and will be forced to be license under the same (or compatible) copy-left license.
 
 This makes weak copy-left licenses somewhat of a compromise between strong copy-left and permissive licenses where you
-may want to allow sublicensing if a derivative meets some criteria (such as if someone just wants to use your work as a
-library), in which case they could sublicense and use your code as if it were under a permissive license, but in other
-cases (such as someone wanting to make a full-fledged alternative where they're going to be making changes to your code
-and building on it) they will be required to inherit the copy-left and use the same license.
+may want to allow sublicensing if a derivative meets some criteria, such as if someone just wants to use your work as a
+library, in which case they could sublicense and use your code as if it were under a permissive license, but in other
+cases, such as someone wanting to make a full-fledged alternative where they're going to be making changes to your code
+and building on it, they will be required to inherit the copy-left and use the same license.
 
 Another way a weak copy-left can behave is a file-based copyleft. This means that any file containing copy-left code
 will inherit that copy-left and will therefore need to be licensed and distributed accordingly to the terms of that
@@ -223,8 +217,8 @@ licenses weren't yet tested in court.
 
 ## How are these licenses enforced
 
-It is important to understand how exactly the open-source licenses actually work. How does simply having a text file
-with some legal gibberish allow others to use that project and contribute to it?
+It is important to understand how exactly the software licenses actually work. How does simply having a text file with
+some legal gibberish allow others to use that project and contribute to it?
 
 Essentially, these licenses extend the copyright of the person who submitted some code under that license. By doing so,
 they and allow using of said code in other places, it's modifications, and other things, depending on the actual
@@ -241,18 +235,18 @@ permission allowing you to use the copyrighted work, which puts you in violation
 Whenever you're in such copyright law violation, the significance of such violation will depend on where you live. Some
 countries don't even respect the copyright law, allowing you to use whatever code you want as there's no law to violate
 if your country doesn't actually have the copyright law at all, however most developed countries do respect copyright.
-If you live in one of those countries, you'll just need to learn how they handle copyright violations. It may be the
-case that before any legal case can be made, the author must send you a copyright violation letter (so called: ciese
-and desist). However if your country doesn't require that, you may simply find yourself facing a lawsuit for copyright
-infringement without any prior warning.
+If you live in one of the copyright-respecting countries, you'll just need to learn how they handle copyright
+violations. It may be the case that before any legal case can be made, the author must send you a copyright violation
+letter (so called: `ciese and desist letter`). However if your country doesn't require that, you may simply find
+yourself facing a lawsuit for copyright infringement without any prior warning.
 
-As you can see, you can't actually "violate" an open-source license, rather if you do not meet the conditions of said
+As you can see, you can't actually "violate" a software license, rather if you do not meet the conditions of said
 license, then the license doesn't apply to you and you do not acquire the permissions granted by it. Unless you've
 acquired these permissions by some other means, you are violating copyright, but you aren't violating the actual
-open-source license as it isn't a license that you've signed or anything like that, it's just something giving you the
+software license as it isn't a license that you've signed or anything like that, it's just something giving you the
 possibility to use that work, if you follow it. That said though, in practice you often hear about a license being
-"violated", but what's really meant by that, in fact what they mean is that since you didn't meet the conditions of
-that license, you're violating copyright.
+"violated", but what's really meant by that is that since you didn't meet the conditions of that license, hence you're
+violating copyright.
 
 So remember, a software license can only ever give the recipient of the creative works additional rights, it can never
 takes away rights.
@@ -265,8 +259,8 @@ the moment, all of the contributors to such projects are actually breaking the c
 they live in a country which doesn't respect copyright, but again, that's very rare). Even though I'm sure most people
 with projects like these don't actually have the intention to sue it's contributors, authors of these projects
 technically could. That's a bit unexpected for the contributors and it could make contributing to projects like these a
-bit scary, and it would certainly discourage many people from not just contributing, but possible also using this
-project.
+bit scary, and it would certainly discourage many people from not just contributing, but possibly also using this
+project at all.
 
 **Some great websites:**
 - There is a [page from GitHub](https://choosealicense.com/) that may help you pick the correct license for your
@@ -285,33 +279,34 @@ license, you immediately loose the right to use any copy-left licensed code (unl
 the exception). It is therefore very important to know your dependencies and the licenses of the code you're using in
 your codebase directly.
 
-You as the author of that project still need to follow the licenses of the other projects you're using in your project.
+You as the author of that project do need to follow the licenses of the other projects you're using in your project.
 Even with permissive licenses, there may be certain terms you need to follow in order to meet the conditions of that
 license and be allowed to use the code from that project. Most commonly this will be the requirement to mention the
-usage of said code/mention it's copyright holder/mention the original source repository/... In vast majority of cases,
-if you're using a packaging system (such as pip for python, npm for node, cargo for rust, ...) these will create
-dependency listings, which will often fulfill the requirement and it's possible to get it's source url because of that
-package manager. Luckily, most libraries are generously licensed under weak copy-left or permissive licenses, and they
-don't really have any other terms that would make things more complicated apart from just a simple mention, even if 
-that's just done by the package manager in the project's dependencies. However it may not always be the case, and for
-those cases, you may need to do something special apart from/other than just a mention like this to fulfill that
-license, and if you aren't willing to do that, you simply can't use that project.
+usage of said code/mention it's copyright holder/mention the original source repository/... 
+
+In vast majority of cases, if you're using a packaging system (such as pip for python, npm for node, cargo for rust,
+...) these will create dependency listings, which will often fulfill the requirement and it's possible to get it's
+source url because of that package manager. Luckily, most libraries are generously licensed under weak copy-left or
+permissive licenses, and they don't really have any other terms that would make things more complicated apart from just
+a simple mention, even if that's just done by the package manager in the project's dependencies. However it may not
+always be the case, and for those cases, you may need to do something special apart from/other than just a mention like
+this to fulfill that license, and if you aren't willing to do that, you simply can't use that project.
 
 Even if you're licensed under a copy-left license and you're using some copy-left repositories code licensed under the
-exact same license, just sharing the license may not be enough to fulfill it's terms, in fact in most of the cases it
+exact same license, just having that license may not be enough to fulfill it's terms, in fact in most of the cases it
 won't be. You will often need to mention the original source (again, if it's a dependency, a simple listing may be
 enough for this), not make any software patents with that license, not use the project's trademark, state the changes
 from the original project, etc. So no matter if your licenses are permissive or copy-left, there may be other terms and
 you need to make sure they're followed, otherwise you may be violating that license.
 
-If you wanted to, or if the license of a project you're using requires it, you may want to make a file that
-explicitly mentions which parts of your codebase aren't actually licensed under the main license but instead belong to
-someone else and are licensed differently. You'll often want to include full text of that other license and then below
-(or above) the copyright holders/links to original sources/other stuff which said license requires. This can make it a
-lot easier to keep track of which parts of your code-base aren't actually covered by your main license, but are instead
-using some other license. It can also keep you from making mistakes if you wanted to change a license as you'll
-immediately see if you have some code that isn't compatible with some new license you'd like to relicense to (more in
-the changing license category).
+To avoid things from getting too messy, you may want to make a file that will explicitly mention which parts of your
+codebase aren't actually licensed under the main license, but instead belong to someone else and are licensed
+differently. In fact some licenses even require your project to have such a file. In there, you'll often want to
+include full text of that other license and then below (or above) the copyright holders/links to original sources/other
+stuff which said license requires. This can make it a lot easier to keep track of which parts of your code-base aren't
+actually covered by your main license, but are instead using some other license. It can also keep you from making
+mistakes if you wanted to change a license as you'll immediately see if you have some code that isn't compatible with
+some new license you'd like to relicense to (more in the changing license category).
 
 ## Changing the license
 
@@ -334,39 +329,41 @@ sure.
 
 ### The messy part
 
-However if you've licensed under copy-left, you will more work to do. First of all, check if you have some copy-left
-licensed dependencies/parts included in your codebase, and if you do, ensure all of them will be compatible with this
-new license (most likely they won't be as just a slight change to a copy-left license usually means it's no longer
-compatible, but there may be some compatibility clauses in your license allowing this). Note that even if the license
-you're switching to is compatible with your main project's license, it doesn't necessarily means it's also compatible
-with the copy-left dependencies, since they could've only been compatible with your current (old) license because of
-some compatibility clauses, which however don't also extend to your new license, even though your current license has a
-compatibility clause with it. This can sometimes get really complicated, however luckily most people usually stick to
-only a few common copy-left licenses and compatibility questions about them were already answered, just look them up.
+However if your project has multiple contributors and it's licensed as copy-left, you will have more work to do. First
+of all, check if you have some copy-left licensed dependencies/parts included in your codebase, and if you do, ensure
+all of them will be compatible with this new license (most likely they won't be as just a slight change to a copy-left
+license usually means it's no longer compatible, but there may be some compatibility clauses in your license allowing
+this). Note that even if the license you're switching to is compatible with your main project's license, it doesn't
+necessarily means it's also compatible with the copy-left dependencies, since they could've only been compatible with
+your current (old) license because of some compatibility clauses, which however don't also extend to that new license,
+even though your current license has a compatibility clause with it. This can sometimes get really complicated, however
+luckily most people usually stick to only a few common copy-left licenses and compatibility questions about them were
+already answered, just look them up.
 
-If some of your dependencies aren't compatible though, you'll need to remove them dependencies and use something else,
-or write it yourself. Otherwise, the next step will be to check if your main project's license is compatible with the
-new one, if it is, it is completely safe to change the license, just like it would be with a permissive licensed
-project.
+If some of your dependencies aren't compatible though, you'll need to remove them and use something else, or write it
+yourself. Otherwise, the next step will be to check if your main project's license is compatible with the new one, if
+it is, it's completely safe to change the license, just like it would be with a permissive licensed project.
 
 However, if the main license isn't compatible, which will basically always happen if you're going from copy-left to
-permissive, but often also if you're just going to different copy-left license without an explicit compatibility
-clause, you will face some issues. If you are the sole copyright owner and all of the dependencies/code parts are
-compatible, you can just switch as an owner of that code, but that's probably not the case since you'd have stopped
-reading as I've already said that. So the other option is that you have some other contributors, which hold the
+permissive, but also if you're just going to different copy-left license without an explicit compatibility clause, you
+will face some issues. 
+
+If you are the sole copyright owner and all of the dependencies/code parts are compatible, you can just switch as an
+owner of that code, but that's often not the case. In which case, you will have some other contributors, which hold the
 copyright to certain parts of your project. Each line of code added by someone else will mean the copyright will belong
 to them (unless it's explicitly stated otherwise) and you can't simply change the license as these other copyright
 holders originally submitted their code under the terms of the main project's license, which didn't allow you to change
 it.
 
 Don't worry though, there is a way around that, but it's not particularly easy to achieve. Your next step now will be
-to find a legal way to still change the license, which is only achievable in 2 ways. First way is to just remove all
-of the code by any other contributors, which will most likely mean you'll need to rewrite a lot of the project yourself
-without using any of the code from those contributors, or you'll need to get their written consent that allows you to
-sublicense. This can be done by either them assigning you their copyright to that code, or by giving you a one-time
-consent to just relicense to certain license you asked for. This won't be easy as you'll need to find out some way to
-contact all of these contributors, and even if you can achieve that, getting their written consent to relicense won't
-be very easy.
+to find a legal way to still change the license, which is only achievable in 2 ways. First way is to just remove all of
+the code by any other contributors, which will most likely mean you'll need to rewrite a lot of the project yourself
+without using any of the code from those contributors, the other way is to get their written consent that alters their
+copyright on that work and allows you to sublicense. This can be done by either them assigning their copyright to that
+code to you completely, or by them extending their copyright to also include a different license terms being the new
+license you want to sublicense under (or some other license which allows sublicensing like that). This won't be easy as
+you'll need to find out some way to contact all of these contributors, and even if you can achieve that, getting their
+written consent to relicense can be very difficult.
 
 This is why in most realistic scenarios, if you will be relicensing with a lot of contributors, you'll end up having to
 go with a mixture of those two options and rewrite the code of the people you weren't able to reach/didn't give you the
@@ -416,17 +413,18 @@ and instead your contributions will just be declined.
 So just be aware what signing a CLA really means and that after you do so, you've given that company the rights to do
 absolutely anything with your code, no matter the initial license that code was released under.
 
-This is also why it is very common for employees to have a clause in their contract that states that all of the work
-they do while inside of that building, or while using the companies computers, or while contributing to company-owned
-source code, by signing it you as an owner of whatever creative work you create that meets these criteria sign over the
-copyright you automatically gained as it's owner to that company, therefore giving them the rights to be the sole
-owners of all of the source-code (and other things) maintained by them even though it wasn't written by them. This is
-basically a CLA, except it's usually way more involved, i.e. not just including the work you submit to companies
-projects, but also personal work, if you worked on it on their machines/in their building/... This is often the reason
-why many people who developed their own projects which grew a bit bigger got legally transferred over to some company
-they once worked in, just because they wrote even just a single line of that project on that companies computer,
-immediately giving your copyright to that project over to that company. So be careful to inspect the terms of your
-contract when getting a job as a programmer, and make sure if you're working on some personal project to not do so
+It is also very common for employees with a clause in their contract that states that all of the work they do while
+inside of that building/while using the companies computers/while contributing to company-owned source code/..., you as
+an owner of that creative work you made assign the copyright which you automatically gained to that company, therefore
+making it the sole owner of all of the source-code (and other things) maintained by them even though it wasn't written
+by them. 
+
+This is basically a CLA, except it's usually way more invasive, i.e. it doesn't just apply to the work you submit to
+companies projects, but also personal work, if you worked on it on their machines/in their building/... This is often
+the reason why many people who developed their own projects which grew a bit bigger got legally transferred over to
+some company they once worked in, just because they wrote even just a single line of that project on that companies
+computer, immediately giving your copyright to that project over to that company. So be careful to inspect the terms of
+your contract when getting a job as a programmer, and make sure if you're working on some personal project to not do so
 while on the job.
 
 ### Developer Certificate of Origin
