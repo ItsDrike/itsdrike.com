@@ -22,5 +22,6 @@ hugo gen chromastyles --style=monokai > "$STATIC_BUILD/css/highlight.css"
 mkdir -p "$STATIC_BUILD/scss"
 cp -r "$STATIC_SRC/scss"/* "$STATIC_BUILD/scss"
 
-
 hugo -vDEF --gc $@
+
+ln -s ../etc "$OUTPUT_DIR/etc"

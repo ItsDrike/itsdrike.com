@@ -19,5 +19,8 @@ node_modules/
 # Backup files
 *.bak
 
+# Other extra files that I'm hosting on the website for personal use
+etc/
+
 # Personal TODO files
 TODO
