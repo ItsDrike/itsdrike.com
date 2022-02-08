@@ -2,6 +2,7 @@
 public/
 static/build
 resources/
+.hugo_build.lock
 
 # Node/NPM dependencies
 node_modules/
