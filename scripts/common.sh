@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 BASEDIR="$PWD"
 OUTPUT_DIR="$BASEDIR/public"

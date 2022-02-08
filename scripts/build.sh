@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 source ./scripts/common.sh
 
 rm -rf "$STATIC_BUILD"
