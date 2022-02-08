@@ -1,5 +1,5 @@
-source ./scripts/common.sh
 #!/usr/bin/env sh
+source ./scripts/common.sh
 
 rm -rf "$STATIC_BUILD"
 rm -rf "$OUTPUT_DIR"
