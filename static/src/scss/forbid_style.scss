@@ -1,0 +1,149 @@
+$color__black: #121111;
+$color__white: #fcffff;
+$color__brown: #8b4513;
+
+$color__gray--lighter: #efeeee;
+$color__gray--light: #dcdddd;
+$color__gray: #c3c4c4;
+$color__gray--dark: #969999;
+$color__gray--darker: #323333;
+$color__gray--darkest: #121111;
+
+$color__red--lightest: #f8979c;
+$color__red--lighter: #FF888D;
+$color__red--light: #F14950;
+$color__red: #FF190D;
+$color__red--dark: #c51104;
+$color__red--darker: #A00309;
+$color__red--darkest: #800007;
+
+$color__orange--lightest: #ffcf9a;
+$color__orange--lighter: #feac68;
+$color__orange--light: #fc9a46;
+$color__orange: #fa6824;
+$color__orange--dark: #bb4a19;
+$color__orange--darker: #992807;
+$color__orange--darkest: #770505;
+
+$color__blue--lightest: #afedff;
+$color__blue--lighter: #6edbff;
+$color__blue--light: #3ca9ff;
+$color__blue: #2196f3;
+$color__blue--dark: #0b62a6;
+$color__blue--darker: #044475;
+$color__blue--darkest: #142633;
+
+$stroke__width: 0.5;
+
+path {
+  fill: transparent;
+  stroke: rgba($color__blue, 0.2);
+  stroke-width: $stroke__width;
+}
+
+.wrapper_forbid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h1, p {
+    color: $color__gray--light;
+    font-family: monospace;
+    font-size: 16px;
+    position: absolute;
+    z-index: 999;
+  }
+
+  h1 {
+    font-size: 2em;
+    top: 80%;
+  }
+
+  p {
+    font-weight: 600;
+    top: calc(80% + 2.5em);
+  }
+}
+
+.grid-lines__line {
+  stroke-width: $stroke__width / 3;
+}
+.grid-lines__line--cir {
+  stroke: rgba($color__gray--light, 0.25);
+}
+.grid-lines__line--diag {
+  stroke: rgba($color__gray--light, 0.15);
+}
+.grid-lines__line--hor {
+  stroke: rgba($color__gray--light, 0.15);
+}
+.grid-lines__line--ver {
+  stroke: rgba($color__gray--light, 0.2);
+}
+
+.wiz {
+  fill: transparent;
+  stroke: rgba($color__red, 0.5);
+}
+
+.wiz--beard,
+.wiz--eye,
+.wiz--eye-brow,
+.wiz--hair,
+.wiz--hair-bg,
+.wiz--head,
+.wiz--mouth,
+.wiz--mustache,
+.wiz--staff,
+.wiz--sword {
+  stroke: transparent;
+}
+
+.wiz--beard {
+  fill: $color__gray--lighter;
+  stroke: rgba($color__gray--dark, 0.5);
+}
+
+.wiz--eye {
+  fill: $color__blue--dark;
+  stroke: $color__blue--darker;
+}
+
+.wiz--eye-brow {
+  fill: $color__gray--light;
+  stroke: rgba($color__gray--darker, 0.5);
+}
+
+.wiz--hair {
+  fill: $color__gray--lighter;
+  stroke: rgba($color__gray--dark, 0.5);
+}
+
+.wiz--hair-bg {
+  fill: $color__gray--darker;
+}
+
+.wiz--head {
+  fill: $color__orange--lightest;
+}
+
+.wiz--mouth {
+  fill: $color__black;
+}
+
+.wiz--mustache {
+  fill: $color__gray--light;
+  stroke: rgba($color__gray--darker, 0.5);
+}
+
+.wiz--staff {
+  fill: $color__brown;
+  transform: rotate(-45deg) translateX(30%) translateY(-10%);
+  transform-origin: 50% 50%;
+}
+
+.wiz--sword {
+  fill: $color__gray--dark;
+  transform: rotate(45deg) translateX(-35%) translateY(-5%);
+  transform-origin: 50% 50%;
+}
