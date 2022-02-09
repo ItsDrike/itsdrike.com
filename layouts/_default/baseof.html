@@ -10,6 +10,8 @@
     {{ partial "favicon.html" }}
 
     <title>{{ partial "title-item.html" . }}{{ .Site.Title }}</title>
+
+    {{ block "head_extra" . }}{{ end }}
   </head>
   <body>
     {{ partial "navbar.html" . }}
