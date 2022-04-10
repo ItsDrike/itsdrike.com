@@ -258,7 +258,7 @@ to communicating with the other party in a fully end-to-end encrypted way!
 To encrypt a file, we can use this command:
 
 ```sh
-gpg --armor --encrypt -r --armor [key-id] my_plaintext_file.txt
+gpg --armor --encrypt -r [key-id] my_plaintext_file.txt
 ```
 
 Here, the `[key-id]` points to the recipient's public key id, so either an email, or key's ID directly. This is NOT
