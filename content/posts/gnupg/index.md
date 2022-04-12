@@ -265,18 +265,18 @@ To encrypt a file, we can use this command:
 gpg --armor --encrypt -r [key-id] my_plaintext_file.txt
 ```
 
-Here, the `[key-id]` points to the recipient's public key id, so either an email, or key's ID directly. This is NOT
-your key id, it's the recipient's one!
+Here, the `[key-id]` points to the recipient's public key id (`-r` stands for recipient), so either an email, or key's
+ID directly. This is NOT your key id, it's the recipient's one!
 
 This will generate an encrypted file with the same name as the original, but with an additional extension of `.asc`,
 this extension means that we used ASCII readable characters in the encrypted file, instead of raw bytes. If you don't
 need this, you can leave out the `--armor` flag, and instead get a file that ends with `.gpg` and contains the raw
 bytes after encryption.
 
-The use of `-r` flag is also optional, and using it will allow the encrypted file to also be decrypted by us, not just
-by the recipient. This is something that we usually want, so that we can actually know what we sent even after deleting
-the file on our side, but if for any reason we wouldn't want to be able to decrypt this later on, leaving out this flag
-will ensure that without the recipient's private key, we won't be able to decrypt this file.
+We can also include multiple recipients by adding more `-r [key-id]` sequences. With this, we could also include
+our public key, to which we have the private key, allowing us to also be able to decrypt it. By default, if we don't
+specify our public key in recipients, and the original file was removed, decryption of the original wouldn't be
+possible (unless the actual recipient decrypts it for us).
 
 Optionally, if you want to let the recipient know that it was you who encrypted this file, you can also perform signing
 on the encrypted result. You can do this separately, following the signing file section, or you can simply include
