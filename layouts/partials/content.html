@@ -14,6 +14,7 @@
     {{ if .TableOfContents }}
       <!-- Get the amount of headers using regex -->
       {{ $headers := findRE "<h[1-6].*?>(.|\n])+?</h[1-6]>" .Content }}
+      <!-- We only need to show a table of contents if we have over 4 headers -->
       {{ if ge (len $headers) 4 }}
         <div class="float-lg-end ml-lg-3 mb-3 p-3">
           {{ .TableOfContents }}
