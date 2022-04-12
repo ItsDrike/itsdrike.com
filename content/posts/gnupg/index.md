@@ -2,6 +2,10 @@
 title: Introduction to encryption with GnuPG
 date: 2022-04-10
 tags: [privacy, linux, encryption]
+sources: 
+    - "[GnuPG documentation](https://gnupg.org/documentation/index.html)"
+    - "[Arch Wiki on GnuPG](https://wiki.archlinux.org/title/GnuPG)"
+    - "[RedHat guide on GnuPG](https://www.redhat.com/sysadmin/getting-started-gpg)"
 ---
 
 GnuPG (short for GNU Privacy Guard), also known as just GPG is a public-key cryptography implementation. This allows
