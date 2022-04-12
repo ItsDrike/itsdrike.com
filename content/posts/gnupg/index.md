@@ -20,7 +20,7 @@ what command to run for what thing.
 
 ## How Public Key Encryption works
 
-In Public Key Encryption, or asymetric encryption, the issuer creates a key pair, consisting of a public key, and a
+In Public Key Encryption, or asymmetric encryption, the issuer creates a key pair, consisting of a public key, and a
 private key. As the name would imply, private key is kept to the issuer and should never be exposed, while the public
 key should be given to anyone freely.
 
@@ -29,20 +29,20 @@ can encrypt files in a way that they'll only be decryptable with the private key
 deleting the original file, even they wouldn't then be able to decrypt that file, making it safe to have it stored on
 their system. 
 
-If both parties then create their own key pairs and share the public keys between each other, it allows
-for a secure communication between them, even if there were someone monitoring their communication, because both
-parties only ever sent the public keys, and while they can be used for encryption, the man in the middle wouldn't be
-able to decrypt any sent files.
+If both parties then create their own key pairs and share the public keys between each other, it allows for a secure
+communication between them, even if there were someone monitoring their communication, because both parties only ever
+sent the public keys, and while they can be used for encryption, the man in the middle wouldn't be able to decrypt any
+sent files.
 
 This also allows the issuer to "sign" a file, creating a unique signature file, which people can check against that
 file to confirm it wasn't modified. This signature can only be generated with the issuer's secret/private key, however
 anyone with the public key can check that the signature is genuine and was issued by the corresponding private key to
 their public one.
 
-In contrast, a symetric encryption scheme, which is the alternative, is when the involved parties share the same key,
+In contrast, a symmetric encryption scheme, which is the alternative, is when the involved parties share the same key,
 with which they can both encrypt and decrypt files. The disadvantage of this scheme is that if someone is spying on a
 conversation already, sending this key to the other party safely isn't possible, and if the attacker gets hold of it,
-they can decrypt all sent conversation easily. Symetric encryption also lacks the possibility of meaningful signature
+they can decrypt all sent conversation easily. Symmetric encryption also lacks the possibility of meaningful signature
 generation, since to verify the signature, you'd need the single key, and if you did have that key, you could easily
 modify the file and sign in with that key, resulting in a perfectly valid signature.
 
@@ -196,7 +196,7 @@ gpg --import ./signed-key.key
 
 ## Sharing your keys
 
-Now that you've created your public-private key pair, and managed to import someone elses public key, you'll probably
+Now that you've created your public-private key pair, and managed to import someone else's public key, you'll probably
 want to know how to actually share your own keys.
 
 ### Sharing public key
