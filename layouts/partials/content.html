@@ -5,6 +5,13 @@
 
 {{ if .IsPage }}
   <p>{{ partial "content-details.html" . }}</p>
+
+  <!-- When directly viewing the article, if available, we also include revision date-->
+  {{ if and (not .Lastmod.IsZero) (not (.Lastmod.Equal .Date)) }}
+    <span class="pr-2" title='{{ .Lastmod.Format "January 2 2006" }}'>
+      <i class="pr-1 content-detail">Article revised in: {{ .Lastmod.Format "January 2 2006" }}</i>
+    </span>
+  {{ end }}
 {{ end }}
 
 {{ if .Content }}
