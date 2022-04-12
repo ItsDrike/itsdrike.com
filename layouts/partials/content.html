@@ -21,5 +21,17 @@
       {{ end }}
     {{ end }}
     {{ .Content }}
+
+
+    <div id="sources">
+      {{ if .Params.Sources }}
+        <h2>Sources</h2>
+        <ul>
+        {{ range $i, $e := .Params.Sources }}
+          <li>{{ markdownify $e }}</li>
+        {{ end }}
+        </ul>
+      {{ end }}
+    </div>
   </div>
 {{ end }}
