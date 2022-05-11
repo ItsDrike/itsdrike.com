@@ -1,5 +1,5 @@
 {{ .Title }} ::
 
 {{ if .Parent }}{{ if not .Parent.IsHome }}
-  {{ partial "title-item.html" .Parent }}
+{{ partial "title-item.html" .Parent }}
 {{ end }}{{ end }}
