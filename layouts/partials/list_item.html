@@ -7,7 +7,7 @@
 {{ .Scratch.Set "dateformat" nil }}
 
 
-<a class="item-link" href="{{ .RelPermalink }}">
+<a class="item-name" href="{{ .RelPermalink }}">
     <span class="item-title">{{ .Title }}</span>
     {{ if not .Date.IsZero }}
     <span class="item-day">{{ .Date.Format $dateformat }}</span>
