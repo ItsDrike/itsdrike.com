@@ -4,7 +4,7 @@ aliases:
     - /about/
 ---
 
-So you want to contact me?
+Wanna to contact me?
 
 Since I do value my online privacy, you won't find my name and many other social networks you would be likely to find
 in other websites like these. However if you do want to contact me, you can reach me using one of the details below:
