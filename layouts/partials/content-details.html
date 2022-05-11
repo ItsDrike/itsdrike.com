@@ -1,9 +1,3 @@
-{{ if not .Date.IsZero }}
-  <span class="pr-2" title='{{ .Date.Format "January 2 2006" }}'>
-    <i class="far fa-calendar-alt pr-1 content-detail"></i> {{ .Date.Format "2006-01-02" }}
-  </span>
-{{ end }}
-
 {{ if not .Parent.IsHome }}
 {{ if gt .ReadingTime 2 }}
 <span class="pr-2" title="Reading time">
