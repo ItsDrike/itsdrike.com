@@ -1,19 +1,19 @@
 {{ define "main" }}
-  <div id="main">
+<div id="main">
     <div class="container">
-      {{ partial "content.html" . }}
-      {{ if .Content }}
+        {{ partial "content.html" . }}
+        {{ if .Content }}
         <hr>
-      {{ end }}
-      {{ range .Pages.ByTitle }}
+        {{ end }}
+        {{ range .Pages.ByTitle }}
         <div class="media list-page-item mb-3">
-          <div class="media-body">
-            <a href="{{ .RelPermalink }}">
-              <h5 class="my-0"><code>#{{ .Title }}</code></h5>
-            </a>
-          </div>
+            <div class="media-body">
+                <a href="{{ .RelPermalink }}">
+                    <h5 class="my-0"><code>#{{ .Title }}</code></h5>
+                </a>
+            </div>
         </div>
-      {{ end }}
+        {{ end }}
     </div>
-  </div>
+</div>
 {{ end }}

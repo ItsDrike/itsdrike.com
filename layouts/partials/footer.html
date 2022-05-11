@@ -1,21 +1,22 @@
 <footer class="p-5">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-2">
-        <p>&copy; {{ now.Year }} <a href='{{ ref . "contact" }}'>{{ .Site.Title }}</a>.</p>
-        <p></p>
-      </div>
-      <div class="col-sm-7">
-        <a href='{{ ref . "privacy-policy" }}'>Privacy policy</a>
-      </div>
-      <div class="col-sm-3">
-        <h3 class="text-right">
-          {{ range .Site.Data.social.footer_accounts }}
-            {{ $account := index $.Site.Data.social.accounts . }}
-            <a href="{{ $account.link }}"><i class="mx-1 {{ $account.icon }}" aria-hidden="true" title="{{ $account.name }}"></i></a>
-          {{ end }}
-        </h3>
-      </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2">
+                <p>&copy; {{ now.Year }} <a href='{{ ref . "contact" }}'>{{ .Site.Title }}</a>.</p>
+                <p></p>
+            </div>
+            <div class="col-sm-7">
+                <a href='{{ ref . "privacy-policy" }}'>Privacy policy</a>
+            </div>
+            <div class="col-sm-3">
+                <h3 class="text-right">
+                    {{ range .Site.Data.social.footer_accounts }}
+                    {{ $account := index $.Site.Data.social.accounts . }}
+                    <a href="{{ $account.link }}"><i class="mx-1 {{ $account.icon }}" aria-hidden="true"
+                            title="{{ $account.name }}"></i></a>
+                    {{ end }}
+                </h3>
+            </div>
+        </div>
     </div>
-  </div>
 </footer>

@@ -5,21 +5,23 @@
 {{ end }}
 
 {{ if not .Parent.IsHome }}
-  {{ if gt .ReadingTime 2 }}
-    <span class="pr-2" title='Reading time'>
-      <i class="far fa-clock pr-1 content-detail"></i> {{ .ReadingTime }} minutes
-    </span>
-  {{ end }}
-  <span class="pr-2" title="Word count">
+{{ if gt .ReadingTime 2 }}
+<span class="pr-2" title="Reading time">
+    <i class="far fa-clock pr-1 content-detail"></i> {{ .ReadingTime }} minutes
+</span>
+{{ end }}
+<span class="pr-2" title="Word count">
     <i class="far fa-file-alt pr-1 content-detail"></i> {{ .WordCount }} words
-  </span>
+</span>
 {{ end }}
 
 {{ if .Params.tags }}
-  <a href="{{ ref . " /tags" }}" class="no-color-change mr-1">
-    <i class="fas fa-tags small content-detail"></i>
-  </a>
-  {{ range $i, $e := .Params.tags }}
+<span class="pr-2" title="Tags">
+    <a href="{{ ref . " /tags" }}" class="no-color-change mr-1">
+        <i class="fas fa-tags small content-detail"></i>
+    </a>
+    {{ range $i, $e := .Params.tags }}
     <a href="/tags/{{ urlize . }}" class="mr-1">#{{ . }}</a>
-  {{ end }}
+    {{ end }}
+</span>
 {{ end }}

@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Language" content="{{ .Site.Language.Lang }}">
     {{ partial "style.html" "scss/style.scss" }}
@@ -12,8 +13,9 @@
     <title>{{ partial "title-item.html" . }}{{ .Site.Title }}</title>
 
     {{ block "head_extra" . }}{{ end }}
-  </head>
-  <body>
+</head>
+
+<body>
     {{ partial "navbar.html" . }}
     {{ block "main" . }}{{ end }}
     {{ partial "footer.html" . }}
@@ -21,5 +23,6 @@
     {{ partial "script.html" "js/jquery.min.js" }}
     {{ partial "script_async.html" "js/bootstrap.min.js" }}
     {{ block "scripts_extra" . }}{{ end }}
-  </body>
+</body>
+
 </html>

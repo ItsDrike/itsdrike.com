@@ -1,45 +1,45 @@
 <h1 class="display-4">{{ .Title }}</h1>
 {{ if .Params.subtitle }}
-  <h5 class="my-3">{{ markdownify .Params.subtitle | emojify }}</h5>
+<h5 class="my-3">{{ markdownify .Params.subtitle | emojify }}</h5>
 {{ end }}
 
 {{ if .IsPage }}
-  <p>{{ partial "content-details.html" . }}</p>
+<p>{{ partial "content-details.html" . }}</p>
 
-  <!-- When directly viewing the article, if available, we also include revision date-->
-  {{ if and (not .Lastmod.IsZero) (not (.Lastmod.Equal .Date)) }}
-    <span class="pr-2" title='{{ .Lastmod.Format "January 2 2006" }}'>
-      <i class="pr-1 content-detail">Article revised in: {{ .Lastmod.Format "January 2 2006" }}</i>
-    </span>
-  {{ end }}
+<!-- When directly viewing the article, if available, we also include revision date-->
+{{ if and (not .Lastmod.IsZero) (not (.Lastmod.Equal .Date)) }}
+<span class="pr-2" title='{{ .Lastmod.Format "January 2 2006" }}'>
+    <i class="pr-1 content-detail">Article revised in: {{ .Lastmod.Format "January 2 2006" }}</i>
+</span>
+{{ end }}
 {{ end }}
 
 {{ if .Content }}
-  <hr>
+<hr>
 
-  <div class="content mt-3">
+<div class="content mt-3">
     {{ if .TableOfContents }}
-      <!-- Get the amount of headers using regex -->
-      {{ $headers := findRE "<h[1-6].*?>(.|\n])+?</h[1-6]>" .Content }}
-      <!-- We only need to show a table of contents if we have over 4 headers -->
-      {{ if ge (len $headers) 4 }}
+    <!-- Get the amount of headers using regex -->
+    {{ $headers := findRE "<h[1-6].*?>(.|\n])+?</h[1-6]>" .Content }}
+        <!-- We only need to show a table of contents if we have over 4 headers -->
+        {{ if ge (len $headers) 4 }}
         <div class="float-lg-end ml-lg-3 mb-3 p-3">
-          {{ .TableOfContents }}
+            {{ .TableOfContents }}
         </div>
-      {{ end }}
-    {{ end }}
-    {{ .Content }}
-
-
-    <div id="sources">
-      {{ if .Params.Sources }}
-        <h2>Sources</h2>
-        <ul>
-        {{ range $i, $e := .Params.Sources }}
-          <li>{{ markdownify $e }}</li>
         {{ end }}
-        </ul>
-      {{ end }}
-    </div>
-  </div>
+        {{ end }}
+        {{ .Content }}
+
+
+        <div id="sources">
+            {{ if .Params.Sources }}
+            <h2>Sources</h2>
+            <ul>
+                {{ range $i, $e := .Params.Sources }}
+                <li>{{ markdownify $e }}</li>
+                {{ end }}
+            </ul>
+            {{ end }}
+        </div>
+</div>
 {{ end }}
