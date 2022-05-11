@@ -1,13 +1,22 @@
 {{ define "main" }}
-  <div id="main">
+<div id="main">
     <div class="container">
-      {{ partial "content.html" . }}
-      {{ if .Content }}
+        {{ partial "content.html" . }}
+        {{ if .Content }}
         <hr>
-      {{ end }}
-      {{ range .Pages.ByTitle }}
-        {{ partial "list_item.html" . }}
-      {{ end }}
+        {{ end }}
+
+        <div class="item-list">
+            <div class="item-list-group">
+                <ul class="item-list-items">
+                    {{ range .Pages.ByTitle }}
+                    <li class="item-list-item" data-id="{{ with .File}}{{ .File.UniqueID }}{{ end }}">
+                        {{ partial "list_item.html" . }}
+                    </li>
+                    {{ end }}
+                </ul>
+            </div>
+        </div>
     </div>
-  </div>
+</div>
 {{ end }}

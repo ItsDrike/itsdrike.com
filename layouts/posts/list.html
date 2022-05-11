@@ -1,22 +1,34 @@
 {{ define "main" }}
-  <div id="main">
+<div id="main">
     <div class="container">
-      {{ partial "content.html" . }}
+        <!-- Total posts, total words, link to tag list page, RSS -->
 
-      <!--Group posts by months-->
-      {{ range .Pages.GroupByDate "2006-01" }}
-        {{ $month := print .Key  "-01"}}
-        {{ $display := dateFormat "2006-01" $month }}
-        <h3 class="mt-5" id="{{ $display }}">
-          <a href="#{{ $display }}">
-            <time datetime="{{ $month }}" title='{{ dateFormat "January 2006" $month }}'>{{ $display }}</time>
-          </a>
-        </h3>
-        <!--List posts belonging to current month -->
-        {{ range (sort .Pages "Date" "desc") }}
-          {{ partial "list_item.html" . }}
-        {{ end }}
-      {{ end }}
+        <div class="item-list">
+            {{ partial "content.html" . }}
+            <!-- Go through post groups by year -->
+            {{ range .Data.Pages.GroupByDate "2006" }}
+            {{ $year := .Key }}
+
+            <div class="item-list-group">
+                <!-- Show the year for this group -->
+                <h3 class="item-list-year" id="{{ $year }}">
+                    <a href="#{{ $year }}">
+                        <time datetime="{{ $year }}" title='{{ $year }}'>{{ $year }}</time>
+                    </a>
+                </h3>
+
+                <!-- List all posts in this year group -->
+                <ul class="item-list-items">
+                    {{ range .Pages }}
+                    <li class="item-list-item" data-id="{{ with .File}}{{ .File.UniqueID }}{{ end }}">
+                        {{ .Scratch.Set "dateformat" "Jan 02" }}
+                        {{ partial "list_item.html" . }}
+                    </li>
+                    {{ end }}
+                </ul>
+            </div>
+            {{ end }}
+        </div>
     </div>
-  </div>
+</div>
 {{ end }}
