@@ -211,8 +211,10 @@ img {
 
     .item-list-year {
         padding-top: 6px;
-        margin-right: 1.8em;
+        margin-right: 0.8em;
         font-size: 2em;
+        border-right: 2px solid rgba(255, 255, 255, 0.4);
+        padding-right: 0.8em;
     }
 
     .item-list-items {
