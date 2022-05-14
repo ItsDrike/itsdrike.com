@@ -1,0 +1,12 @@
+{{ define "main" }}
+<div id="main">
+    <div class="container">
+        {{ partial "header_image.html" . }}
+        {{ partial "content.html" . }}
+    </div>
+</div>
+{{ end }}
+
+{{ define "scripts_extra" }}
+{{ partial "script.html" "js/code-copy.js" }}
+{{ end }}
