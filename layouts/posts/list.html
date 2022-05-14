@@ -26,8 +26,7 @@
                 <ul class="item-list-items">
                     {{ range .Pages }}
                     <li class="item-list-item" data-id="{{ with .File}}{{ .File.UniqueID }}{{ end }}">
-                        {{ .Scratch.Set "dateformat" "Jan 02" }}
-                        {{ partial "list_item.html" . }}
+                        {{ partial "list_item.html" (dict "context" . "dateformat" "Jan 02") }}
                     </li>
                     {{ end }}
                 </ul>

@@ -1,18 +1,16 @@
-<!-- Obtain "dateformat" from scratchpad (or fall back to default) -->
-{{ if not (.Scratch.Get "dateformat") }}
-{{ .Scratch.Set "dateformat" "Jan 02, 2006" }}
-{{ end }}
-{{ $dateformat := .Scratch.Get "dateformat" }}
-<!-- Reset scratchpad for next use (in next page) - avoids using old values -->
-{{ .Scratch.Set "dateformat" nil }}
+<!-- 
+Note: This partial is expected to be called with special syntax of:
+partial "list_item.html" (dict "context" . "dateformat" "Jan 02, 2006")
 
+This allows it to take "dateformat" as a variable, so it can differ between calls.
+-->
 
-<a class="item-name" href="{{ .RelPermalink }}">
-    <span class="item-title">{{ .Title }}</span>
-    {{ if not .Date.IsZero }}
-    <span class="item-day">{{ .Date.Format $dateformat }}</span>
+<a class="item-name" href="{{ .context.RelPermalink }}">
+    <span class="item-title">{{ .context.Title }}</span>
+    {{ if not .context.Date.IsZero }}
+    <span class="item-day">{{ .context.Date.Format .dateformat }}</span>
     {{ end }}
 </a>
-<small class="item-details">{{ partial "content-details.html" . }}</small>
+<small class="item-details">{{ partial "content-details.html" .context }}</small>
 <!-- TODO: Only show summary on hover? -->
-<p class="item-summary">{{ partial "summary.html" . }}</p>
+<p class="item-summary">{{ partial "summary.html" .context }}</p>
