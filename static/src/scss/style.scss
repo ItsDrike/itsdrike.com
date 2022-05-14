@@ -5,11 +5,14 @@ $primary-yellow: #FFB238;
 $primary-red: #B20600;
 $body-bg: #17181C;
 $footer-height: 110px;
-$font-size-base: 1.2rem;
 $headings-margin-bottom: 1.5rem;
 $paragraph-margin-bottom: $headings-margin-bottom * 0.85;
 
+$font-family-body: "Inter", -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", Helvetica, Arial, sans-serif;
+$font-size-base: 1.2rem;
+
 @import "node_modules/bootstrap/scss/bootstrap";
+@import url('https://rsms.me/inter/inter.css');
 
 $navbar-height: 40px;
 $body-color: $gray-300;
