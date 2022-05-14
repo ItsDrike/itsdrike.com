@@ -1,0 +1,64 @@
+// This is for list type pages, such as posts page
+// to show individual items/pages for that listing
+.item-list {
+    width: 100 1%;
+    max-width: 1500px;
+    text-align: left;
+    padding: 20px;
+    margin: 20px auto;
+
+    .item-list-group {
+        display: flex;
+        margin-bottom: 1.9em;
+        line-height: normal;
+    }
+
+    .item-list-year {
+        padding-top: 6px;
+        margin-right: 0.8em;
+        font-size: 2em;
+        border-right: 2px solid rgba(255, 255, 255, 0.4);
+        padding-right: 0.8em;
+        a {
+            color: $primary-light;
+        }
+    }
+
+    .item-list-items {
+        flex-grow: 1;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .item-list-item {
+        border-bottom: 1px grey dashed;
+
+        .item-name {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            text-decoration: none;
+        }
+
+        .item-title {
+            font-size: 1.3rem;
+            margin: 5px 0 5px 0;
+        }
+
+        .item-day {
+            flex-shrink: 0;
+            margin-left: 1em;
+            opacity: 0.8;
+        }
+
+        .item-details {
+            font-size: 0.8rem;
+            text-indent: 2em;
+        }
+
+        .item-summary {
+            font-size: 1rem;
+        }
+    }
+}

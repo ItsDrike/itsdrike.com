@@ -1,0 +1,21 @@
+#TableOfContents {
+  font-size: $font-size-base;
+
+  ul {
+    list-style-type: none;
+  }
+
+  & > ul {
+    margin-bottom: 0;
+    padding-left: $spacer;
+
+    li {
+      text-indent: -5px;
+
+      &::before {
+        margin-right: 5px;
+        content: "-";
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+// Preceeding clickable anchors in headers
+// (for exact header reference)
+h1, h2, h3, h4, h5, h6 {
+  .anchor {
+    font-weight: lighter;
+  }
+}

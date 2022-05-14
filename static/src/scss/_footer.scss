@@ -1,0 +1,14 @@
+footer {
+  background-color: $black;
+  width: 100%;
+  height: $footer-height;
+  color: lighten($black, 50);
+
+  a {
+    color: inherit;
+
+    &:hover {
+      color: lighten($black, 75);
+    }
+  }
+}
