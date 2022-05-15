@@ -1,7 +1,5 @@
-@import "node_modules/bootstrap/scss/bootstrap";
-
 $body-bg: #17181C;
-$body-color: $gray-300;
+$body-color: #DEE2E6;
 
 $primary: #E85537;
 $primary-light: #FF773D;
@@ -21,6 +19,8 @@ $paragraph-margin-bottom: $headings-margin-bottom * 0.85;
 $font-family-body: "Inter", -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", Helvetica, Arial, sans-serif;
 $font-family-mono: "JetBrains Mono", monospace;
 $font-size-base: 1.2rem;
+
+@import "node_modules/bootstrap/scss/bootstrap";
 
 @import "fonts";
 @import "chroma";
