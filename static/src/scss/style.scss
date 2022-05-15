@@ -1,3 +1,8 @@
+@import "node_modules/bootstrap/scss/bootstrap";
+
+$body-bg: #17181C;
+$body-color: $gray-300;
+
 $primary: #E85537;
 $primary-light: #FF773D;
 $primary-lighter: #F19143;
@@ -8,7 +13,7 @@ $inline-code-color: #E2777A;
 $inline-code-background: #3B3D42;
 $codeblock-background: #272822;
 
-$body-bg: #17181C;
+$navbar-height: 40px;
 $footer-height: 110px;
 $headings-margin-bottom: 1.5rem;
 $paragraph-margin-bottom: $headings-margin-bottom * 0.85;
@@ -16,12 +21,6 @@ $paragraph-margin-bottom: $headings-margin-bottom * 0.85;
 $font-family-body: "Inter", -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", Helvetica, Arial, sans-serif;
 $font-family-mono: "JetBrains Mono", monospace;
 $font-size-base: 1.2rem;
-
-@import "node_modules/bootstrap/scss/bootstrap";
-
-$navbar-height: 40px;
-$body-color: $gray-300;
-
 
 @import "fonts";
 @import "chroma";
