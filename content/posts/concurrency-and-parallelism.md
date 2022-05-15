@@ -27,7 +27,7 @@ own speeds on separate lanes and we can physically fit in more cars.
 Similarly to this example, when we use concurrency, we allocate multiple physical CPUs/cores to a process, essentially
 giving it more clock cycles, however not every task is suited for concurrent run, consider this example:
 
-```py
+```python
 x = my_function()
 y = my_other_function(x)
 ```
@@ -80,7 +80,7 @@ communication cost compared to threads.
 
 Consider this code:
 
-```py
+```python
 >>> import sys
 >>> a = []
 >>> b = a
@@ -114,7 +114,7 @@ There is a way to circumvent this though, and that is with the use of locks
 
 Dummy internal code:
 
-```py
+```python
 lock.acquire()
 references = sys.getrefcount()
 references += 1
@@ -167,7 +167,7 @@ become incorrect in a way that's hard to see during code reviews.
 ## Debugging multi-threaded code
 
 As an example, this is a multi-threaded code that will pass all tests and yet it is full of bugs:
-```py
+```python
 import threading
 
 counter = 0
@@ -192,7 +192,7 @@ behind every instruction to ensure that it is safe if a switch happens during th
 it is advised to run the code multiple times because there is a chance of getting the correct result even with this
 method since it always is one of the possibilities, this is why multi-threaded code can introduce a lot of problems.
 This would be the code with this "fuzzing" method applied:
-```py
+```python
 import threading
 import time
 import random
@@ -226,7 +226,7 @@ I had to actually split the code like this. This makes it almost impossible to t
 problem.
 
 It is possible to fix this code with the use of locks, which would look like this:
-```py
+```python
 import threading
 
 counter_lock = threading.Lock()
@@ -264,7 +264,7 @@ Not to mention that there is a core issue with this code.  Even though the code 
 bugs, it is still wrong. Why? When we use enough locks in our multi-threaded code, we may end up making it full
 sequential, which is what happened here. Our code is running synchronously, with huge amount of overhead from the locks
 that didn't need to be there and the actual code that would've been sufficient looks like this:
-```py
+```python
 counter = 0
 print("Starting")
 for _ in range(5)

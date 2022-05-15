@@ -21,7 +21,7 @@ the possibility of having multiple same elements in them.
 
 An example of this would be as simple as this:
 
-```py
+```python
 duplicate_list = [1, 2, 4, 4, 5, 1, 3]
 result = list(set(duplicate_list))
 ```
@@ -62,7 +62,7 @@ We can tackle this simply by making another `result` list, that will only hold t
 against which we will be running the `==` comparisons (for each value in it), to avoid ever inserting a duplicate value
 into it. Example of this code:
 
-```py
+```python
 duplicate_list = [1, 1, 2, 4, [1, 2], [2, 1], [1, 2], "foo", "bar"]
 result = []
 for element in duplicate_list:
@@ -99,7 +99,7 @@ We can use this `id` for our comparisons instead of using the `__eq__` and since
 use it as a hash of that object. However we should know that this will result in some weirdness and this method likely
 isn't what you'd want for general duplicate removing.
 
-```py
+```python
 a = "hello"
 b = a  # Python will not make a new string object here, so it will use the same one
 
@@ -119,7 +119,7 @@ relied on and with some interpreters, this simply won't be the case and we would
 
 The algorithm like this is relatively simple:
 
-```py
+```python
 x = Foo(x=5)
 y = Foo(x=5)
 duplicate_list = [x, x, y, 1, 2, "hi", Foo(x=5)]
