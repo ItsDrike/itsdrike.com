@@ -1,0 +1,71 @@
+code {
+    font-family: $font-family-mono;
+    font-display: auto;
+    font-feature-settings: normal;
+    background: $inline-code-background;
+    padding: 1px 6px;
+    margin: 0 2px;
+    border-radius: 5px;
+    font-size: 0.95rem;
+    color: $inline-code-color;
+}
+
+.highlight {
+    margin: 3rem 0 1rem;
+}
+.highlight > div {
+    background: $codeblock-background;
+}
+
+.highlight > pre {
+    margin: 0 0 2rem;
+    padding: 1rem;
+    // border-radius: 1 rem;
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+    color: #ccc;
+    font-family: $font-family-mono;
+    font-size: 1em;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    tab-size: 4;
+    hyphens: none;
+}
+
+.chroma [data-lang]:before {
+    position: absolute;
+    z-index: 0;
+    top: -22px;
+    left: 0;
+    content: attr(data-lang);
+    font-size: 0.8em;
+    color: #a9a9b3;
+    background-color: $codeblock-background;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    padding: 5px 10px 7px;
+    line-height: 1.2;
+}
+
+pre {
+    background: $codeblock-background;
+    text-align: left;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    overflow: auto;
+
+    code {
+        background: none !important;
+        color: inherit;
+        margin: 0;
+        padding: 0;
+        font-size: inherit;
+    }
+}

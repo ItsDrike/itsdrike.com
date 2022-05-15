@@ -3,24 +3,45 @@ $primary-light: #FF773D;
 $primary-lighter: #F19143;
 $primary-yellow: #FFB238;
 $primary-red: #B20600;
+
+$inline-code-color: #E2777A;
+$inline-code-background: #3B3D42;
+$codeblock-background: #272822;
+
 $body-bg: #17181C;
 $footer-height: 110px;
 $headings-margin-bottom: 1.5rem;
 $paragraph-margin-bottom: $headings-margin-bottom * 0.85;
 
 $font-family-body: "Inter", -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", Helvetica, Arial, sans-serif;
+$font-family-mono: "JetBrains Mono", monospace;
 $font-size-base: 1.2rem;
 
 @import "node_modules/bootstrap/scss/bootstrap";
+
 @import url('https://rsms.me/inter/inter.css');
+@font-face {
+  font-style: normal;
+  font-family: "JetBrains Mono";
+  font-display: swap;
+  src: local("JetBrains Mono"),
+       local("JetBrains-Mono"),
+       url("../lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2") format("woff2"),
+       url("../lib/JetBrainsMono/web/woff/JetBrainsMono-Regular.woff") format("woff"),
+       url("../lib/JetBrainsMono/web/eot/JetBrainsMono-Regular.eot") format("embedded-opentype"),
+       url("../lib/JetBrainsMono/ttf/JetBrainsMono-Regular.ttf") format("truetype");
+};
 
 $navbar-height: 40px;
 $body-color: $gray-300;
 
+
+@import "chroma";
 @import "main";
 @import "navbar";
 @import "footer";
 @import "items";
 @import "table_of_contents";
 @import "anchors";
+@import "code";
 @import "code_copy";

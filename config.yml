@@ -13,6 +13,10 @@ markup:
   goldmark:
     renderer:
       unsafe: true
+  highlight:
+      codeFences: true
+      noClasses: false
+      style: monokai
 
 summaryLength: 40
 enableEmoji: true

@@ -23,5 +23,4 @@ cp -r "$STATIC_SRC/scss"/* "$STATIC_BUILD/scss"
 
 cp -r "$BASEDIR/node_modules/@fortawesome/fontawesome-free/webfonts" "$STATIC_BUILD"
 
-hugo gen chromastyles --style=monokai > "$STATIC_BUILD/css/highlight.css"
 hugo -vDEF --gc $@
