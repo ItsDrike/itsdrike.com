@@ -44,6 +44,7 @@ current one, to avoid data repetition. This would be an example of the data tabl
 
 Table of students:
 
+{{< table >}}
 | Student ID | Date of birth | Name           | Permanent residence address | Field of study       |
 |------------|---------------|----------------|-----------------------------|----------------------|
 | 0          | 1999-02-22    | John Doe       | Leander, Texas(TX), 78641   | Software Engineering |
@@ -51,9 +52,11 @@ Table of students:
 | 2          | 2000-11-14    | Samantha Jones | Dayton, Kentucky(KY), 41074 | Graphics Design      |
 | 3          | 1998-04-12    | Michael Carter | Macomb, Michigan(MI), 48044 | Software Engineering |
 | ...        | ...           | ...            | ...                         | ...                  |
+{{< /table >}}
 
 Student Grades:
 
+{{< table >}}
 | Student | Subject           | Grade | Year |
 |---------|-------------------|-------|------|
 | 0       | Mathematics       | B     | 2020 |
@@ -63,6 +66,7 @@ Student Grades:
 | 2       | Web Design        | A     | 2021 |
 | 2       | Web Design        | B     | 2020 |
 | ...     | ...               | ...   | ...  |
+{{< /table >}}
 
 Here we can see that the *Student Grades* table doesn't have a standalone unique primary key, like the Students table
 has, but rather it has a composite primary key, in this case, it's made of 3 columns: *Student*, *Subject* and *Year*.

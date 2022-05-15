@@ -52,14 +52,6 @@ ul ul, ol ol {
   text-indent: 2em;
 }
 
-table td {
-  vertical-align: middle;
-}
-
-.table-dark {
-  color: $body-color;
-}
-
 .content {
   h1, h2, h3, h4, h5, h6 {
     margin-top: $headings-margin-bottom * 2.2;
@@ -86,14 +78,6 @@ table td {
     border-left: $spacer * 0.2 solid $light;
     padding-left: $spacer * 1.2;
   }
-
-  table {
-    @extend .table, .table-dark, .table-striped;
-    margin: 0 auto;
-    margin-bottom: $paragraph-margin-bottom;
-    width: 66%;
-    text-align: center;
-  }
 }
 
 img {
@@ -103,4 +87,19 @@ img {
 .header-image {
   width: 100%;
   height: 35vh;
+}
+
+.markdown-table {
+    table {
+        @extend .table, .table-dark, .table-striped;
+        margin: 0 auto;
+        color: $body-color;
+        margin-bottom: 0;
+        width: 66%;
+        text-align: center;
+
+        td {
+            vertical-align: middle;
+        }
+    }
 }

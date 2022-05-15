@@ -1,0 +1,5 @@
+{{ $htmlTable := .Inner | markdownify }}
+
+<div class="markdown-table">
+    {{ $htmlTable | safeHTML }}
+</div>

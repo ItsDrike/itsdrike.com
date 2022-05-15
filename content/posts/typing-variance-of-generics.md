@@ -153,6 +153,7 @@ of the keys and second is the type of the values: `dict[str, int]` would be a di
 
 Here's a list of some definable generic types that are currently present in python 3.9:
 
+{{< table >}}
 | Type              | Description                                         |
 |-------------------|-----------------------------------------------------|
 | list[str]         | List of `str` objects                               |
@@ -162,6 +163,7 @@ Here's a list of some definable generic types that are currently present in pyth
 | Iterable[int]     | Iterable object containing ints                     |
 | Sequence[bool]    | Sequence of booleans (immutable)                    |
 | Mapping[str, int] | Mapping from `str` keys to `int` values (immutable) |
+{{< /table >}}
 
 
 In python, we can even make up our own generics with the help of `typing.Generic`:
