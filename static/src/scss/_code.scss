@@ -12,7 +12,14 @@ code {
 
 .highlight {
     margin: 3rem 0 1rem;
+
+    table {
+        tr td:last-child {
+            width: 100%;
+        }
+    }
 }
+
 .highlight > div {
     background: $codeblock-background;
 }
