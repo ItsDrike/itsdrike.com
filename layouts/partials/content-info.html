@@ -1,0 +1,29 @@
+<div class="content-info">
+  {{ if .Params.Sources }}
+  <div id="sources">
+    <h2>Sources</h2>
+    <ul>
+      {{ range $i, $e := .Params.Sources }}
+      <li>{{ markdownify $e }}</li>
+      {{ end }}
+    </ul>
+  </div>
+  {{ end }}
+  {{ if .Params.Changelog }}
+  <div id="changelog">
+    <h2> Changelog</h2>
+    <ul class="changelog-time">
+      {{ range $i, $e := .Params.Changelog }}
+      <li>
+        {{ time $i | time.Format "2006-01-02" }}:
+        <ul>
+          {{ range $c := $e }}
+          <li>{{ markdownify $c }}</li>
+          {{ end }}
+        </ul>
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+  {{ end }}
+</div>
