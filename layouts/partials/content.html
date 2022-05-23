@@ -42,5 +42,22 @@
         </ul>
         {{ end }}
     </div>
+    <div id="changelog">
+        {{ if .Params.Changelog }}
+        <h2> Changelog</h2>
+        <ul class="changelog-time">
+            {{ range $i, $e := .Params.Changelog }}
+            <li>
+                {{ time $i | time.Format "2006-01-02" }}:
+                <ul>
+                    {{ range $c := $e }}
+                    <li>{{ markdownify $c }}</li>
+                    {{ end }}
+                </ul>
+            </li>
+            {{ end }}
+        </ul>
+        {{ end }}
+    </div>
 </div>
 {{ end }}
