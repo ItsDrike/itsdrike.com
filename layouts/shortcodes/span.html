@@ -1,1 +1,1 @@
-<span {{ with .Get "style" }} style="{{ . | safeCSS }}" {{ end }}>{{ .Get "text" }}</span>
+<span {{ with .Get "style" }} style="{{ . | safeCSS }}" {{ end }}>{{ .Inner }}</span>
