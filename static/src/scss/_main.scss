@@ -104,8 +104,15 @@ img {
     }
 }
 
-#changelog, #sources {
-  font-family: $font-family-mono;
-  font-size: $font-size-base * 0.9;
-  font-weight: 400;
+.content-info {
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: $headings-margin-bottom;
+    margin-bottom: 0.3rem;
+  }
+
+  #changelog, #sources {
+    font-family: $font-family-mono;
+    font-size: $font-size-base * 0.9;
+    font-weight: 400;
+  }
 }
