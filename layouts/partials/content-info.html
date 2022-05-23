@@ -1,6 +1,6 @@
 <div class="content-info">
     {{ if .Params.Sources }}
-    <div id="sources">
+    <div class="sources">
         <h2>Sources</h2>
         <ul>
             {{ range $i, $e := .Params.Sources }}
@@ -10,7 +10,7 @@
     </div>
     {{ end }}
     {{ if .Params.Changelog }}
-    <div id="changelog">
+    <div class="changelog">
         <h2> Changelog</h2>
         <ul>
             {{ range $i, $e := .Params.Changelog }}
