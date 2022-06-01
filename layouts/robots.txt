@@ -1,4 +1,13 @@
 User-agent: *
-Allow: /
+Disallow: /img/
+Disallow: /js/
+Disallow: /css/
+Disallow: /scss/
+Disallow: /webfonts/
+Disallow: /error/
+
+Disallow: /files/
+Disallow: /extra/
+Disallow: /special
 
 Sitemap: {{ absURL "sitemap.xml" }}
