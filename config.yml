@@ -5,8 +5,6 @@ title: "ItsDrike"
 staticDir: "static/build"
 assetDir: "static/build"
 
-theme: ["hugo-notice"]
-
 buildFuture: true
 MetaDataFormat: yaml
 markup:

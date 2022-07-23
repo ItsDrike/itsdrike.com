@@ -1,0 +1,69 @@
+$notice-root: #FFF;
+$notice-root-bg: #E7F2FA;
+$notice-title: #FFF;
+$notice-title-bg: #6AB0DE;
+
+$notice-warning-title: rgba(130, 49, 47, 0.9);
+$notice-warning: #341312;
+$notice-info-title: #906B4B;
+$notice-info: #392A1E;
+$notice-note-title: #3F6985;
+$notice-note: #192A35;
+$notice-tip-title: rgba(46, 92, 46, 0.8);
+$notice-tip: #122412;
+
+.notice {
+    padding: 18px;
+    line-height: 24px;
+    margin-bottom: 24px;
+    border-radius: 4px;
+    color: $notice-root;
+    background: $notice-root-bg;
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.notice.warning {
+    background: $notice-warning;
+    .notice-title {background: $notice-warning-title;}
+}
+.notice.info {
+    background: $notice-info;
+    .notice-title {background: $notice-info-title;}
+}
+.notice.note {
+    background: $notice-note;
+    .notice-title {background: $notice-note-title;}
+}
+.notice.tip {
+    background: $notice-tip;
+    .notice-title{background: $notice-tip-title;}
+}
+
+.notice-title{
+    margin: -18px -18px 12px;
+    padding: 4px 18px;
+    border-radius: 4px 4px 0 0;
+    font-weight: 700;
+    color: $notice-title;
+    background: $notice-title-bg;
+}
+
+.icon-notice{
+    display: inline-flex;
+    align-self: center;
+    margin-right: 8px;
+
+    img, svg {
+        height: 1em;
+        width: 1em;
+        fill: currentColor;
+    }
+}
+
+.icon-notice img, .icon-notice.baseline svg{
+    top: 0.125em;
+    position: relative;
+}
