@@ -1,57 +1,35 @@
 (() => {
     "use strict";
 
-    if (!document.queryCommandSupported("copy")) {
-        return;
-    }
-
     function flashCopyMessage(el, msg) {
         el.textContent = msg;
-        setTimeout(() => {
-            el.textContent = "Copy";
-        }, 1000);
+        setTimeout(() => { el.textContent = "Copy"; }, 1000);
     }
 
-    function selectText(node) {
-        let selection = window.getSelection();
-        let range = document.createRange();
-        if (node.childElementCount === 2) {
-            // Skip the title.
-            range.selectNodeContents(node.children[1]);
-        } else {
-            // ignore linenumbers
-            let _ln = node.getElementsByClassName("chroma");
-            let _node = node.getElementsByTagName("pre")[1]
-            if (_ln.length >= 1) {
-                range.selectNodeContents(_node);
-            } else {
-                range.selectNodeContents(node);
-            }
-        }
-        selection.removeAllRanges();
-        selection.addRange(range);
-        return selection;
+    function handleClick(containerEl, copyBtn) {
+        // Find the pre element containing the source code.
+        // If this is a regular codeblock, there should only be 1 pre element
+        // If this is a hugo highlight block with linenumers, there will be 2 elements,
+        // where, the first will contain line numbers, and second will contain the code
+        let preElements = containerEl.getElementsByTagName("pre");
+        let preEl = preElements[preElements.length - 1]
+
+        let codeEl = preEl.firstElementChild;
+        let text = codeEl.textContent;
+
+        navigator.clipboard.writeText(text)
+            .then(() => { flashCopyMessage(copyBtn, "Copied!"); })
+            .catch((error) => { 
+                    console && console.log(error);
+                    flashCopyMessage(copyBtn, "Failed :'(");
+                })
     }
 
     function addCopyButton(containerEl) {
         let copyBtn = document.createElement("button");
         copyBtn.className = "copy-button";
         copyBtn.textContent = "Copy";
-
-        let codeEl = containerEl.firstElementChild;
-        copyBtn.addEventListener("click", () => {
-            try {
-                let selection = selectText(codeEl);
-                document.execCommand("copy");
-                selection.removeAllRanges();
-
-                flashCopyMessage(copyBtn, "Copied!");
-            } catch (e) {
-                console && console.log(e);
-                flashCopyMessage(copyBtn, "Failed :'(");
-            }
-        });
-
+        copyBtn.addEventListener("click", () => handleClick(containerEl, copyBtn));
         containerEl.appendChild(copyBtn);
     }
 
