@@ -22,6 +22,8 @@ cp -r "$BASEDIR/node_modules/@fortawesome/fontawesome-free/css/all.min.css" "$ST
 mkdir -p "$STATIC_BUILD/scss"
 cp -r "$STATIC_SRC/scss"/* "$STATIC_BUILD/scss"
 
-cp -r "$BASEDIR/node_modules/@fortawesome/fontawesome-free/webfonts" "$STATIC_BUILD"
+mkdir -p "$STATIC_BUILD/webfonts"
+cp -r "$STATIC_SRC/webfonts"/* "$STATIC_BUILD/webfonts"
+cp -r "$BASEDIR/node_modules/@fortawesome/fontawesome-free/webfonts"/* "$STATIC_BUILD/webfonts"
 
 hugo -vDEF --gc $@
