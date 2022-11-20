@@ -22,3 +22,12 @@ hugo server arguments to the script, just like you would with running bare `hugo
 ```
 $ ./scripts/server.sh --bind 0.0.0.0 --port 80 --baseURL https://itsdrike.com/
 ```
+
+## Docker
+
+Another way to deploy the webpage is to use the automatically built docker container, which you can find [here](https://github.com/ItsDrike/itsdrike.com/pkgs/container/web). This container is always built from latest version in the main branch, and to get it, you can simply run
+```
+$ sudo docker run -p 8080:80 ghcr.io/itsdrike/web
+```
+
+Which will expose the web on port 8080 (see it at http://127.0.0.1:8080)
