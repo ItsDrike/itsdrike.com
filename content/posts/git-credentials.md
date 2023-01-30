@@ -16,6 +16,11 @@ sources:
     - <https://blog.bitsrc.io/how-to-use-multiple-git-accounts-378ead121235>
     - <https://www.freecodecamp.org/news/the-ultimate-guide-to-ssh-setting-up-ssh-keys/>
     - <https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-config>
+changelog:
+    2023-01-30:
+        - Add note about disabling commit signing
+        - Add alternative command for copying on wayland
+        - Fix typos and text wrapping
 ---
 
 Many people often find initially setting up their git user a bit unclear, especially when it comes to managing multiple
@@ -65,6 +70,17 @@ git config --local user.name ItsDrike
 git config --local user.email itsdrike@example.com
 git config --local user.signingkey B014E761034AF742  # Signing key isn't required
 ```
+
+{{< notice tip >}}
+If your global git config has commit signing enabled by default, but you don't want to sign commits for the locally
+configured account, you can disable it with:
+
+```bash
+git config --local commit.gpgsign false
+```
+{{< /notice >}}
+
+
 
 ## Git credentials
 
@@ -133,9 +149,9 @@ section matches this context. It will consider the two a match, if the context m
 too, if they are present (`/ItsDrike/itsdrike.com`)
 
 {{< notice note >}}
-Git matches the hosts directly, without considering if they come from the same domain, so if subdomain differs, it will not register as a match.
-For example, for context of `https://gitlab.work_company.com/user/repo.git`, it wouldn't match a configuration section
-for `https://work_company.com`, since `wokr_company.com != gitlab.work_company.com`.
+Git matches the hosts directly, without considering if they come from the same domain, so if subdomain differs, it will
+not register as a match. For example, for context of `https://gitlab.work_company.com/user/repo.git`, it wouldn't match
+a configuration section for `https://work_company.com`, since `work_company.com != gitlab.work_company.com`.
 
 The paths are also matched exactly (if they're included), so for the example context from above, we would not get a
 match on a config section with `https://gitlab.work_company.com/user`, only on
@@ -306,15 +322,17 @@ the most commonly used platforms:
 - [BitBucket](https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/#Step-3.-Add-the-public-key-to-your-Account-settings)
 
 {{< notice tip >}}
-The documentation may tell you to use `pbcopy` or some other command line tool to copy the SSH key contents to your clipboard. For example:
+The documentation may tell you to use `pbcopy` or some other command line tool to copy the SSH key contents to your
+clipboard. For example:
 
 ```bash
 pbcopy < ~/.ssh/id_ed25519.pub
 ```
 
 However, if you are having trouble with this command, you can use `xsel --clipboard --input < ~/.ssh/id_ed25519.pub`
-instead, or you can also just simply open up the public key file in any editor of your choosing, and copy the
-**entire** file contents with Ctrl+C.
+instead, or `wl-copy < ~/.ssh/id_ed25519` on wayland. You can also just simply open up the public key file in any
+editor of your choosing, and copy the **entire** file contents with Ctrl+C (if you're one of the weird people that use
+windows, this is your only option).
 {{< /notice >}}
 
 #### Test if it works
