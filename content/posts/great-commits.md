@@ -47,7 +47,8 @@ added that commit, and read it's description, which might not even contain that 
 ### Commit isn't just the first line
 
 A huge amount of people are used to committing changes with a simple `git commit -m "My message"`, and while this is
-enough and it's perfectly in many cases, sometimes you just need more space to describe what a change truly achieves.
+enough and it's perfectly fine in many cases, sometimes you just need more space to describe what a change truly
+achieves.
 
 Surprisingly, many people don't even know that they can make a commit that has more in it's message than just the
 title/first line, which then leads to poorly documented changes, because single line sometimes simply isn't enough. To
