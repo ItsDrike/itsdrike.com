@@ -1,4 +1,15 @@
 <div class="content-info">
+    {{ if .Params.Footnotes }}
+    <div class="footnotes">
+        <h2>Footnotes</h2>
+        <ul>
+            {{ range $i, $e := .Params.Footnotes }}
+            <li>{{ markdownify $e }}</li>
+            {{ end }}
+        </ul>
+    </div>
+    {{ end }}
+
     {{ if .Params.Sources }}
     <div class="sources">
         <h2>Sources</h2>
@@ -9,6 +20,7 @@
         </ul>
     </div>
     {{ end }}
+
     {{ if .Params.Changelog }}
     <div class="changelog">
         <h2> Changelog</h2>
@@ -26,4 +38,5 @@
         </ul>
     </div>
     {{ end }}
+
 </div>

@@ -31,7 +31,7 @@
 
     <article>{{ .Content }}</article>
 
-    {{ if or .Params.Sources .Params.Changelog }}
+    {{ if or (or .Params.Sources .Params.Changelog) .Params.Footnotes }}
     <hr>
     {{ partial "content-info.html" . }}
     {{ end }}
