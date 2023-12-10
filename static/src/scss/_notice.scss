@@ -19,6 +19,7 @@ $notice-tip: #122412;
     border-radius: 4px;
     color: $notice-root;
     background: $notice-root-bg;
+    display: inline-block;
 
     p:last-child {
         margin-bottom: 0;
