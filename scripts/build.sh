@@ -26,4 +26,4 @@ mkdir -p "$STATIC_BUILD/webfonts"
 cp -r "$STATIC_SRC/webfonts"/* "$STATIC_BUILD/webfonts"
 cp -r "$BASEDIR/node_modules/@fortawesome/fontawesome-free/webfonts"/* "$STATIC_BUILD/webfonts"
 
-hugo -vDEF --gc $@
+hugo -DEF --logLevel info --gc "$@"
