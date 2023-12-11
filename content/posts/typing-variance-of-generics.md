@@ -1,7 +1,7 @@
 ---
 title: Variance of typing generics (covariance, contravariance and invariance)
 date: 2021-10-04
-tags: [programming]
+tags: [programming, python]
 ---
 
 In many programming languages where typing matters we often need to define certain properties for the types of generics

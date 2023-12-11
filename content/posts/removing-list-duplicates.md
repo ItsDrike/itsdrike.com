@@ -1,7 +1,7 @@
 ---
 title: Removing duplicates from lists
 date: 2021-08-31
-tags: [programming]
+tags: [programming, python]
 ---
 
 In programming, we often need to handle removing duplicates from an array-like structure. While this may seem like an

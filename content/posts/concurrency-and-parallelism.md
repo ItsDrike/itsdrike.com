@@ -1,7 +1,7 @@
 ---
 title: Concurrency and Parallelism
 date: 2021-11-17
-tags: [programming]
+tags: [programming, python]
 ---
 
 Concurrency is an exciting topic that's becoming more and more important, yet I see so many people that aren't very
