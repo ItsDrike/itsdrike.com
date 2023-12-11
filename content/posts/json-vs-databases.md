@@ -36,10 +36,10 @@ systems is, as the name would imply, manage the database. It controls how the da
 if there should be some internal compression of this database or things like that.
 
 Even though there are a lot of choices for DBMS, no matter which one we end up using, on the surface, they will be
-doing exactly the same thing. Storing tables of data. Each item in the database usually has some *primary key*, which
+doing exactly the same thing. Storing tables of data. Each item in the database usually has some _primary key_, which
 is a unique identifier for given column of data. We can also have composite primary keys, where there would be multiple
 slots which are unique when combined, but don't necessarily need to be unique on their own. We can also use what's
-called a *foreign key*, which is basically the primary key of something in another database table, separate from the
+called a _foreign key_, which is basically the primary key of something in another database table, separate from the
 current one, to avoid data repetition. This would be an example of the data tables that a database could hold:
 
 Table of students:
@@ -68,8 +68,8 @@ Student Grades:
 | ...     | ...               | ...   | ...  |
 {{< /table >}}
 
-Here we can see that the *Student Grades* table doesn't have a standalone unique primary key, like the Students table
-has, but rather it has a composite primary key, in this case, it's made of 3 columns: *Student*, *Subject* and *Year*.
+Here we can see that the _Student Grades_ table doesn't have a standalone unique primary key, like the Students table
+has, but rather it has a composite primary key, in this case, it's made of 3 columns: _Student_, _Subject_ and _Year_.
 We can also see that rather than defining the whole student all over again, since we already have the students table,
 we can instead simply use the Student ID from which we can look up the given student from this table
 
@@ -148,4 +148,3 @@ Another use-case for databases is when you need to host the data of the database
 database, we can simply expose some port and let the DBMS handle interactions with it when our program can simply be
 making requests to this remote server. This is usually how we handle using databases with servers, but many client-side
 programs are creating their own local databases and using those, simply because using files is ineffective.
-

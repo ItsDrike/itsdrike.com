@@ -89,7 +89,7 @@ Consider this code:
 ```
 
 In the example here, we can see that python keeps a reference count for the empty list object, and in this case, it was
-3. The list object was referenced by a, b and the argument passed to `sys.getrefcount`. If we didn't have locks,
+\3. The list object was referenced by a, b and the argument passed to `sys.getrefcount`. If we didn't have locks,
 threads could attempt to increase the reference count at once, this is a problem because what would actually happen
 would go something like this:
 
@@ -102,7 +102,7 @@ would go something like this:
 
 [Treat sections of 2 lines as things happening concurrently]
 
-You can see that because threads 1 and 2 both read the reference amount from memory  at the same time, they read the
+You can see that because threads 1 and 2 both read the reference amount from memory at the same time, they read the
 same number, then they've increased it and stored it back without ever knowing that some other thread is also in the
 process of increasing the reference count but it read the same amount from memory as this process, so even though the
 first thread stored the updated amount, the 2nd thread also stored the updated amount, except they were the same
@@ -167,6 +167,7 @@ become incorrect in a way that's hard to see during code reviews.
 ## Debugging multi-threaded code
 
 As an example, this is a multi-threaded code that will pass all tests and yet it is full of bugs:
+
 ```python
 import threading
 
@@ -183,6 +184,7 @@ for _ in range(5):
     threading.Thread(target=foo).start()
 print("Finished")
 ```
+
 When you run this code, you will most likely get a result that you would expect, but it is possible that you could also
 get a complete mess, it's just not very likely because the code runs very quickly. This means you can write code
 multi-threaded code that will pass all tests and still fail in production, which is very dangerous.
@@ -192,6 +194,7 @@ behind every instruction to ensure that it is safe if a switch happens during th
 it is advised to run the code multiple times because there is a chance of getting the correct result even with this
 method since it always is one of the possibilities, this is why multi-threaded code can introduce a lot of problems.
 This would be the code with this "fuzzing" method applied:
+
 ```python
 import threading
 import time
@@ -219,6 +222,7 @@ for _ in range(5):
     threading.Thread(target=foo).start()
 print("Finished")
 ```
+
 You may also notice that I didn't just add `fuzz()` call to every line, I've also split the line that incremented
 counter into 2 lines, one that reads the counter and another one that actually increments it, this is because
 internally, that's what would be happening it would just be hidden away, so to add a delay between these instructions
@@ -226,6 +230,7 @@ I had to actually split the code like this. This makes it almost impossible to t
 problem.
 
 It is possible to fix this code with the use of locks, which would look like this:
+
 ```python
 import threading
 
@@ -257,13 +262,15 @@ for t in worker_threads:
 with printer_lock:
     print("Finished")
 ```
+
 As we can see, this code is a lot more complex than the previous one, it's not terrible, but you can probably imagine
 that with a bigger codebase, this wouldn't be fun to manage.
 
-Not to mention that there is a core issue with this code.  Even though the code will work and doesn't actually have any
+Not to mention that there is a core issue with this code. Even though the code will work and doesn't actually have any
 bugs, it is still wrong. Why? When we use enough locks in our multi-threaded code, we may end up making it full
 sequential, which is what happened here. Our code is running synchronously, with huge amount of overhead from the locks
 that didn't need to be there and the actual code that would've been sufficient looks like this:
+
 ```python
 counter = 0
 print("Starting")
@@ -273,6 +280,7 @@ for _ in range(5)
     print("----------------------")
 print("Finished")
 ```
+
 While in this particular case, it may be pretty obvious that there was no need to use threading at all, there are a lot
 of cases in which it isn't as clear and I have seen some projects with code that could've been sequential but they were
 already using threading for something else and so they made use of locks and added some other functionality, which made

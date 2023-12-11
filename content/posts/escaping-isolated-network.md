@@ -58,18 +58,22 @@ youtube-dl, download the video and then stream it from our machine instead of fr
 download the file from our server that has now downloaded this video, however that's way too crude.
 
 There is a much nicer method that we can use, and it is still utilizing pure SSH:
+
 ```sh
 ssh -f -N -D 1080 user@server
 ```
+
 This command will start SSH in background (`-f`), it won't run any actual commands (`-N`) and it will be bound to the
 port 1080 on our machine (`-D`). This means that we can utilize this port as a SOCK and make our server act as SOCKS5
 proxy. This kind of proxy will even be supported by most web browsers, allowing you to simply specify the address
 (in our case `127.0.0.1:1080`) and have all traffic go through this external server.
 
 To test that this connection really does work, we could use the `curl` command like this:
+
 ```sh
 curl --max-time 3 -x socks5h://127.0.0.1:1080 https://itsdrike.com
 ```
+
 If we see the HTML code as the output, it means that we've obtained the content of the specified website through our
 socks5 proxy, that we've established through simple SSH.
 
@@ -93,9 +97,11 @@ around SSH and it will simply utilize SSH in the background, which is also why w
 server side for this to work properly, as long as we simply have the SSH server running, `sshuttle` will work fine.
 
 We can use sshuttle with a command like this:
+
 ```sh
 sudo sshuttle -r user@machine 172.67.161.205/24 -vv
 ```
+
 Which will forward all traffic destined for the particular address block (the IP/number is called the CIDR notation, it
 essentially specifies which IPs should be affected depending on the number after /, you can read more about it on
 [wikipedia](https://wikiless.org/wiki/Classless_Inter-Domain_Routing?lang=en)). In this case, I've specified the IP of
@@ -112,12 +118,14 @@ you need to think about this ahead of time.
 
 You could also simply redirect the port 22 to something else using iptables instead of having to mess with the SSH
 config. You would do that with this command:
+
 ```sh
 sudo iptables -t nat -I PREROUTING -p tcp --dport 1234 -j REDIRECT --to-ports 22
 ```
 
 This command will make port `1234` act as the SSH port, and you could then access the server by specifying this port
 instead of the default port in the ssh command:
+
 ```
 ssh -f -N -D 1080 user@server -p 1234
 ```
@@ -213,9 +221,11 @@ Turns out that even with a security measure as strict as only allowing access to
 somewhat make our way to our server, by essentially telling it to map all exiting traffic from port 443 to port 22.
 
 To do this, we would use a command like this:
+
 ```sh
 ssh -o "ProxyCommand nc -X connect -x proxy_server:3128 our_server_IP 443" user@our_server_IP
 ```
+
 Here we're essentially sending a proxy command to the web proxy server (listening on port 3128) to through the port 443
 to our_server_IP and make requests to the SSH's default port (22) on our_server_IP. Making the actual proxy server
 access our server on port 22.
@@ -235,8 +245,10 @@ really be possible.
 
 To explain how easy it is to discover something like this, basically all that's needed is to run a single command on
 that web proxy:
+
 ```sh
 iptables -t nat -L
 ```
+
 And look for the output policy destinations. Even though many network admins won't do this, you shouldn't ever risk
 doing something silly like this, because if you will get discovered, you could get into some serious trouble

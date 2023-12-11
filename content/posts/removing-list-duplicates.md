@@ -134,8 +134,8 @@ return list(result.values())
 To preserve the original elements, we used a dict that held the unique hashable memory ids of our objects as keys and
 the actual unhashable objects as values. Once we were done, we just returned all of the values in it as a list.
 
-The result of this would be: `[x, y, 1, 2, "hi", Foo(x=5)]`. *(Note that `x`, `y` and `Foo(x=5)` would actually be
-printed in the same way, since they're the same class, sharing the same `__repr__`)*. From this output we can clearly
+The result of this would be: `[x, y, 1, 2, "hi", Foo(x=5)]`. _(Note that `x`, `y` and `Foo(x=5)` would actually be
+printed in the same way, since they're the same class, sharing the same `__repr__`)_. From this output we can clearly
 see that even though `x`, `y`, and `Foo(x=5)` are exactly the same thing, sharing the same attributes, they're
 different objects and therefore they have different memory ids, which means our algorithm didn't remove them, however
 there is now only one `x`, because the second one was indeed exactly the same object, so that did get removed.
@@ -217,4 +217,3 @@ one if we know which classes will be used there.
 Even though we do have ways to deal with unhashables, if you're in control of the classes, and they aren't supposed to
 be mutable, always make sure to add a `__hash__` method to them, so that duplicates can be easily removed in `O(n)`
 without any complicated inconveniences.
-

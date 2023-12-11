@@ -3,30 +3,30 @@ title: Managing (multiple) git credentials
 date: 2022-07-27
 tags: [programming, git]
 sources:
-    - <https://docs.github.com/en/get-started/getting-started-with-git/caching-your-github-credentials-in-git>
-    - <https://docs.github.com/en/authentication/connecting-to-github-with-ssh>
-    - <https://www.onwebsecurity.com/configuration/git-on-windows-location-of-global-configuration-file.html>
-    - <https://security.stackexchange.com/questions/90077/ssh-key-ed25519-vs-rsa>
-    - <https://www.shellhacks.com/git-config-username-password-store-credentials/>
-    - <https://git-scm.com/book/en/v2/Git-Tools-Credential-Storage>
-    - <https://engineeringfordatascience.com/posts/how_to_manage_multiple_git_accounts_on_the_same_machine/>
-    - <https://git-scm.com/docs/gitcredentials>
-    - <https://www.baeldung.com/ops/git-configure-credentials>
-    - <https://www.freecodecamp.org/news/manage-multiple-github-accounts-the-ssh-way-2dadc30ccaca/>
-    - <https://blog.bitsrc.io/how-to-use-multiple-git-accounts-378ead121235>
-    - <https://www.freecodecamp.org/news/the-ultimate-guide-to-ssh-setting-up-ssh-keys/>
-    - <https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-config>
+  - <https://docs.github.com/en/get-started/getting-started-with-git/caching-your-github-credentials-in-git>
+  - <https://docs.github.com/en/authentication/connecting-to-github-with-ssh>
+  - <https://www.onwebsecurity.com/configuration/git-on-windows-location-of-global-configuration-file.html>
+  - <https://security.stackexchange.com/questions/90077/ssh-key-ed25519-vs-rsa>
+  - <https://www.shellhacks.com/git-config-username-password-store-credentials/>
+  - <https://git-scm.com/book/en/v2/Git-Tools-Credential-Storage>
+  - <https://engineeringfordatascience.com/posts/how_to_manage_multiple_git_accounts_on_the_same_machine/>
+  - <https://git-scm.com/docs/gitcredentials>
+  - <https://www.baeldung.com/ops/git-configure-credentials>
+  - <https://www.freecodecamp.org/news/manage-multiple-github-accounts-the-ssh-way-2dadc30ccaca/>
+  - <https://blog.bitsrc.io/how-to-use-multiple-git-accounts-378ead121235>
+  - <https://www.freecodecamp.org/news/the-ultimate-guide-to-ssh-setting-up-ssh-keys/>
+  - <https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-config>
 changelog:
-    2023-01-30:
-        - Add note about disabling commit signing
-        - Add alternative command for copying on wayland
-        - Fix typos and text wrapping
+  2023-01-30:
+    - Add note about disabling commit signing
+    - Add alternative command for copying on wayland
+    - Fix typos and text wrapping
 ---
 
 Many people often find initially setting up their git user a bit unclear, especially when it comes to managing multiple
 git users on a single machine. But even managing credentials for just a single user can be quite complicated without
 looking into it a bit deeper. Git provides a lot of different options for credential storage, and picking one can be
-hard without knowing the pros and cons of that option. 
+hard without knowing the pros and cons of that option.
 
 Even if you already have your git set up, I'd still recommend at least looking at the possible options git has for
 credential storage, find the method you're using and make sure it's actually secure enough for your purposes. But
@@ -78,9 +78,8 @@ configured account, you can disable it with:
 ```bash
 git config --local commit.gpgsign false
 ```
+
 {{< /notice >}}
-
-
 
 ## Git credentials
 
@@ -98,7 +97,7 @@ first take a look at the most straight-forward method, which is to store them in
 # While clonning:
 git clone https://<USERNAME>:<PASSWORD>@github.com/path/to/repo.git
 # After initialized repo without any added remote:
-git remote add origin 
+git remote add origin
 # On an already clonned repository without the credentials:
 git remote set-url origin https://<USERNAME>:<PASSWORD>@github.com/path/to/repo.git
 ```
@@ -170,7 +169,7 @@ worried about leaking your **username** (not password) for the git hosting provi
 If you're using the global configuration, this generally shouldn't be a big concern, since the username won't actually
 be in the project file unlike with the remote-urls. However if you share a machine with multiple people, you may want
 to consider securing your global configuration file (`~/.config/git/config`) using your filesystem's permission
-controls to prevent others from reading it. 
+controls to prevent others from reading it.
 
 If you're defining contexts in local project's config though, you should be aware that the username will be present in
 `.git/config`, and sharing this project with others may leak it.
@@ -238,7 +237,6 @@ git config --global credential.helper 'cache --timeout=86400'
 The cache credential helper will never write your credential data to disk, although credentials are accessible using
 Unix sockets. These sockets are protected using file permissions that are limited to the user who stored them though,
 so even in multi-user machine, generally speaking, they are secure.
-
 
 #### Custom credential helpers
 
@@ -344,7 +342,7 @@ recognized. To run this test, you can simply issue this command (should work on 
 ssh -T git@github.com -i ~/.ssh/id_ed25519
 ```
 
-Running this command should produce a welcome message informing you that the connection works. 
+Running this command should produce a welcome message informing you that the connection works.
 
 If you are unsuccessful, you can run the command in verbose mode in order to get more details on why your connection
 was not established.
@@ -426,10 +424,10 @@ to remember the username or the password, instead you just need to know the host
 
 Generally, using SSH keys is the safest approach, but it can also be a bit annoying since it requires you to specify
 the SSH host for each repository in it's remote url. For that reason, the approach that I would recommend is using
-git's credential helper system to store your credentials instead. 
+git's credential helper system to store your credentials instead.
 
 However if you will go with this method, make sure that you're using a personal access token instead of the actual
-account's password, to limit the permissions an attacker would gain in case your credentials were leaked. 
+account's password, to limit the permissions an attacker would gain in case your credentials were leaked.
 
 If your git hosting platform doesn't provide access tokens, this method becomes a lot more dangerous to use, since if
 an attacker would somehow obtain the credentials file from your system, they would be able to gain full access to your
@@ -500,11 +498,11 @@ git config credentials.helper 'store --file=/home/user/.config/git-credentials-w
 ```
 
 With this approach, you can have your credentials kept in multiple separate credential files, and just mention the path
-to the file you need for each project. 
+to the file you need for each project.
 
 Security-wise, this method is better because your username will be kept outside of the project in the referenced git
 credential file, which should be secured by the file system's permissions to prevent reads from other users. However
-practicality-wise, it may be a bit more inconvenient to type and even to remember the path to each credential file. 
+practicality-wise, it may be a bit more inconvenient to type and even to remember the path to each credential file.
 
 ### SSH keys instead
 

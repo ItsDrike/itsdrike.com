@@ -144,4 +144,3 @@ this byte-code with an interpreter. This is also known as Just In Time (JIT) com
 
 Most languages tend to only be one or the other, but there are a fair few that follow this hybrid implementation, most
 notably, these are: Java, C#, Python, VB.NET
-

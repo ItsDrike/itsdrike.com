@@ -165,7 +165,6 @@ Here's a list of some definable generic types that are currently present in pyth
 | Mapping[str, int] | Mapping from `str` keys to `int` values (immutable) |
 {{< /table >}}
 
-
 In python, we can even make up our own generics with the help of `typing.Generic`:
 
 ```python
@@ -247,7 +246,7 @@ x: Tuple[Vehicle, ...] = cars
 # some of the functionalities of cars, so a type checker would complain here
 x: Tuple[Car, ...] = vehicles
 
-# In here, both of these assignments are valid because both cars and vehicles will 
+# In here, both of these assignments are valid because both cars and vehicles will
 # implement all of the logic that a basic `object` class needs. This means this
 # assignment is also valid for a generic that's covariant.
 x: Tuple[object, ...] = cars
@@ -288,7 +287,7 @@ x: Callable[[], Car] = get_wolkswagen_car
 
 # However this wouldn't really make sense the other way around.
 # We can't assign a function which returns any kind of Car to a variable with is expected to
-# hold a function that's supposed to return a specific type of a car. This is because not 
+# hold a function that's supposed to return a specific type of a car. This is because not
 # every car is a WolkswagenCar, we may get an AudiCar from this function, and that may not
 # support everything WolkswagenCar does.
 x: Callable[[], WolkswagenCar] = get_car
@@ -371,10 +370,10 @@ def remove_while_used(func: Callable[[Library, Book], None]) -> Callable[[Librar
     return wrapper
 
 
-# As we can see here, we can use the `remove_while_used` decorator with the 
+# As we can see here, we can use the `remove_while_used` decorator with the
 # `read_fantasy_book` function below, since this decorator expects a function
 # of type: Callable[[Library, Book], None] to which we're assigning
-# our function `read_fantasy_book`, which has a type of 
+# our function `read_fantasy_book`, which has a type of
 # Callable[[Library, FantasyBook], None].
 #
 # Obviously, there's no problem with Library, it's the same type, but as for
@@ -384,7 +383,7 @@ def remove_while_used(func: Callable[[Library, Book], None]) -> Callable[[Librar
 # the necessary criteria for a general Book, it just includes some more special
 # things, but the decorator function won't use those anyway.
 #
-# Since this assignment is be possible, it means that Callable[[Library, Book], None] 
+# Since this assignment is be possible, it means that Callable[[Library, Book], None]
 # is a subtype of Callable[[Library, FantasyBook], None], not the other way around.
 # Even though Book isn't a subtype of FantasyBook, but rather it's supertype.
 @remove_while_used
@@ -468,9 +467,9 @@ people: List[Person] = children
 
 # Since we know that `people` is a list of `Person` type elements, we can obviously
 # pass it over to `append_adult` function, which takes a list of `Person` type elements.
-# After we called this fucntion, our list got altered. it now includes an adult, which 
+# After we called this fucntion, our list got altered. it now includes an adult, which
 # is fine since this is a list of people, and `Adult` type is a subtype of `Person`.
-# But what also happened is that the list in `children` variable got altered! 
+# But what also happened is that the list in `children` variable got altered!
 append_adult(people)
 
 # This will work fine, all people can eat, that includes adults and children
@@ -590,7 +589,7 @@ c: Matrix[Z] = x  # INVALID! Matirx isn't contravariant
 
 In this case, our Matrix generic type is covariant in the element type, meaning that if we have a `Matrix[Y]` type
 and `Matrix[X]` type, we could assign the `University[Y]` to the `University[X]` type, hence making it it's
-subtype. 
+subtype.
 
 We can make this Matrix covariant because it is immutable (enforced by slots and custom setattr logic). This allows
 this matrix class (just like any other sequence class), to be covariant. Since it can't be altered, this covariance is
@@ -646,7 +645,7 @@ time, I wasn't able to think of anything better.
   covariant, since otherwise, you'd need to recast your variable manually when defining another type, or copy your
   whole generic, which would be very wasteful, just to satisfy type-checkers. Less commonly, you can also find it
   helpful to mark your generics as contravariant, though this will usually not come up, maybe if you're using
-  protocols, but with full standalone generics, it's quite rarely used. Nevertheless, it's important to 
+  protocols, but with full standalone generics, it's quite rarely used. Nevertheless, it's important to
 - Once you've made a typevar covariant or contravariant, you won't be able to use it anywhere else outside of some
   generic, since it doesn't make sense to use such a typevar as a standalone thing, just use the `bound` feature of a
   type variable instead, that will define it's upper bound types and any subtypes of those will be usable.
