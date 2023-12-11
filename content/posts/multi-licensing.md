@@ -129,7 +129,7 @@ originally permissive code.
 The reason why you might want to use this approach instead of just relicensing and going pure copy-left is that you
 might eventually remove the copy-left chunk of code you used, and you could then go back to purely permissive license
 over your project again. However if you've changed to copy-left without dual-licensing, going back might be harder (see
-[this post about relicensing]({{< ref "posts/changing-license" >}}).
+[this post about relicensing]({{< ref "posts/changing-license" >}})).
 
 ### Drawbacks
 
@@ -142,14 +142,14 @@ disadvantages too, mainly:
 
 ### Example projects
 
-- MongoDB: MongoDB is a popular open-source database system that uses dual-licensing. Its Community Edition is released
+- **MongoDB**: a popular open-source database system that uses dual-licensing. Its Community Edition is released
   under the GNU Affero General Public License (AGPL), while its Enterprise Edition is released under a proprietary
   license. This allows MongoDB to offer different features and support options to its users depending on their needs.
-- Qt: Qt is a cross-platform application development framework that uses dual-licensing. Its Community Edition is
+- **Qt**: a cross-platform application development framework that uses dual-licensing. Its Community Edition is
   released under the GNU Lesser General Public License (LGPL), while its Commercial Edition is released under a
   proprietary license. This allows Qt to offer additional features and support to its commercial users while still
   maintaining an open-source version.
-- MySQL: MySQL is another popular open-source database system that uses dual-licensing. Its Community Edition is
+- **MySQL**: another popular open-source database system that uses dual-licensing. Its Community Edition is
   released under the GNU General Public License (GPL), while its Commercial Edition is released under a proprietary
   license. This allows MySQL to offer additional features and support to its commercial users while still maintaining
   an open-source version that can be freely used and modified.
