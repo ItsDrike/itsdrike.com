@@ -88,10 +88,10 @@ Consider this code:
 3
 ```
 
-In the example here, we can see that python keeps a reference count for the empty list object, and in this case, it was
-\3. The list object was referenced by a, b and the argument passed to `sys.getrefcount`. If we didn't have locks,
-threads could attempt to increase the reference count at once, this is a problem because what would actually happen
-would go something like this:
+In the example here, we can see that python keeps a reference count for the empty list object, and in this case, there
+were 3 references. The list object was referenced by a, b and the argument passed to `sys.getrefcount`. If we didn't
+have locks, threads could attempt to increase the reference count at once, this is a problem because what would
+actually happen would go something like this:
 
 > Thread 1: Read the current amount of references from memory (for example 5) <br>
 > Thread 2: Read the current amount of references from memory (same as above - 5) <br>
