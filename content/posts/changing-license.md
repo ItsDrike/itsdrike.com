@@ -159,8 +159,8 @@ rights to modification.
 
 ### Unintentionally proprietary
 
-In a lot of cases, the lack of license actually wasn't intentionally, and the author actually intended for their code
-to be open-sourced, but they just weren't aware that to do so, they need to add a license.
+In a lot of cases, the lack of license actually wasn't intentional, and the author actually intended for their code to
+be open-sourced, but they just weren't aware that to do so, they need to add a license.
 
 What's even worse is when someone actually makes a contribution to this kind of project, and the author accepts it. The
 thing is, that contributor was never authorized to even make a contribution, as it's a modification of the code-base,
