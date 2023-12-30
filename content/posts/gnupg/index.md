@@ -2,10 +2,10 @@
 title: Introduction to encryption with GnuPG
 date: 2022-04-10
 tags: [privacy, linux, encryption]
-sources: 
-    - "[GnuPG documentation](https://gnupg.org/documentation/index.html)"
-    - "[Arch Wiki on GnuPG](https://wiki.archlinux.org/title/GnuPG)"
-    - "[RedHat guide on GnuPG](https://www.redhat.com/sysadmin/getting-started-gpg)"
+sources:
+  - "[GnuPG documentation](https://gnupg.org/documentation/index.html)"
+  - "[Arch Wiki on GnuPG](https://wiki.archlinux.org/title/GnuPG)"
+  - "[RedHat guide on GnuPG](https://www.redhat.com/sysadmin/getting-started-gpg)"
 ---
 
 GnuPG (short for GNU Privacy Guard), also known as just GPG is a public-key cryptography implementation. This allows
@@ -27,7 +27,7 @@ key should be given to anyone freely.
 This kind of structure is very useful, because it allows others to have some information (public key) with which they
 can encrypt files in a way that they'll only be decryptable with the private key, which they don't have, so after
 deleting the original file, even they wouldn't then be able to decrypt that file, making it safe to have it stored on
-their system. 
+their system.
 
 If both parties then create their own key pairs and share the public keys between each other, it allows for a secure
 communication between them, even if there were someone monitoring their communication, because both parties only ever
@@ -52,10 +52,10 @@ If you're on basically any Linux distribution, you'll most likely already have g
 managers require the packages to be signed by the maintainers, and this is done with the use of GnuPG. But in the
 unlikely case that you wouldn't have it installed, you'll probably be able to find it in your package manager, under
 `gpg`, or `gnupg` name, if neither works, try adding `2` behind them, signifying the version. If for some reason the
-package isn't in the package manager (very unlikely), you can also build it from 
+package isn't in the package manager (very unlikely), you can also build it from
 [source](https://github.com/gpg/gnupg).
 
-If you're on Windows (why would you do that to yourself?), you can install 
+If you're on Windows (why would you do that to yourself?), you can install
 [gpg4win](https://www.openpgp.org/software/gpg4win/), which is a ported version of gpg.
 
 ## Creating your key
@@ -67,6 +67,7 @@ gpg --full-gen-key
 ```
 
 This will ask a few questions, that will configure the key, most notably this will be:
+
 - **Key type** - Which you will most likely want to keep at the default value (RSA and RSA)
 - **Key size** - Where you should prefer the biggest possible size (probably 4096 bits), to make brute-force attacks
   really hard
@@ -81,7 +82,7 @@ This will ask a few questions, that will configure the key, most notably this wi
   files and got the key, it wouldn't be useful without the passphrase. But having to enter a passphrase each time can
   be annoying, ultimately you have to choose if you want convenience, or more security.
 
-After this, GPG will generate the actual keys, containing the configuration you entered using *entropy*. Entropy
+After this, GPG will generate the actual keys, containing the configuration you entered using _entropy_. Entropy
 describes the amount of unpredictability that exists in your system. This is used to securely generate a random value
 (the key), which couldn't easily be reconstructed (computers are generally bad at creating truly random values).
 
@@ -102,7 +103,7 @@ gpg --list-keys [your-email]
 You can also leave out the email, and just run `gpg --list-keys`, to see all keys that are in your GPG database. This
 will likely contain a lot of keys that were added by your package manager, but your key should be present in there too.
 
-If you instead just want to see the keys which you have the secret/private key for (so probably only your own keys), 
+If you instead just want to see the keys which you have the secret/private key for (so probably only your own keys),
 you can also run `gpg --list-secret-keys`.
 
 The key ID is the long string (probably on the second line), looking like this:
@@ -179,10 +180,13 @@ gpg --sign-key [key-id]
 
 Where, once again, `[key-id]` can be replaced by the received key's email address, or the ID.
 
+Note: You can specify `--local-user [key-id]`/`-u [key-id]` to select which key to sign with, if you don't wish to use
+your default key. You can also sign with multiple keys by chaining the option
+
 After you've signed the key, you should help the key's issuer to take the advantage of your signing and send them that
 signed version, so that when they're distributing their key to someone else, if that someone already has your key
 imported and they trust you, they can find out that you've trusted this key in that it's information (name, email) is
-in fact correct. 
+in fact correct.
 
 ```sh
 gpg --output ./signed-key.key --export --armor [key-id]
@@ -255,7 +259,7 @@ Note that you will want to export both private key, and a public key to then use
 ## File encryption with GPG
 
 Now that you've generated your key and exchanged the public parts with the other parties, you can finally actually get
-to communicating with the other party in a fully end-to-end encrypted way! 
+to communicating with the other party in a fully end-to-end encrypted way!
 
 ### Encryption
 
@@ -301,7 +305,7 @@ given signed file wasn't tampered with and is legitimate. Signing a file require
 verified by anyone with a matching public key. When you create a digital signature file like this, if someone were to
 edit the original file, the signature would no longer match to that file, and they wouldn't be able to generate a new
 one, at least not without your private key. This is why you see many linux installation media (ISOs) also provide a
-signature file, which was signed with the private keys of the maintainers. 
+signature file, which was signed with the private keys of the maintainers.
 
 ### Full signatures
 
@@ -373,6 +377,7 @@ messages to your friends.
 
 However I wanted to talk a bit more about many different places where GPG is often used, and maybe where you can use
 it:
+
 - A very common use-case, which I've already mentioned a bit about is the use in package managers. This is because with
   package managers, it's hard for the owners of these to set up world-wide mirror servers across the entire world and
   maintain each and every one of them, so instead, they rely on other people to set their own mirrors and make them
@@ -403,5 +408,5 @@ it:
   whenever you'd actually need them
 
 Oh and, in case you'd want to send me something encrypted, feel free to get my public key from `keys.openpgp.org`,
-registered under email: `itsdrike@protonmail.com`. You can also get it from my website as a file 
+registered under email: `itsdrike@protonmail.com`. You can also get it from my website as a file
 [here](https://s.itsdrike.com/gpg).
