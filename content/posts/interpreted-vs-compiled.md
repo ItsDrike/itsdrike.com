@@ -1,7 +1,11 @@
 ---
 title: Interpreted vs Compiled Languages
 date: 2021-09-09
+lastmod: 2024-06-05
 tags: [programming]
+changelog:
+  2024-06-05:
+    - Improve wording
 ---
 
 You've likely seen or heard someone talking about a language as being interpreted or as being a compiled language, but
@@ -33,44 +37,46 @@ Obviously, we wanted to make things easier for ourselves by automating and abstr
 programming process as we could, so that the programmer could really only focus on the algorithm itself and the actual
 conversion of the code to a machine code that the CPU can deal with should simply happen in the background.
 
-But how could we achieve something like this? The simple answer is, to write something that will be able to take our
+But how could we achieve something like this? The simple answer is to write something that will be able to take our
 code and convert it into a set of instructions that the CPU will be running. This intermediate piece of code can either
 be a compiler, or an interpreter.
 
-After a piece of software like this was first written, suddenly everything became much easier, initially we were using
-assembly languages that were very similar to the machine code, but they looked a bit more readable, while the
-programmer still had to think in the terms of what instruction should the CPU get in order to get it to do the required
-thing, the actual process of converting this code into a machine code was done automatically. The programmer just took
-the text of the program in the assembly language, fed it into the computer and it returned a whole machine code.
+After a piece of software like this was first written, suddenly everything became much easier. Initially we were using
+assembly languages that were very similar to the machine code, but they looked a bit more readable, giving actual names
+to the individual CPU instructions (opcodes), and allowed defining symbols (constants) and markers for code positions.
+So, while the programmer still had to think in the terms of what instruction should the CPU get in order to get it to
+do the required thing, the actual process of writing this code was a lot simpler, as you didn't have to constantly look
+at a table just to find the number of the opcode you wanted to use, and instead, you just wrote something like `LDA
+$50` (load the value at the memory address 0x50 into the accumulator register), instead of `0C50`, assuming `0C` was
+the byte representing `LDA` opcode.
+
+Since converting this assembly code into a machine code was done automatically. The programmer just took the text of
+the program in the assembly language, fed it into the compiler and it returned the actual machine code, which could
+then be understood by the CPU.
 
 Later on we went deeper and deeper and eventually got to a very famous language called C. This language was incredibly
-versatile and allowed the programmers to finally start thinking in a bit more natural way about how should the program
-be written and the tedious logic of converting this textual C implementation into something executable was left to the
-compiler to deal with.
+versatile and allowed the programmers to finally start thinking in a bit more natural way, one with named variables,
+functions, loops, and a bunch of other helpful abstractions. All the while the tedious logic of converting this textual
+C implementation into something executable was left for the compiler to deal with.
 
 ### Recap
 
-So we now now that initially, we didn't have neither the compiler nor an interpreted and we simply wrote things in
+So we now know that initially, we didn't have neither the compiler nor an interpreted and we simply wrote things in
 machine code. But this was very tedious and time taking, so we wrote a piece of software (in machine code) that was
 able to take our more high-level (english-like) text and convert that into this executable machine code.
 
 ## Compiled languages
 
 All code that's written with a language that's supposed to be compiled has a piece of software called the "compiler".
-This piece of software is what carries the internal logic of how to convert these instructions that followed some
-language-specific syntax rules into the actual machine code, giving that us back the actual machine code.
+This piece of software is what carries the internal logic of converting these instructions that followed some
+language-specific syntax rules into the actual machine code, giving that us back an executable program.
 
-This means that once we write our code in a compiled language, we can use the compiler to get an executable version of
-our program which we can then distribute to others.
+However this executable version will be specific to certain CPU architecture. This is because each architecture has
+their own set of instructions, with different opcodes, registers, etc. So if someone with a different architecture were
+to obtain it, they still wouldn't be able to run it, simply because the CPU wouldn't understand those machine code
+instructions.
 
-However this executable version will be specific to certain CPU architecture and if someone with a different
-architecture were to obtain it, he wouldn't be able to run it. (At least not without emulation, which is a process of
-simulating a different CPU architecture and running the corresponding instruction that the simulated CPU gets with an
-equivalent instructions on the other architecture, even though this is a possibility, the process of emulation causes
-significant slowdowns, and because we only got the executable machine code rather than the actual source-code, we can't
-re-compile the program our-selves so that it would run natively for our architecture)
-
-Some of the most famous compiled languages are: C, C++, Rust
+Some of the most famous compiled languages are: C, C++, Rust, Zig
 
 ## Interpreted Languages
 
@@ -79,53 +85,102 @@ a major difference between these 2 implementations.
 
 With interpreted languages, rather than feeding the whole source code into a compiler and getting a machine code out of
 it that we can run directly, we instead feed the code into an interpreter, which is a piece of software that's already
-compiled (or is also interpreted and other interpreter handles it) and this interpreter scans the code and goes line by
-line and interprets each function/instruction that's than ran from within the interpreter. We can think of it as a huge
-switch statement with all of the possible instructions in an interpreted language defined in it. Once we hit some
-instruction, the code from inside of that switch statement is executed.
+compiled (or is also interpreted and other interpreter handles it - _interpreterception_) and this interpreter scans
+the code and goes line by line and interprets each function/instruction. We can think of it as a huge switch statement
+with all of the possible instructions of the interpreted language defined in it. Once we hit some instruction, the code
+from inside of that switch statement's case is executed.
 
-This means that with an interpreted language, we don't have any final result that is an executable file that can be
-distributed alone, but rather we simply ship the code itself. However this brings it's own problems such as the fact
-that each machine that would want to run such code have to have the interpreter installed, in order to "interpret" the
-instructions written in that language. We also sometimes call these "scripting languages"
+This means that with an interpreted language, we don't have any final result that is an executable file, which could be
+distributed on it's own, but rather we simply ship the code itself. To run it, the client is then expected to
+install the interpreter program, compiled for their machine, run it, and feed it the code we shipped.
 
 Some of the most famous interpreted languages are: PHP, JavaScript
 
+{{< notice tip >}}
+Remember how I mentioned that when a program (written in a compiled language) is compiled, it will only be possible to
+run it on the architecture it was compiled for? Well, that's not necessarily entirely correct.
+
+It is actually possible to run a program compiled for a different CPU architecture, by using **emulation**.
+
+Emulation is a process of literally simulating a different CPU. It is a program which takes in the machine instructions
+as it's input, and processes those instructions as if it was a CPU, setting the appropriate internal registers (often
+represented as variables), keeping track of memory, and a whole bunch of other things. This program is then compiled
+for your CPU architecture, so that it can run on your machine. This is what's called an **Emulator**.
+
+With an emulator, we can simply feed it the compiled program for the CPU it emulates, and it will do exactly what a
+real CPU would do, running this program.
+
+That said, emulators are usually very slow, as they're programs which run on a real CPU, having to keep track of the
+registers, memory, and a bunch of other things inside of itself, rather than inside the actual physical CPU we're
+running on, as our CPU might not even have such a register/opcode, so it needs to execute a bunch of native
+instructions to execute just the single foreign instruction.
+
+Notice that an emulator is actually an interpreter, making compiled machine code for another CPU it's interpreted
+language!
+{{< /notice >}}
+
+## Compilation for operating systems
+
+So far, we only talked about compiled languages that output machine code, specific to some CPU architecture. However in
+vast majority of cases, that's not actually what the compiler will output anymore (at least not entirely).
+
+Nowadays, we usually don't make programs that run on their own. Instead, we're working under a specific operating
+system, which then potentially handles a whole bunch of programs running inside of it. All of these operating systems
+contain something called a "kernel", which is the core part of that system, which contains a bunch of so called
+"syscalls".
+
+Syscalls are basically small functons that the kernel exposes for us. These are things like opening and reading a file,
+creating a network socket, etc. These syscalls are incredibly useful, as the kernel contains the logic (drivers) for a
+whole bunch of different hardware devices (such as network cards, audio speakers/microphones, screens, keyboards, ...),
+and the syscalls it exposes are an abstraction, that gives us the same kind of interface for each device of a certain
+type (i.e. every speaker will be able to output a tone at some frequency), which we can utilize, without having to care
+about exactly how that specific device works (different speakers might need different voltages sent to them to produce
+the requested frequency).
+
+For this reason, programs running under an OS will take advantage of this, and instead of outputting pure machine code,
+they output an executable file, in a OS-specific format (such as an .exe on Windows, or an ELF file on Linux). The
+instructions in this file will then also contain a special "SYSCALL" instruction, which the kernel will respond to and
+run the appropriate function.
+
+This however makes the outputted executable not only CPU architecture dependant, but also OS dependant, making it even
+less portable across various platforms.
+
 ## Core differences
 
-As mentioned, with a compiled language, the source code is private and we can simply only distribute the compiled
-version, whereas with an interpreted language this is completely impossible since we need the source code because
-that's what's actually being ran by the interpreter, instruction after instruction. The best we can do if we really
-wanted to hide the source-code with an interpreted language is to obfuscate it.
+Compiled languages will have almost always have speed benefit to them, because they don't need additional program to
+interpret the instruction within that language when being ran, instead, this program is ran by the programmer only
+once, producing an executable that can run on it's own.
 
-Compiled languages will also have a speed benefit to them, because they don't need additional program to interpret the
-instruction within that language, but rather needs to go through an additional step of identifying the instructions and
-running the code for them. Compilers often also perform certain optimizations, for example with code that would always
-result in a same thing, something like `a = 10 * 120`, we could compile it and only store the result `1200`, running
-the actual equation at compile time, making the running time faster.
+Compilers often also perform certain optimizations, for example, if they find code that would always result in a same
+thing, like say: `a = 10 * 120`, we could do this calculation in the compiler, and only store the result `1200`,
+into the final program, making the run-time faster.
 
-So far it would look like compiled languages are a lot better than interpreted, but they do have many disadvantages to
-them as well. One of which I've already mention, that is not being cross-platform. Once a program is compiled, it will
-only ever run on the platform it was compiled for. If the compilation was happening directly to a machine code, this
-would mean it would be architecture-specific.
+Yet another advantage of compiled languages is that the original source code can be kept private, since we can simply
+only distribute the pre-compiled binaries. At most, people can look at the resulting machine code, which is however
+very hard to understand. In comparison, an interpreted language needs the interpreter to read the code to run it, which
+means when distributing, we would have to provide the full source-code. The best we can do if we really wanted to hide
+what the code is doing is to obfuscate it.
 
-But we usually don't do this and rather compile for something kernel-specific, because we are running under some
-specific operating system that uses some kernel. The kernel is basically acting as a big interpreter for every single
-program. We do this because this means that we can implement some security measures that for example disallow untrusted
-programs to read or write to a memory location that doesn't belong to that program.
+So far it would look like compiled languages are a lot better than interpreted, but they do have a significant
+disadvantage to them as well. One of which that I've already mentioned is not being cross-platform. Once a program is
+compiled, it will only be runnable on the platform it was compiled for. That is, not only on the same CPU architecture,
+but also only on the same operating system, meaning we'll need to be compiling for every os on every architecture.
 
-This alone is a pretty big disadvantage, because we will need to compile our program for every operating system it is
-expected to be ran on. In the case of an interpreted language, all we need to do is have the actual interpreter to be
-executable on all platforms, but the individual programs made with that language can then be ran on any platform, as
-long as it has the interpreter.
+The process of compiling for all of these various platforms might not be easy, as cross-compiling (the process of
+compiling for a program for different CPU architecture than that which you compile on) is often hard to set up, or even
+impossible because the tooling simply isn't available on your platform. So you may need to actually get a machine
+running on the platform you want to compile for, and do so directly on it, which is very tedious.
 
-From this example, we can also see another reason why we may want to use an interpreter, that is the kernel itself,
-with it we can implement these security measures and somewhat restrict parts of what can be done, this is very crucial
-to having a secure operating system.
+However with an interpreted language, the same code will run on any platform, as long as the interpreter itself is
+available (compiled) for that platform. This means rather than having to distribute dozens of versions for every single
+platform, it would be enough to ship out the source code itself, and it will run (almost) anywhere.
 
-Another advantage of interpreted languages is the simple fact that they don't need to be compiled, it's one less step
-in the process of distributing the application and it also means that it's much easier to write automated tests for,
-and for debugging in general.
+Interpreted languages are also usually a bit easier to write, as they can afford to be a bit more dynamic. For example,
+in C, we need to know exactly how big a number can get, and choose the appropriate number type (int, long, long long,
+short, not to mention all of these can be signed/unsigned), so that the compiler can work with this information and do
+some optimizations based on it, however in an interpreted language, a number can often grow dynamically, sort of like a
+vector, taking up more memory as needed. (It would be possible to achieve the same in a compiled language, but it would
+be at an expense of a bunch of optimizations that the compiler wouldn't be able to do anymore, so it's usually not done).
 
 ## Hybrid languages
 
@@ -138,9 +193,41 @@ done up-front, that's a bit inflexible, or the interpreted model, where all work
 bit slower, we kind of combine things and do both.
 
 Up-front, we compile it partially, to what's known as byte-code, or intermediate language. This takes things as close
-to being compiled as we can, while still being portable across many platforms, and we then distribute this byte-code
-rather than the full source-code and each person who runs it does the last step of taking it to machine code by running
-this byte-code with an interpreter. This is also known as Just In Time (JIT) compilation.
+to being compiled as we can, while still being portable across many platforms. We can then make some optimizations to
+this byte-code, just like a regular compiler might, though usually this won't be nowhere near as powerful, because the
+byte-code is still pretty abstract.
+
+Once we get our byte-code (optimized, or not), there are 2 options of what happens next:
+
+### Byte code interpreter
+
+The first option is that the language has an interpreter program, which takes in this byte-code, and runs it from that.
+If this is the case, a program in such language could be distributed as this byte-code, instead of as pure source-code,
+as a way to keep the source-code private. While this byte-code will be easier to understand than pure machine code if
+someone were to attempt to reverse-engineer it, it is still a better option than having to ship the real source-code.
+
+This therefore combines the advantages of an interpreted language, of being able to run anywhere, with those of a
+compiled language, of not having to ship the plaintext source-code, and of doing some optimizations, to minimize the
+run-time of the code.
+
+Examples of languages like these are: Python, ...
 
 Most languages tend to only be one or the other, but there are a fair few that follow this hybrid implementation, most
 notably, these are: Java, C#, Python, VB.NET
+
+### Byte code in compiled languages
+
+As a second option,
+
+The approach of generating byte-code isn't unique to hybrid languages though. Even pure compiled languages actually
+often generate byte-code first, and then let the compiler compile this byte-code, rather than going directly from
+source code to machine code.
+
+This is actually very beneficial, because it means multiple vastly different languages, like C/C++ and Rust can end up
+being first compiled into the same kind of byte-code, which is then fed into yet another compiler, a great example of
+this is LLVM, which then finally compiles it into the machine code. But many languages have their own JIT.
+
+The reason languages often like to use this approach is that they can rely on a well established compiler, like LLVM,
+to do a bunch of complex optimizations of their code, or compilation for different architectures, without having to
+write out their own logic to do so. Instead, all they have to write is a much smaller compiler that turns their
+language into LLVM compatible byte-code, and let it deal with optimizing the rest.
