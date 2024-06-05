@@ -10,7 +10,7 @@
             <div class="item-list-group">
                 <ul class="item-list-items">
                     {{ range .Pages.ByTitle }}
-                    <li class="item-list-item" data-id="{{ with .File}}{{ .File.UniqueID }}{{ end }}">
+                    <li class="item-list-item" data-id="{{ with .File}}{{ .UniqueID }}{{ end }}">
                         {{ partial "list_item.html" (dict "context" . "dateformat" "Jan 02, 2006") }}
                     </li>
                     {{ end }}

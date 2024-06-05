@@ -25,7 +25,7 @@
                 <!-- List all posts in this year group -->
                 <ul class="item-list-items">
                     {{ range .Pages }}
-                    <li class="item-list-item" data-id="{{ with .File}}{{ .File.UniqueID }}{{ end }}">
+                    <li class="item-list-item" data-id="{{ with .File}}{{ .UniqueID }}{{ end }}">
                         {{ partial "list_item.html" (dict "context" . "dateformat" "Jan 02") }}
                     </li>
                     {{ end }}
