@@ -1,6 +1,7 @@
 ---
 title: Managing (multiple) git credentials
 date: 2022-07-27
+lastmod: 2024-06-05
 tags: [programming, git]
 sources:
   - <https://docs.github.com/en/get-started/getting-started-with-git/caching-your-github-credentials-in-git>
@@ -21,6 +22,12 @@ changelog:
     - Add note about disabling commit signing
     - Add alternative command for copying on wayland
     - Fix typos and text wrapping
+  2024-06-05:
+    - Improve path matching explanation/note on git credentials helper, detailing the pitfalls it has with multiple
+      accounts on the same git hosting platform.
+    - Wording improvements
+    - Rewrite tackling multiple accounts section
+    - Include bash aliases example
 ---
 
 Many people often find initially setting up their git user a bit unclear, especially when it comes to managing multiple
@@ -113,7 +120,7 @@ your account (for example they may only allow you to pull/push code, but not to 
 
 {{< notice warning >}}
 This method stores your credentials in the project's git config file in `.git/config`. Since this is a simple URL to
-one of the proejcts remotes, it will just be stored in this config file in **plaintext** without any form of encryption.
+one of the projects remotes, it will just be stored in this config file in **plaintext** without any form of encryption.
 
 Bear this in mind when giving someone access to the project directory, your credentials will be present in that
 directory!
@@ -143,19 +150,24 @@ Alternatively, we can directly edit the global git configuration:
 
 Each credential context is defined by a URL. This context will then be used to look up specific configuration. For
 example if we're accessing `https://github.com/ItsDrike/itsdrike.com`, git looks into the config file to see if a
-section matches this context. It will consider the two a match, if the context matches on both the protocols
-(`http`/`https`), and then on the host portion (`github.com`/`gitlab.com`/...). It can also optionally check the paths
-too, if they are present (`/ItsDrike/itsdrike.com`)
+section matches this context.
+
+Git will consider the two a match, if the context matches on both the protocols (`http`/`https`), and then on the host
+portion (`github.com`/`gitlab.com`/...). It can also optionally check the paths too, if they are present
+(`/ItsDrike/itsdrike.com`)
 
 {{< notice note >}}
-Git matches the hosts directly, without considering if they come from the same domain, so if subdomain differs, it will
-not register as a match. For example, for context of `https://gitlab.work_company.com/user/repo.git`, it wouldn't match
-a configuration section for `https://work_company.com`, since `work_company.com != gitlab.work_company.com`.
+Git matches the paths exactly (if they're included). That means a configured credential like `https://github.com/user1`
+will NOT match an origin of `https://github.com/user1/repo.git`, so you would need a credential entry for each repository.
 
-The paths are also matched exactly (if they're included), so for the example context from above, we would not get a
-match on a config section with `https://gitlab.work_company.com/user`, only on
-`https://gitlab.work_company.com/user/repo.git` (in addition to the config entry without path
-`https://gitlab.work_company.com`).
+This may not be an issue, if you're trying to use this with multiple accounts on different git host platforms (like on
+`github.com` and `gitlab.com`), where you could just leave the credential to match only on the host, and not include
+any path. However, if you're trying to use multiple accounts with the same host, it will not work very well.
+
+Similarly, git matches the hosts directly too, without considering if they come from the same domain, so if subdomain
+differs, it will not register as a match either. This means that for origin like:
+`https://gitlab.work_company.com/user/repo.git`, git wouldn't match a configuration credential section for
+`https://work_company.com`, since `work_company.com != gitlab.work_company.com`.
 {{< /notice >}}
 
 This does sound like a great option for multi-account usage, however the issue with this approach is that these
@@ -167,8 +179,8 @@ The username will be stored in git's global config file in **plaintext**, making
 worried about leaking your **username** (not password) for the git hosting provider.
 
 If you're using the global configuration, this generally shouldn't be a big concern, since the username won't actually
-be in the project file unlike with the remote-urls. However if you share a machine with multiple people, you may want
-to consider securing your global configuration file (`~/.config/git/config`) using your filesystem's permission
+be in the project file unlike with the remote-urls. However, if you share a machine with multiple people, you may want
+to consider securing your global configuration file (`~/.config/git/config`) using your file system's permission
 controls to prevent others from reading it.
 
 If you're defining contexts in local project's config though, you should be aware that the username will be present in
@@ -206,16 +218,21 @@ git config --global credentials.helper 'store --file=/full/path/to/git-credentia
 Once the helper is configured, you will first still get asked for your username and password, and only after that first
 time you enter them will the get cached into this credentials file.
 
-{{< notice info >}}
+{{< notice note >}}
+This has the same matching pitfalls as credential contexts defined in settings, the URL paths are matched exactly, and
+so are URL hosts.
+{{< /notice >}}
 
+{{< notice info >}}
 The credentials file will cache the data in this format:
 
 ```txt
 https://<USERNAME>:<PASSWORD>@github.com
+https://<USERNAME2>:<PASSWORD>@gitlab.com
 ```
 
 Which is indeed a **plaintext** format, however the file will be protected with your file system permissions, and
-access should be limited to you (as the user who owns the file). And since this file should live somewhere outside of
+access should be limited to you (as the user who owns the file). And since this file should live somewhere outside
 the project's directory, the project can be safely shared with others without worrying about leakage.
 {{< /notice >}}
 
@@ -245,7 +262,7 @@ helpers](https://git-scm.com/docs/gitcredentials#_custom_helpers). These allow u
 management by delegating to 3rd party applications and services.
 
 A commonly used external credential helper is for example the [Git Credential Manager
-(GCM)](https://github.com/GitCredentialManager/git-credential-manager). GCM can even handle things like 2 factor
+(GCM)](https://github.com/GitCredentialManager/git-credential-manager). GCM can even handle things like 2-factor
 authentication, or using OAuth2.
 
 If you want to, you can even write your own custom credential helper to handle your exact needs, in which case I'd
@@ -257,8 +274,8 @@ some examples of a basic custom provider.
 
 Most modern git servers also provide a way to access their repositories using SSH keys rather than username and
 password over HTTPS. This approach is significantly better, since guessing SSH keys is generally much harder, and they
-can easily be revoked. They also generally aren't nowhere near as powerful as full user passwords, so even if they are
-compromised, the attacker would only have a limited access.
+can easily be revoked. They also generally aren't anywhere near as powerful as full user passwords, so even if they are
+compromised, the attacker would only have limited access.
 
 SSH uses public-private key pair, which means you will need to give out the public key over to the git hosting
 platform, and keep the private part on your machine for authentication. Using the public key, the server will then be
@@ -271,7 +288,8 @@ proxies, making communication with the remote server impossible.
 #### Generating an SSH key
 
 To generate an SSH key, you can use `ssh-keygen` command line utility. Generating keys should always be done
-independently from the git hosting provider, since they don't shouldn't need to see your private key at any point.
+independently of the git hosting provider. The git hosting provider shouldn't need to see your private key at any
+point!
 
 The command for this key generation looks like this:
 
@@ -282,7 +300,7 @@ ssh-keygen -t ed25519 -C "<COMMENT>"
 - The `-C` flag allows you to specify a comment, which you can use to specify what this key will be used for. If you
   don't need a comment, you can also omit this flag.
 - The `-t` flag specifies the key type. The default type for SSH keys is `rsa`, however I'd suggest using `ed25519`
-  which is considered safer and more performant than RSA keys. If you will decide to use `rsa`, make sure to use a
+  which is considered safer and more performant than RSA keys. If you decide to use `rsa`, make sure to use a
   key size of at least 2048 bits, but for better security, but ideally you should try to use a key size of `4096`.
 
 After running this command, you will be asked to specify a file where this key should be stored. You will probably want
@@ -292,12 +310,12 @@ you can have all of your git ssh keys grouped together and separated from SSH ke
 {{< notice info >}}
 Make sure to add the `~/.ssh` (or `C:\Users\your_username\.ssh` for Windows) prefix to your filename, so the key is
 correctly added to the `.ssh` folder. You should keep your keys in this folder, since it is already protected by the
-filesystem from reading by other users.
+file system from reading by other users.
 {{< /notice >}}
 
 Once you select a file name, you will be asked to set a passphrase. You can opt to leave this empty by pressing enter
 without entering anything. Going with a passphrase protected key is safer, however it will also mean you will need to
-type your password each time, which may be annoying. However there is a way to cache this passphrase with SSH agent,
+type your password each time, which may be annoying. However, there is a way to cache this passphrase with SSH agent,
 which you can read more about in the [GitHub's
 docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent).
 Using passphrase is significantly better for your system's security, since it means that even if the private key got
@@ -308,7 +326,7 @@ extension.
 
 #### Add public key to your hosting provider's account
 
-Now that you've create a public and private SSH key pair, you will need to let your git hosting provider know about it.
+Now that you've created a public and private SSH key pair, you will need to let your git hosting provider know about it.
 It is important that you only give the public key (file with `.pub` extension) to your provider, and not your private
 key.
 
@@ -353,9 +371,9 @@ ssh -Tvvv git@github.com -i ~/.ssh/id_ed25519
 
 #### SSH Configuration file
 
-To meaningfully use your key, you'll want register some specific host name for your key, so you won't need to use the
-`-i` flag. You can do this by editing (or creating) `~/.ssh/config` file (or `C:\Users\your_username\.ssh\config` for
-Windows).
+To meaningfully use your key, you'll want to register some specific host name for your key, so you won't need to use
+the `-i` flag. You can do this by editing (or creating) `~/.ssh/config` file (or `C:\Users\your_username\.ssh\config`
+for Windows).
 
 An example configuration file with multiple git accounts:
 
@@ -380,10 +398,12 @@ HOST work.github.com
 ```
 
 When you have multiple accounts with the same `HostName` (same git hosting provider), you will need to specify a unique
-`Host` name.
+`HOST` name. One way which I like to do is to make it appear as a subdomain, like `work.github.com`. Another common way
+to define these, is to use a dash at the end, like: `github.com-user2`. FINALLY, We've cracked the issue of storing
+multiple credentials even on the same git hosting platform.
 
-To then make sure this configuration works, you can run another test command, but this time without specifying the
-key file explicitly, as it should now be getting picked up from the settings:
+Let's first make sure this configuration works though. To do that, you can run another test command, but this time
+without specifying the key file explicitly, as it should now be getting picked up from the settings:
 
 ```bash
 ssh -T git@github.com
@@ -397,14 +417,13 @@ ssh -T work.github.com
 
 #### Using the SSH keys
 
-No let's finally get to actually using these keys in your repositories. Doing this can be pretty straight-forward, as
-it is very similar to the first method of handling credentials which I've talked about, being storing the credentials
-in the remote-url. However this time, instead of using the actual credentials, and therefore making the project
-directory unsafe to share, as it contains your password in plaintext, it will actually only contain the `HOST` name
-you've set in your config, without leaking any keys.
+Now let's get to actually using these keys in your repositories. Doing this can be pretty straight-forward, as it is
+very similar to the first method of handling credentials which I've talked about, being storing the credentials in the
+remote-url, but this time, instead of using the actual credentials, and therefore making the project directory unsafe
+to share, it will just contain the `HOST` name you've set in your config, without leaking any keys.
 
-The commands to set this up are very similar, however instead of `https://<USERNAME>:<PASSWORD>@github.com`, we now use
-`git@HOST`:
+The commands to set this up are therefore very similar, except that instead of
+`https://<USERNAME>:<PASSWORD>@github.com/<PATH>`, we now use `git@HOST/<PATH>`:
 
 ```bash
 # While clonning:
@@ -422,11 +441,11 @@ to remember the username or the password, instead you just need to know the host
 
 ## Which method to use for credentials
 
-Generally, using SSH keys is the safest approach, but it can also be a bit annoying since it requires you to specify
-the SSH host for each repository in it's remote url. For that reason, the approach that I would recommend is using
-git's credential helper system to store your credentials instead.
+Generally, using SSH keys is the safest and probably the best approach, but it can also be a bit annoying since it
+requires you to specify the SSH host for each repository in its remote url. For that reason, the approach that I would
+recommend is using git's file credential helper system to store your credentials instead.
 
-However if you will go with this method, make sure that you're using a personal access token instead of the actual
+However, if you will go with this method, make sure that you're using a personal access token instead of the actual
 account's password, to limit the permissions an attacker would gain in case your credentials were leaked.
 
 If your git hosting platform doesn't provide access tokens, this method becomes a lot more dangerous to use, since if
@@ -435,51 +454,51 @@ account on that git host platform. That's why in that case, you should really co
 it's a bit less convenient, as they can be easily revoked and only allow limited access, just like personal access
 tokens.
 
-## Tackling credentials for multiple accounts
+From what we've seen up until for now, the store credential helper method is only good if you only have a single account
+per git hosting platform though; so... what if you have multiple accounts?
 
-### Credentials for differing hosts
+### Combine both store credential helper & SSH keys
 
-When it comes to managing multiple accounts, this gets a bit more tricky. But if each of your accounts lives on a
-different domain/host, you can still use credential helpers without any issues, since it can handle multiple
-credentials for multiple websites out of the box. If you're using the file credential helper, this would result in the
-`git-credentials` file looking like this:
+The simple solution to this issue is to just use both SSH and store credential helpers. That way, you can just clone
+with regular unmodified URLs, letting the store credential helper figure out which credential to use on a per-platform
+basis. Leaving the alt accounts you have on a single platform to SSH, where your store credential helper only knows
+about your primary account, and you have SSH config entries set for each of your alt accounts.
 
-```txt
-https://<USERNAME>:<PASSWORD>@github.com
-https://<USERNAME2>:<PASSWORD2>@gitlab.com
-```
+Whenever you then want to use an alt account for a repo, instead of cloning with the regular URL, you will clone with
+the SSH url for your alt account.
 
-With that, whenever you'd try to pull/push with the remote url, git will go through this file in order, searching for
-the first matching host. So for example when using a remote url belonging to `github.com` domain, the first line would
-apply, while if your remote url belongs to `gitlab.com`, the second line would apply. This means that if your accounts
-are from different providers, you can avoid the hassle of doing anything more complicated.
-
-However if you have more accounts on a single host, you will need to somehow let git know what to do.
+This method is pretty much perfect, and there's not many downsides to it. However, I will also show you some other
+interesting methods, which you might like more if you don't want to mess around with SSH keys, or if your git hosting
+provider doesn't support them. You might also just not like the idea of having to change the remote URL path of your
+repository to this special path with the SSH host, which the other solutions will avoid.
 
 ### Using credential contexts
 
-The good news is that even with same domains, you can actually still use the git credentials as your default method,
-and use git credential contexts to find a username. With that, even if you're using the same host, git will know to
-look for a specific username in the credentials file now, which should be sufficient distinction to match any amount of
-different credentials.
-
-However the issue with git contexts is that they need to match the path component exactly, so even though you can
-configure git to use different contexts for different repositories in your global config, you can't configure it to use
-a certain context for a partial match on path, so you'd need to specify each repository which should use custom
-credentials into your global git configuration, which is not great.
-
-Instead, you should use the local git configuration of each project and specify a git context with the username you
-want to use for that project. That way, you won't need to keep config for every non-default project in your global
-config, and yet still use the same file credential helper to store all of your credentials in a single place.
+Remember the credential contexts we were defining? (The URLs that git could match against to figure out which
+username to use.) Well, we can actually use these, but set the username to be used for the platform in local
+configuration. To do that, you can just run:
 
 ```bash
-git config --local credential.https://github.com.username <USERNAME>
+git config --local credential."https://github.com".username <USERNAME>
 ```
 
+This will mean git will now know what username should be used for the given remote url. With that, our store
+credentials helper can now be a bit smarter, and instead of just picking the first entry in your `git-credentials`
+file, that matches the given remote url, it will also look for a username match. So for example, if you set the
+username in that local config to `user2`, and you had this in your `git-credentials`:
+
+```
+https://user1:<PASSWORD>@github.com
+https://user2:<PASSWORD2>@github.com
+```
+
+It would actually pick the 2nd record now, because of the username match. (When no username is configured, the store
+credentials helper will always pick the 1st record.)
+
 {{< notice info >}}
-Once again, this will store the credential context into the local project's git configuration (in `.git/config`), which
-is using **plaintext**, which means you might end up leaking your **username** (not password), if you give someone
-access to this project's directory.
+This will however store the credential context into the local project's git configuration (in `.git/config`), which is
+using **plaintext**, which means you might end up leaking your **username** (not password), if you give someone access
+to this project's directory.
 
 The actual password will however be completely safe, as it should only be present in the `git-credentials` file, which
 should be located elsewhere, and configured from the global git config. So this only affects you if you want to keep
@@ -487,44 +506,34 @@ your username for that git hosting provider private too. If you do, you will nee
 sharing project files, or use a different method.
 {{< /notice >}}
 
+This method is fine, but in my opinion, it's a bit clunky, since you need to also specify the remote URL here, and it
+leaks your username on the platform. Because of that, I think the method below is a better option, but this method is
+still good to know about, and might be a better option for you, depending on your preferences.
+
 ### Using different credentials file
 
-The alternative to using credential contexts with your plaintext stored username would be using multiple
-`git-credentials` files, and simply overriding the credential helper system in the local config, setting a different
-file for the store credential helper. This could for example look like this:
+Let's try and hack our way through the problem and do everything while sticking to just the store credentials helper.
+Do you remember how when we first configured the credential helpers, we specified the path to the `git-credentials`
+file it should write the credentials to?
+
+Well, we stored that value to our global config, but of course, local config will override global config, so we could
+just set a different file for the store credential helper, which contains our alt account! Doing that is a simple as
+running this command:
 
 ```bash
-git config credentials.helper 'store --file=/home/user/.config/git-credentials-work'
+git config --local credentials.helper 'store --file=/home/user/.config/git-credentials-alt'
 ```
 
-With this approach, you can have your credentials kept in multiple separate credential files, and just mention the path
-to the file you need for each project.
-
-Security-wise, this method is better because your username will be kept outside of the project in the referenced git
-credential file, which should be secured by the file system's permissions to prevent reads from other users. However
-practicality-wise, it may be a bit more inconvenient to type and even to remember the path to each credential file.
-
-### SSH keys instead
-
-The thing you may have noticed about all of these methods is that you'll generally need to do some extra work for all
-repositories that require non-default credentials. So even though relying on git's file credential helper is convenient
-for the default case, extending it to non-default cases will always require doing some extra configuration.
-
-This extra configuration is inevitable, which is why I'd suggest going with SSH keys instead, which are pretty much
-equally as annoying, requiring you to do something extra for each non-default project (specifying them in the remote
-URL). However as I've already explained, they're pretty much the most secure way to handle credentials. So instead of
-doing some extra work just to configure a less secure method, you might as well do an equal amount of work and
-use the more secure way with SSH keys.
-
-The only disadvantage to this method is then the use of non-standard ports, which some networks might end up blocking,
-making connection to the server [*pretty much*]({{< ref "posts/escaping-isolated-network#port-22-is-blocked" >}})
-unreachable from those networks.
+Security-wise, this method is pretty good too, since your credentials will be kept outside the project in the referenced git
+credential file, which should be secured by the file system's permissions to prevent reads from other users. When done
+properly, this won't even leak your usernames, just make sure not to include the username as a part of the file name.
+(That is, if you care about not leaking your username)
 
 ## Make convenience aliases
 
-If you really dislike the idea of all of this repetition, I'd suggest making short-hands for whichever method you
-ended up picking, in the form of git aliases (you can also use shell aliases though). Git supports defining aliases
-through it's configuration file, where you can use the `[alias]` section for them.
+Like I've already mentioned, if you work with different accounts a lot, you will certainly want to make convenience
+aliases to hide all the account switching logic away. You can do this in the form of git aliases, or bash aliases,
+by putting this to your `~/.config/git/config`:
 
 ```toml
 [alias]
@@ -533,7 +542,7 @@ work-clone="!sh -c 'git clone git@work.github.com:$1'"
 # Make current repository use the work git credentials file
 make-work="config --local credentials.helper 'store --file=/path/to/work/credentials'"
 # Set the username for credentials to your work account, so it can find it in default git credentials
-use-work-uname="config --local credential.https://github.com.username my-work-username"
+use-work-uname="config --local credential.'https://github.com'.username my-work-username"
 ```
 
 To then use these aliases, you can simply execute them as you would any other git command:
@@ -543,3 +552,24 @@ git work-clone ItsDrike/itsdrike.com
 git make-work
 git user-work-uname
 ```
+
+What I like to do is to define a bash function, which will not only set the appropriate credentials, but also a
+different local committer name and email, with the commands shown at the beginning. That could then look like this:
+
+```bash
+git-work() {
+    git config --local user.email "john_doe@work.com"
+    git config --local user.name "John Doe"
+    git config --local user.signingkey 4F3C14B2C3AE9246
+    git config --local credential."https://github.com.username" johndoe_work
+}
+
+git-alt() {
+    git config --local user.email "pseudonym@example.com"
+    git config --local user.name "pseudonym"
+    git config --local user.signingkey 522DC4E2A20A92B8
+    git config --local credential."https://github.com.username" jogndoe_2
+}
+```
+
+While leaving my primary account defined in my global git configuration.
