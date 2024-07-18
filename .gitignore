@@ -28,3 +28,6 @@ TODO
 
 # Cheatsheet post used for debugging post pages
 content/posts/cheatsheet.md
+
+# Nix direnv
+.direnv
