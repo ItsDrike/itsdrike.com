@@ -32,7 +32,7 @@ accounts:
 
   discord:
     name: Discord
-    username: ItsDrike#5359
+    username: itsdrike
     link: https://discord.com/
     icon: fab fa-discord
 
@@ -47,7 +47,6 @@ accounts:
     username: itsdrike@protonmail.com
     link: "mailto:itsdrike@protonmail.com"
     icon: fas fa-at
-
 
 footer_accounts:
   - github
