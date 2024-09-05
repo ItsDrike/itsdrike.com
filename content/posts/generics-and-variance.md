@@ -9,7 +9,7 @@ changelog:
     - Complete overhaul of the article, rewrite most things
     - Focus more on explaining generics as a concept too, not just their variance
     - Rename the article from 'Variance of typing generics (covariance, contravariance and invariance)' to 'Typing generics and variance'
-    - Move section about type vars into ti's own [article]({{< ref "posts/type-vars" >}})
+    - Move section about type vars into it's own [article]({{< ref "posts/type-vars" >}})
 ---
 
 Generics and variance are advanced concepts in Python's type system that offer powerful ways to write code that is
