@@ -297,7 +297,7 @@ def print_items(lst: list[str]) -> None:
         # The type-checker knows `item` variable is a string now
         print(f"-> Item #{index}: {item.strip()}")
 
-print_items([1, 2, 3])
+print_items(["hi", "  hello ", "hey   "])
 ```
 
 That said, in many cases, instead of using these specific collection types, you can use a less specific collection, so
@@ -312,12 +312,12 @@ def print_items2(lst: Sequence[str]) -> None:
         # The type-checker knows `item` variable is a string now
         print(f"Item #{index}: {item.strip()}")
 
-print_items([1, 2, 3]) # fine
-print_items((1, 2, 3)) # nope
+print_items(["a", "b", "c"]) # fine
+print_items(("a", "b", "c")) # nope
 
-print_items2([1, 2, 3]) # works
-print_items2((1, 2, 3)) # works
-print_items2({1, 2, 3}) # works
+print_items2(["a", "b", "c"]) # works
+print_items2(("a", "b", "c")) # works
+print_items2({"a", "b", "c"}) # works
 ```
 
 You may think that you could also just use a union like: `list[str] | set[str] | tuple[str, ...]`, however that still
