@@ -112,7 +112,7 @@ Git commits should be written in a very specific way. There's a few rules to fol
   having trouble summarizing, you might be committing too much at once)
 - **Capitalize the subject line**
 - **Don't end the subject line with a period**
-- \*Use imperative mood in subject\*\* (Imperative mood means "written as if giving a command/instruction" i.e.: "Add
+- **Use imperative mood in subject** (Imperative mood means "written as if giving a command/instruction" i.e.: "Add
   support for X", not "I added support for X" or "Support for X was added", as a rule of thumb, a subject message
   should be able to complete the sentence: "If implemented, this commit will ...")
 - **Wrap body at 72 characters** (We usually use `git log` to print out the commits into the terminal, but it's output
