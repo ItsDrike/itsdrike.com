@@ -18,10 +18,10 @@ x86 Linux NASM Assembly and C. I mostly like back-end work and algorithm design,
 looking user interfaces.
 
 I also enjoy DevOps and automation of everything with various CI workflows or scripts. Another thing that I've been
-very passionate about is learning about Linux systems. I've made the switch to exclusively using GNU/Linux as my
-operating system in May 2019, and during that time I've tried out a lot of different software and distributions, (Kali,
-Debian, Ubuntu, Fedora, Gentoo, LFS, Manjaro, Garuda, Artix, and probably a bunch of others that I don't even remember
-anymore), but after a while, I've decided to settle on running Arch Linux with Hyprland.
+very passionate about is learning about Linux systems. I've made the switch to exclusively using Linux as my operating
+system in May 2019, and since then I've tried out a lot of different software and distributions, (Kali, Debian, Ubuntu,
+Fedora, Gentoo, LFS, Manjaro, Garuda, Artix, NixOS and probably a bunch of others that I don't even remember anymore),
+but after a while, I've decided to settle on running Arch Linux with Hyprland.
 
 As for my non-tech related interests, I really enjoy watching TV shows and movies, specifically, I like Fantasy
 and Sci-Fi genres.
